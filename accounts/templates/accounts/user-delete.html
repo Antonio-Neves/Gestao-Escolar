@@ -1,0 +1,26 @@
+{% extends 'base/_base_index.html' %}
+
+{% block title %}Apagar perfil{% endblock %}
+
+{% block body_title %}Apagar perfil{% endblock %}
+
+{% block body_content %}
+
+    <div class="container back01">
+        <h2>{{ object.first_name }} {{ object.last_name }}</h2>
+        <p>
+        Tem a certeza que deseja apagar a sua conta?
+        <br>
+        Todos os seus dados serão removidos.
+        </p>
+
+        <form method="POST" class="form" name="form_canal">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btncustom shadow-lg mr-2" name="btn_cadastro_canal">Sim</button>
+                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index'%}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

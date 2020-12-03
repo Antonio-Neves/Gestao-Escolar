@@ -1,0 +1,56 @@
+{% extends 'base/_base_index.html' %}
+
+{% block title %}Alterar perfil{% endblock %}
+
+{% block body_title %}Alterar perfil{% endblock %}
+
+{% block body_content %}
+
+    <div class="container back01">
+
+        <form method="post" class="form" autocomplete="off">
+        {% csrf_token %}
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email<span style="color: red;">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required autofocus>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="department">Departamento<span style="color: red;">*</span></label>
+                        <select class="form-control" id="department" name="department" required>
+                            {% for u_type in form.department %}
+                                {{ u_type }}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="first_name">Primeiro nome<span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="last_name">último nome<span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn mr-2 btn-primary shadow-lg" name="btn_cadastro_canal">Alterar</button>
+                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index' %}">Cancelar</a>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

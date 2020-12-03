@@ -1,0 +1,105 @@
+# --- Validation --- #
+# Models
+
+from django.core.exceptions import ValidationError
+
+def validate_cpf(value):
+	if len(value) == 11:
+		return value
+	else:
+		raise ValidationError('O Cpf tem de ter 11 números')
+
+class Pessoa(models.Model):
+	name = models.CharField('Nome completo', max_length=150)
+	age = models.IntegerField('Idade')
+	cpf = models.CharField('CPF', max_length=11, validators=[validate_cpf])
+
+# HTML
+<div class="form-group w-50">
+    <label for="cpf">CPF</label>
+    <input class="form-control" type="text" id="cpf" name="cpf" title="11 números" required maxlength="11">
+    <p class="p_errors">
+        {% for errors in formulario.errors.cpf %}
+        {{ errors}}
+        {% endfor %}
+    </p>
+</div>
+
+# ------------------------------------------------------------------ #
+
+# --- Masks --- #
+https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
+
+# HTML
+<script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
+
+# STATIC scripts.js
+$(document).ready(function(){
+  $('#cpf').mask('000.000.000-00');
+});
+
+# VIEWS
+if form.is_valid():
+
+	form_model = form.save(commit=False)
+
+	get_cpf = request.POST.get('cpf')
+	form_model.cpf = ''.join(cpfr for cpfr in get_cpf if cpfr.isdigit())
+
+	form_model.save()
+
+	messages.success(request, 'Pessoa cadastarda com sucesso')
+
+	return redirect('index')
+
+# ------------------------------------------------------------------ #
+# --- Serve human readble choices in models --- #
+
+get_name_of_the_field_display()
+
+In html don't use ()
+
+# ------------------------------------------------------------------ #
+# --- Prevents repeated objects that depend of two fields in the model
+
+Use in class Meta in model
+
+constraints = [
+			models.UniqueConstraint(
+				fields=['etapas_basico_nome', 'etapas_basico_ano'],
+				name='unica_turma_no_ano'
+			)
+		]
+
+
+# ------------------------------------------------------------------ #
+# --- Unique - Blank - Null --- #
+
+class MyModelChangeForm(forms.ModelForm):
+
+    class Meta:
+        model = models.MyModel
+        fields = ['email', 'name', 'something_unique_or_null',]
+
+    def clean_something_unique_or_null(self):
+        if self.cleaned_data['something_unique_or_null'] == "":
+            return None
+        else:
+            return self.cleaned_data['something_unique_or_null']
+
+# ------------------------------------------------------------------ #
+# --- Context --- #
+
+class AnoEscolarView(SuccessMessageMixin, CreateView):
+	model = Aluno
+	template_name = 'principal/formulario.html'
+	form_class = AlunoForm
+	success_url = '/principal/formulario'
+	success_message = 'Aluno Cadastrado com sucesso'
+	# context_object_name = 'aluno_obj'
+
+	def get_context_data(self):
+
+		context = {'aluno_obj': Aluno.objects.all()}
+
+		return super().get_context_data(**context)

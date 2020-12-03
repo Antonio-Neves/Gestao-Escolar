@@ -1,0 +1,255 @@
+pais_codigo,pais_nome
+76,Brasil
+4,Afeganistão
+710,África do Sul
+8,Albânia
+276,Alemanha
+20,Andorra
+24,Angola
+660,Anguilla
+10,Antártida
+28,Antígua e Barbuda
+530,Antilhas Holandesas
+339,Apátrida
+682,Arábia Saudita
+12,Argélia
+32,Argentina
+51,Armênia
+533,Aruba
+36,Austrália
+40,Áustria
+31,Azerbaijão
+44,Bahamas
+48,Bahrein
+50,Bangladesh
+52,Barbados
+56,Bélgica
+84,Belize
+204,Benim
+60,Bermudas
+112,Bielorrússia
+68,Bolívia
+535,"Bonaire, Saint Eustatius E Saba"
+70,Bósnia e Herzegovina
+72,Botswana
+96,Brunei
+100,Bulgária
+854,Burkina Faso
+108,Burundi
+64,Butão
+132,Cabo Verde
+120,Camarões
+116,Camboja
+124,Canadá
+634,Catar
+398,Cazaquistão
+148,Chade
+152,Chile
+156,China
+196,Chipre
+702,Cingapura
+170,Colômbia
+174,Comores
+408,Coreia do Norte
+410,Coreia do Sul
+384,Costa do Marfim
+188,Costa Rica
+191,Croácia
+192,Cuba
+531,Curaçao
+208,Dinamarca
+262,Djibouti
+212,Dominica
+818,Egito
+222,El Salvador
+784,Emirados Árabes Unidos
+218,Equador
+232,Eritreia
+703,Eslováquia
+705,Eslovênia
+724,Espanha
+583,Estados Federados da Micronésia
+840,Estados Unidos
+233,Estônia
+231,Etiópia
+242,Fiji
+608,Filipinas
+246,Finlândia
+250,França
+266,Gabão
+270,Gâmbia
+288,Gana
+268,Geórgia
+292,Gibraltar
+308,Granada
+300,Grécia
+304,Groenlândia
+312,Guadalupe
+316,Guam
+320,Guatemala
+831,Guernsey
+328,Guiana
+324,Guiné
+226,Guiné Equatorial
+254,Guiné Francesa
+624,Guiné-Bissau
+332,Haiti 
+528,Holanda
+340,Honduras
+344,Hong Kong
+348,Hungria
+887,Iémen
+74,Ilha Bouvet
+833,Ilha de Man
+334,Ilha Heard e Ilhas McDonald
+574,Ilha Norfolk
+248,Ilhas Aland
+136,Ilhas Cayman
+166,Ilhas Cocos (Keeling)
+184,Ilhas Cook
+830,Ilhas Do Canal
+234,Ilhas Feroe
+239,Ilhas Geórgia do Sul e Sandwich do Sul
+238,Ilhas Malvinas
+580,Ilhas Marianas do Norte
+584,Ilhas Marshall
+581,Ilhas Menores Distantes dos Estados Unidos
+162,Ilhas Natal
+612,Ilhas Pitcairn
+90,Ilhas Salomão
+850,Ilhas Virgens Americanas
+92,Ilhas Virgens Britânicas
+356,Índia 
+360,Indonésia
+364,Irã
+368,Iraque
+372,Irlanda
+352,Islândia
+376,Israel
+380,Itália
+388,Jamaica
+392,Japão
+832,Jersey
+400,Jordânia
+296,Kiribati
+414,Kuwait 
+418,Laos
+426,Lesoto
+428,Letónia
+422,Líbano
+430,Libéria
+434,Líbia
+438,Liechtenstein
+440,Lituânia
+442,Luxemburgo
+446,Macau
+807,Macedônia
+450,Madagáscar
+458,Malásia
+454,Malawi
+462,Maldivas
+466,Mali
+470,Malta
+504,Marrocos
+474,Martinica
+480,Maurícia
+478,Mauritânia
+175,Mayotte
+484,México
+508,Moçambique
+498,Moldávia
+492,Mônaco
+496,Mongólia
+499,Montenegro
+500,Montserrat
+104,Myanmar
+516,Namíbia
+520,Nauru
+524,Nepal
+558,Nicarágua
+562,Níger
+566,Nigéria
+570,Niue
+578,Noruega
+540,Nova Caledónia
+554,Nova Zelândia
+512,Omã
+999,Outra Nacionalidade
+585,Palau
+275,Palestina
+591,Panamá
+598,Papua-Nova Guiné
+586,Paquistão
+600,Paraguai
+604,Peru
+258,Polinésia Francesa
+616,Polônia
+630,Porto Rico
+620,Portugal
+404,Quénia
+826,Reino Unido
+140,República Centro-Africana
+158,República da China
+180,República Democrática do Congo
+178,República do Congo
+214,República Dominicana
+417,República Quirguiz
+203,República Tcheca
+638,Réunion
+642,Roménia
+646,Ruanda
+643,Rússia
+732,Saara Ocidental
+663,Saint-Martin (Parte Francesa)
+882,Samoa
+16,Samoa Americana
+674,San Marino
+654,Santa Helena
+662,Santa Lúcia
+652,São Bartolomeu
+659,São Cristóvão e Nevis
+666,São Pedro e Miquelão
+678,São Tomé e Príncipe
+670,São Vicente e Granadinas
+680,Sark
+690,Seicheles
+686,Senegal
+694,Serra Leoa
+688,Sérvia
+534,Sint Maarten (Parte Holandesa) 
+760,Síria
+706,Somália
+144,Sri Lanka
+748,Suazilândia
+729,Sudão
+728,Sudão Do Sul
+752,Suécia
+756,Suíça
+740,Suriname
+744,Svalbard and Jan Mayen
+764,Tailândia
+762,Tajiquistão
+834,Tanzânia
+260,Terras Austrais e Antárticas Francesas
+86,Território Britânico do Oceano Índico
+626,Timor-Leste
+768,Togo
+772,Tokelau
+776,Tonga
+780,Trinidad e Tobago
+788,Tunísia
+795,Turcomenistão
+796,Turks e Caicos
+792,Turquia
+798,Tuvalu
+804,Ucrânia
+800,Uganda
+858,Uruguai
+860,Uzbequistão
+548,Vanuatu
+336,Vaticano
+862,Venezuela
+704,Vietnã
+876,Wallis e Futuna
+894,Zâmbia
+716,Zimbábue

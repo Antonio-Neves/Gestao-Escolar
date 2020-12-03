@@ -1,0 +1,24 @@
+body {
+    margin-top: 2%;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+
+.back01 {
+    background: #D9DDDC;
+    /*background: #C1D1E6;*/
+    margin-top: 2%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.errorlist {
+    color: red;
+}
