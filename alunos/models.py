@@ -225,7 +225,6 @@ class Aluno(models.Model):
 		null=True
 	)
 	# --- Aluno residencia --- #
-	# TODO put (residência) general label HTML
 	aluno_logradouro_residencia = models.CharField(
 		'Logradoro',
 		max_length=100,
