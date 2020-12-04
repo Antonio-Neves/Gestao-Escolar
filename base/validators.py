@@ -2,8 +2,6 @@
 Module with Validators for validators attributes fields in models
 """
 
-# TODO - change if not use masks with JQuery - alphamumeric
-
 from django.core.exceptions import ValidationError
 from datetime import date
 

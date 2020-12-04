@@ -1,9 +1,6 @@
 <div class="container back01">
-    <h2>Cadastro de aluno(a)</h2>
-
     <form method="POST" class="form-group" name="aluno_form" action="">
         {% csrf_token %}
-        <hr>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <div><h4>Identificação</h4></div>
@@ -17,6 +14,7 @@
             <div class="form-group col-md-3">
                 <label for="aluno_data_nascimento">Data de nascimento <span style="color: red;">*</span></label>
                 <input type="date" class="form-control" id="aluno_data_nascimento" name="aluno_data_nascimento" value="{{ request.POST.aluno_data_nascimento }}" required>
+                <p class="errorlist">{{ form.errors.aluno_data_nascimento }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_situacao">Situação do aluno(a) <span style="color: red;">*</span></label>
@@ -32,24 +30,29 @@
             <div class="form-group col-md-3">
                 <label for="aluno_inep">INEP</label>
                 <input type="text" class="form-control" id="aluno_inep" name="aluno_inep" value="{{ request.POST.aluno_inep }}" maxlength="12">
+                <p class="errorlist">{{ form.errors.aluno_inep }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_cpf">CPF</label>
                 <input type="text" class="form-control" id="aluno_cpf" name="aluno_cpf" value="{{ request.POST.aluno_cpf }}" maxlength="14">
+                <p class="errorlist">{{ form.errors.aluno_cpf }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_rg">RG</label>
                 <input type="text" class="form-control" id="aluno_rg" name="aluno_rg" value="{{ request.POST.aluno_rg }}" maxlength="20">
+                <p class="errorlist">{{ form.errors.aluno_rg }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_nis">NIS</label>
                 <input type="text" class="form-control" id="aluno_nis" name="aluno_nis" value="{{ request.POST.aluno_nis }}" maxlength="11">
+                <p class="errorlist">{{ form.errors.aluno_nis }}</p>
             </div>
         </div>
         <div class="form-row justify-content-between">
             <div class="form-group col-md-4">
                 <label for="aluno_certidao_nova">Certidão de nascimento (nova)</label>
                 <input type="text" class="form-control" id="aluno_certidao_nova" name="aluno_certidao_nova" value="{{ request.POST.aluno_certidao_nova }}" maxlength="40">
+                <p class="errorlist">{{ form.errors.aluno_certidao_nova }}</p>
             </div>
             <div class="form-group col-md-5">
                 <label for="aluno_justificativa_documentos">Justificativa da falta de documentos</label>
@@ -65,7 +68,7 @@
             <div class="form-group col-md-7">
                 <div><p class="form-check-label">Cor / Raça <span style="color: red;">*</span></p></div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" id="aluno_cor0" name="aluno_cor" value="0" checked {% if request.POST.aluno_cor == "0" %}checked="checked"{% endif %}>
+                  <input class="form-check-input" type="radio" id="aluno_cor0" name="aluno_cor" value="0" checked {% if request.POST.aluno_cor == "0" %}checked="checked"{% endif %} required>
                   <label class="form-check-label" for="aluno_cor0">Não declarada</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -92,7 +95,7 @@
             <div class="form-group col-md-3">
                 <div><p class="form-check-label">Sexo <span style="color: red;">*</span></p></div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" id="aluno_sexo1" name="aluno_sexo" value="1" {% if request.POST.aluno_sexo == "1" %}checked="checked"{% endif %}>
+                  <input class="form-check-input" type="radio" id="aluno_sexo1" name="aluno_sexo" value="1" {% if request.POST.aluno_sexo == "1" %}checked="checked"{% endif %} required>
                   <label class="form-check-label" for="aluno_sexo1">Masculino</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -127,7 +130,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="aluno_estado_nascimento">Estado de nascimento</label>
-                <select class="form-control" id="aluno_estado_nascimento" name="aluno_estado_nascimento" required>
+                <select class="form-control" id="aluno_estado_nascimento" name="aluno_estado_nascimento">
                     {% for estado_nascimento in form.aluno_estado_nascimento %}
                         {{ estado_nascimento }}
                     {% endfor %}
@@ -138,11 +141,12 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="aluno_municipio_nascimento">Municipio de nascimento</label>
-                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>
-                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}
-                        {{ municipio_nascimento }}
-                    {% endfor %}
-                </select>
+                <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" value="{{ request.POST.aluno_municipio_nascimento }}" maxlength="100">
+{#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
+{#                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}#}
+{#                        {{ municipio_nascimento }}#}
+{#                    {% endfor %}#}
+{#                </select>#}
                 <small id="password-help" class="form-text text-muted">
                     Preencher se a nacionalidade for brasileira.
                 </small>
@@ -157,14 +161,103 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="aluno_logradouro_residencia">Endereço <span style="color: red;">*</span></label>
+                <label for="aluno_logradouro_residencia">Logradoro <span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="aluno_logradouro_residencia" name="aluno_logradouro_residencia" value="{{ request.POST.aluno_logradouro_residencia }}" maxlength="100" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_numero_residencia">Número <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="aluno_numero_residencia" name="aluno_numero_residencia" value="{{ request.POST.aluno_numero_residencia }}" maxlength="10" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_bairro_residencia">Bairro <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="aluno_bairro_residencia" name="aluno_bairro_residencia" value="{{ request.POST.aluno_bairro_residencia }}" maxlength="50" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_complemento_residencia">Complemento</label>
+                <input type="text" class="form-control" id="aluno_complemento_residencia" name="aluno_complemento_residencia" value="{{ request.POST.aluno_complemento_residencia }}" maxlength="100">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_zona_residencia">Zona de Residência <span style="color: red;">*</span></label>
+                <select class="form-control" id="aluno_zona_residencia" name="aluno_zona_residencia" required>
+                    {% for zona_residencia in form.aluno_zona_residencia %}
+                        {{ zona_residencia }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_localizacao_residencia">Localização diferenciada <span style="color: red;">*</span></label>
+                <select class="form-control" id="aluno_localizacao_residencia" name="aluno_localizacao_residencia" required>
+                    {% for localizacao_residencia in form.aluno_localizacao_residencia %}
+                        {{ localizacao_residencia }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="aluno_cep_residencia">CEP <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="aluno_cep_residencia" name="aluno_cep_residencia"  value="{% if not request.POST.aluno_cep_residencia %}{{ '68537-000' }}{% else %} {{ request.POST.aluno_cep_residencia }}{% endif %}" maxlength="9" required>
+                <p class="errorlist">{{ form.errors.aluno_cep_residencia }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_estado_residencia">Estado Residência <span style="color: red;">*</span></label>
+                <select class="form-control" id="aluno_estado_residencia" name="aluno_estado_residencia" required>
+                    {% for estado_residencia in form.aluno_estado_residencia %}
+                        {{ estado_residencia }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_municipio_residencia">Municipio de residência <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" value="{% if not request.POST.aluno_municipio_residencia %}{{ 'Canaã dos Carajás' }}{% else %} {{ request.POST.aluno_municipio_residencia }}{% endif %}" maxlength="100" required>
+{#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
+{#                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}#}
+{#                        {{ municipio_nascimento }}#}
+{#                    {% endfor %}#}
+{#                </select>#}
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_pais_residencia">País de residência <span style="color: red;">*</span></label>
+                <select class="form-control" id="aluno_pais_residencia" name="aluno_pais_residencia" required>
+                    {% for pais_residencia in form.aluno_pais_residencia %}
+                        {{ pais_residencia }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <!-- Contatos -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div><h4>Contatos</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="aluno_ddd">DDD Telefone</label>
+                <input type="text" class="form-control" id="aluno_ddd" name="aluno_ddd" value="{{ request.POST.aluno_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_ddd }}</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_telefone" name="aluno_telefone" value="{{ request.POST.aluno_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_telefone }}</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="aluno_email">Email</label>
+                <input type="email" class="form-control" id="aluno_email" name="aluno_email" value="{{ request.POST.aluno_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_email }}</p>
             </div>
         </div>
 
 
 
-        <button class="btn btn-primary shadow-sm" type="submit">Salvar</button>
+
+        <div class="form-row">
+            <button class="btn btn-primary shadow-sm" type="submit">Salvar</button>
+        </div>
 
 
 

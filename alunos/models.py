@@ -151,7 +151,7 @@ class Aluno(models.Model):
 	aluno_certidao_nova = models.CharField(
 		'Certidão de nascimento - nova',
 		max_length=40,
-		validators=[validate_certidao_nascimento, validate_digits],
+		validators=[validate_certidao_nascimento],
 		blank=True,
 		null=True,
 		unique=True
@@ -216,54 +216,85 @@ class Aluno(models.Model):
 		blank=True,
 	)
 	# --- OK MEC --- #
-	aluno_municipio_nascimento = models.ForeignKey(
-		Municipio,
-		on_delete=models.DO_NOTHING,
-		verbose_name='Município',
-		related_name='alunomunicipionascimento',
+	aluno_municipio_nascimento = models.CharField(
+		'Municipio nascimento',
+		max_length=100,
 		blank=True,
-		null=True
 	)
+	# aluno_municipio_nascimento = models.ForeignKey(
+	# 	Municipio,
+	# 	on_delete=models.DO_NOTHING,
+	# 	verbose_name='Município',
+	# 	related_name='alunomunicipionascimento',
+	# 	blank=True,
+	# 	null=True
+	# )
 	# --- Aluno residencia --- #
+	# --- OK --- #
 	aluno_logradouro_residencia = models.CharField(
 		'Logradoro',
 		max_length=100,
 	)
+	# --- OK --- #
 	aluno_numero_residencia = models.CharField(
 		'Número',
 		max_length=10,
 	)
+	# --- OK --- #
 	aluno_complemento_residencia = models.CharField(
 		'Complemento',
-		max_length=20,
+		max_length=100,
 		blank=True
 	)
+	# --- OK MEC --- #
+	# Required - Accept 1 2
+	aluno_zona_residencia = models.CharField(
+		'Localização',
+		max_length=1,
+		choices=CHOICES_ALUNO_ZONA,
+		default='1'
+	)
+	# --- OK MEC --- #
+	# Required - Accept 1 2 3 7
+	aluno_localizacao_residencia = models.CharField(
+		'Localização diferenciada',
+		max_length=1,
+		choices=CHOICES_ALUNO_ZONA_DIFERENCIADA,
+		default='7'
+	)
+	# --- OK --- #
 	aluno_bairro_residencia = models.CharField(
 		'Bairro',
 		max_length=50,
 		blank=True
 	)
-	# TODO need mask (cep) in HTML
+	# --- OK MEC --- #
 	aluno_cep_residencia = models.CharField(
 		'CEP',
 		max_length=9,
 		validators=[validate_cep],
-		default=CEP
 	)
+	# --- OK --- #
 	aluno_estado_residencia = models.CharField(
 		'Estado',
 		max_length=2,
 		choices=CHOICES_ALUNO_ESTADO,
 		default=ESTADO
 	)
-	# Default for city school - first in cities table
-	aluno_municipio_residencia = models.ForeignKey(
-		Municipio,
-		on_delete=models.DO_NOTHING,
-		verbose_name='Município',
-		related_name='alunomunicipioresidencia',
-		default=MUNICIPIO
+	# --- OK MEC --- #
+	aluno_municipio_residencia = models.CharField(
+		'Municipio residência',
+		max_length=100,
 	)
+	# # Default for city school - first in cities table
+	# aluno_municipio_residencia = models.ForeignKey(
+	# 	Municipio,
+	# 	on_delete=models.DO_NOTHING,
+	# 	verbose_name='Município',
+	# 	related_name='alunomunicipioresidencia',
+	# 	default=MUNICIPIO
+	# )
+	# --- OK MEC --- #
 	aluno_pais_residencia = models.ForeignKey(
 		Pais,
 		on_delete=models.DO_NOTHING,
@@ -271,33 +302,22 @@ class Aluno(models.Model):
 		related_name='alunopaisresidencia',
 		default=PAIS
 	)
-	# TODO radio field Html
-	# Required - Accept 1 / 2
-	aluno_zona_residencia = models.CharField(
-		'Localização',
-		max_length=1,
-		choices=CHOICES_ALUNO_ZONA,
-		default='1'
-	)
-	aluno_localizacao_residencia = models.CharField(
-		'Localização diferenciada',
-		max_length=1,
-		choices=CHOICES_ALUNO_ZONA_DIFERENCIADA,
-		default='7'
-	)
 	# --- Aluno contacto --- #
+	# --- OK --- #
 	aluno_ddd = models.CharField(
 		'Aluno - DDD Telefone',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits],
 	)
+	# --- OK --- #
 	aluno_telefone = models.CharField(
 		'aluno - Telefone',
 		max_length=9,
 		blank=True,
-		validators=[validate_phone, validate_digits]
+		validators=[validate_phone, validate_digits],
 	)
+	# --- OK MEC --- #
 	aluno_email = models.EmailField(
 		'Email',
 		max_length=250,

@@ -35,7 +35,7 @@ class AlunoNewView(SuccessMessageMixin, CreateView):
 		form = AlunoForm(request.POST)
 
 		# a = request.POST.get('aluno_sexo')
-		# b = request.POST.get('aluno_justificativa_documentos')
+		# b = request.POST.get('aluno_cep_residencia')
 		# print(a)
 		# print(b)
 

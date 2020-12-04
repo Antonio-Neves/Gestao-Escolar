@@ -7,6 +7,9 @@ $(document).ready(function(){
   $('#aluno_certidao_nova').mask('000000 00 00 0000 0 00000 000 0000000 00');
 });
 
+$(document).ready(function(){
+  $('#aluno_cep_residencia').mask('00000-000');
+});
 // Select2
 // $(document).ready(function() {
 //     $('#aluno_municipio_nascimento').select2();
