@@ -91,6 +91,16 @@ class Aluno(models.Model):
 		('3', 'Área quilombola'),
 		('7', 'Não está em uma localização diferenciada')
 	)
+	CHOICES_SAIDA_ESCOLA = (
+		('1', 'Acompanhado'),
+		('2', 'Sozinho'),
+		('3', 'Transporte escolar')
+	)
+	CHOICES_ENSINO_OUTRO_LUGAR = (
+		('1', 'Não'),
+		('2', 'Hospital'),
+		('3', 'Domicílio')
+	)
 	CHOICES_PODER_RESPONSAVEL_TRANSPORTE = (
 		('1', 'Estadual'),
 		('2', 'Municipal')
@@ -595,136 +605,81 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_auxilio_ledor = models.CharField(
 		'Auxílio ledor',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_auxilio_transcricao = models.CharField(
 		'Auxílio transcrição',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_guia_interprete = models.CharField(
 		'Guia Intérprete',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_tradutor_libras = models.CharField(
 		'Tradutor libras',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_leitura_labial = models.CharField(
 		'Leitura labial',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_prova_ampliada18 = models.CharField(
 		'Prova ampliada (fonte 18)',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_prova_superampliada24 = models.CharField(
 		'Prova ampliada (fonte 24)',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_cd_audio = models.CharField(
 		'Cd áudio',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_prova_portuguesa = models.CharField(
 		'Prova de língua portuguesa',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_prova_video = models.CharField(
 		'Prova em vídeo em libras',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_prova_braille = models.CharField(
 		'Material e Prova em Braille',
 		max_length=1,
-		blank=True
-	)
-	# --- Aluno cuidados diferenciados --- #
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_alergia = models.CharField(
-		'alergia',
-		max_length=1,
-		blank=True
-	)
-	aluno_alergia_tipo = models.CharField(
-		'Tipo de alergia',
-		max_length=50,
-		blank=True
-	)
-	aluno_alergia_cuidados = models.CharField(
-		'Alergia cuidados',
-		max_length=50,
-		blank=True
-	)
-	# TODO check field Html value 1 default
-	# blank or 1
-	aluno_apto_edfisica = models.CharField(
-		'alergia',
-		max_length=1,
-		blank=True
-	)
-	# --- convenio e programas sociais
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_convenio = models.CharField(
-		'convenio',
-		max_length=1,
-		blank=True
-	)
-	aluno_convenio_nome = models.CharField(
-		'Nome do convenio',
-		max_length=50,
-		blank=True
-	)
-	aluno_convenio_contato = models.CharField(
-		'Contato do convenio',
-		max_length=50,
-		blank=True
-	)
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_progrma_social = models.CharField(
-		'Programa social',
-		max_length=1,
-		blank=True
-	)
-	aluno_programa_social_nome = models.CharField(
-		'Nome do programa social',
-		max_length=50,
 		blank=True
 	)
 	# --- Saida escola
@@ -733,14 +688,17 @@ class Aluno(models.Model):
 	aluno_saida_escola = models.CharField(
 		'Saída da escola',
 		max_length=1,
-		blank=True
+		blank=True,
+		choices=CHOICES_SAIDA_ESCOLA,
+		default='1'
 	)
 	# TODO radio field Html value 1 (sozinho)
 	# 1 -> 3
 	aluno_ensino_outro_lugar = models.CharField(
 		'Ensino em outro lugar',
 		max_length=1,
-		blank=True
+		blank=True,
+		choices=CHOICES_ENSINO_OUTRO_LUGAR
 	)
 	# --- Transporte
 	# TODO check field Html value 1
@@ -890,6 +848,61 @@ class Aluno(models.Model):
 	)
 	aluno_urgencia_procedimentos = models.TextField(
 		'Procedimentos em caso de urgência',
+		blank=True
+	)
+	# --- convenio e programas sociais
+	# TODO check field Html value 1
+	# blank or 1
+	aluno_convenio = models.CharField(
+		'convenio',
+		max_length=1,
+		blank=True
+	)
+	aluno_convenio_nome = models.CharField(
+		'Nome do convenio',
+		max_length=50,
+		blank=True
+	)
+	aluno_convenio_contato = models.CharField(
+		'Contato do convenio',
+		max_length=50,
+		blank=True
+	)
+	# TODO check field Html value 1
+	# blank or 1
+	aluno_progrma_social = models.CharField(
+		'Programa social',
+		max_length=1,
+		blank=True
+	)
+	aluno_programa_social_nome = models.CharField(
+		'Nome do programa social',
+		max_length=50,
+		blank=True
+	)
+	# --- Aluno cuidados diferenciados --- #
+	# TODO check field Html value 1
+	# blank or 1
+	aluno_alergia = models.CharField(
+		'alergia',
+		max_length=1,
+		blank=True
+	)
+	aluno_alergia_tipo = models.CharField(
+		'Tipo de alergia',
+		max_length=50,
+		blank=True
+	)
+	aluno_alergia_cuidados = models.CharField(
+		'Alergia cuidados',
+		max_length=50,
+		blank=True
+	)
+	# TODO check field Html value 1 default
+	# blank or 1
+	aluno_apto_edfisica = models.CharField(
+		'alergia',
+		max_length=1,
 		blank=True
 	)
 	# --- Aluno atenção diferenciada --- #

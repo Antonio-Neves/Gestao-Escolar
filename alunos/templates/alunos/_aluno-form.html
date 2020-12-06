@@ -517,22 +517,72 @@
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_auxilio_transcricao" name="aluno_auxilio_transcricao" value="1" {% if request.POST.aluno_auxilio_transcricao == "1" %}checked="checked"{% endif %}>
-                  <label class="form-check-label" for="aluno_auxilio_transcricao">Auxílio Transcrição</label>
+                  <label class="form-check-label" for="aluno_auxilio_transcricao">Auxílio transcrição</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_guia_interprete" name="aluno_guia_interprete" value="1" {% if request.POST.aluno_guia_interprete == "1" %}checked="checked"{% endif %}>
-                  <label class="form-check-label" for="aluno_guia_interprete">Guia Intérprete</label>
+                  <label class="form-check-label" for="aluno_guia_interprete">Guia intérprete</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_tradutor_libras" name="aluno_tradutor_libras" value="1" {% if request.POST.aluno_tradutor_libras == "1" %}checked="checked"{% endif %}>
-                  <label class="form-check-label" for="aluno_tradutor_libras">Tradutor Intérprete de Libras</label>
+                  <label class="form-check-label" for="aluno_tradutor_libras">Tradutor intérprete de libras</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="aluno_surdocegueira" name="aluno_surdocegueira" value="1" {% if request.POST.aluno_surdocegueira == "1" %}checked="checked"{% endif %}>
-                  <label class="form-check-label" for="aluno_surdocegueira">Surdocegueira</label>
+                  <input class="form-check-input" type="checkbox" id="aluno_leitura_labial" name="aluno_leitura_labial" value="1" {% if request.POST.aluno_leitura_labial == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_leitura_labial">Leitura labial</label>
                 </div>
             </div>
         </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_prova_ampliada18" name="aluno_prova_ampliada18" value="1" {% if request.POST.aluno_prova_ampliada18 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_prova_ampliada18">Prova ampliada (fonte 18)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_prova_superampliada24" name="aluno_prova_superampliada24" value="1" {% if request.POST.aluno_prova_superampliada24 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_prova_superampliada24">Prova superampliada (fonte 24)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_cd_audio" name="aluno_cd_audio" value="1" {% if request.POST.aluno_cd_audio == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_cd_audio">CD com áudio para deficiente visual</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_prova_portuguesa" name="aluno_prova_portuguesa" value="1" {% if request.POST.aluno_prova_portuguesa == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_prova_portuguesa">Prova de língua portuguesa como segunda língua para surdos e deficientes visuais</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_prova_video" name="aluno_prova_video" value="1" {% if request.POST.aluno_prova_video == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_prova_video">Prova em vídeo em libras</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_prova_braille" name="aluno_prova_braille" value="1" {% if request.POST.aluno_prova_braille == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_prova_braille">Material didático e prova em Braille</label>
+                </div>
+            </div>
+        </div>
+        <!-- Saida de escola -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-check-label"><h4>Saída da escola <span style="color: red;">*</span></h4></div>
+{#                <label for="aluno_saida_escola"><h4>Saída da escola <span style="color: red;">*</span></h4></label>#}
+                <select class="form-control" id="aluno_saida_escola" name="aluno_saida_escola">
+                    {% for saida_escola in form.aluno_saida_escola %}
+                        {{ saida_escola }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br>
 
 
 
