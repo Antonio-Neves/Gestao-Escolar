@@ -386,47 +386,49 @@ class Aluno(models.Model):
 		max_length=250,
 		blank=True,
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao1_respon_didatico = models.CharField(
 		'Filiação 1 - Responsável didático',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao1_respon_financeiro = models.CharField(
 		'Filiação 1 - Responsável financeiro',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao1_respon_legal = models.CharField(
 		'Filiação 1 - Responsável legal',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao1_doc_guarda = models.CharField(
 		'Filiação 1 - Documento da guarda',
 		max_length=1,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_filiacao1_parentesco = models.CharField(
 		'Filiação 1 - Parentesco',
 		max_length=50,
 		blank=True
 	)
 	# --- Aluno filiação 2 --- #
+	# --- OK --- #
 	aluno_filiacao2_nome = models.CharField(
 		'Filiação 2 - Nome',
 		max_length=100,
 		blank=True,
 		validators=[validate_no_digits]
 	)
-	# TODO need mask
+	# --- OK --- #
 	# Need 11 digits
 	aluno_filiacao2_cpf = models.CharField(
 		'Filiação 2 - Cpf',
@@ -434,154 +436,161 @@ class Aluno(models.Model):
 		blank=True,
 		validators=[validate_cpf]
 	)
+	# --- OK --- #
 	aluno_filiacao2_rg = models.CharField(
 		'Filiação 2 - RG',
 		max_length=20,
 		blank=True,
 	)
+	# --- OK --- #
 	aluno_filiacao2_ddd1 = models.CharField(
 		'Filiação 2 - DDD Telefone 1',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao2_telefone1 = models.CharField(
 		'Filiação 2 - Telefone 1',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao2_ddd2 = models.CharField(
 		'Filiação 2 - DDD Telefone 2',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao2_telefone2 = models.CharField(
 		'Filiação 2 - Telefone 2',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao2_email = models.EmailField(
 		'Filiação 2 - Email',
 		max_length=250,
 		blank=True,
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao2_respon_didatico = models.CharField(
 		'Filiação 2 - Responsável didático',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao2_respon_financeiro = models.CharField(
 		'Filiação 2 - Responsável financeiro',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao2_respon_legal = models.CharField(
 		'Filiação 2 - Responsável legal',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or '1'
 	aluno_filiacao2_doc_guarda = models.CharField(
 		'Filiação 2 - Documento da guarda',
 		max_length=1,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_filiacao2_parentesco = models.CharField(
 		'Filiação 2 - Parentesco',
 		max_length=50,
 		blank=True
 	)
 	# --- Aluno deficiencias --- #
-	# TODO radio field Html
+	# --- OK MEC --- #
 	# 0 or 1
 	aluno_deficiencia = models.CharField(
 		'Tem Deficiência Física',
 		max_length=1
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_cegueira = models.CharField(
 		'Cegueira',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_baixa_visao = models.CharField(
 		'Baixa visão',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_surdez = models.CharField(
 		'Surdez',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_deficiencia_auditiva = models.CharField(
 		'Deficiência auditiva',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_surdocegueira = models.CharField(
 		'Surdocegueira',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_deficiencia_fisica = models.CharField(
 		'Deficiência física',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_deficiencia_intelectual = models.CharField(
 		'Deficiência intelectual',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_deficiencia_multipla = models.CharField(
 		'Deficiência múltipla',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_autismo = models.CharField(
 		'Autismo',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK MEC --- #
 	# blank or 1
 	aluno_altas_habilidades = models.CharField(
 		'Altas habilidades',
 		max_length=1,
 		blank=True
 	)
-	# --- Aluno Necessidades Especiais
-	# TODO check field Html value 1
+	# --- Aluno necessidades diferenciadas --- #
+	# --- OK MEC --- #
 	# blank or 1
-	aluno_nenhuma_necessidade = models.CharField(
+	aluno_necessidades_especiais = models.CharField(
 		'Nenhuma necessidade especial',
 		max_length=1,
 		blank=True
@@ -663,7 +672,7 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
-	# --- Aluno Necessidades diferenciadas
+	# --- Aluno cuidados diferenciados --- #
 	# TODO check field Html value 1
 	# blank or 1
 	aluno_alergia = models.CharField(
@@ -883,13 +892,17 @@ class Aluno(models.Model):
 		'Procedimentos em caso de urgência',
 		blank=True
 	)
-	# --- cuidados especiais --- #
+	# --- Aluno atenção diferenciada --- #
 	aluno_medicacao = models.TextField(
 		'Instruções para medicação',
 		blank=True
 	)
 	aluno_cuidados_diferenciados = models.TextField(
 		'Cuidados diferenciados',
+		blank=True
+	)
+	aluno_observacoes = models.TextField(
+		'Observações',
 		blank=True
 	)
 	# --- Data de criação ou modificação --- #

@@ -252,6 +252,7 @@
                 <p class="errorlist">{{ form.errors.aluno_email }}</p>
             </div>
         </div>
+        <!-- Filiação -->
         <hr>
         <div class="form-row">
             <div class="form-group col">
@@ -266,6 +267,7 @@
                 </div>
             </div>
         </div>
+        <!-- Filiação 1 -->
         <hr>
         <div class="form-row">
             <div class="form-group col">
@@ -344,6 +346,194 @@
                 <input type="text" class="form-control" id="aluno_filiacao1_parentesco" name="aluno_filiacao1_parentesco" value="{{ request.POST.aluno_filiacao1_parentesco }}" maxlength="50">
             </div>
         </div>
+        <!-- Filiação 2 -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div><h4>Filiação 2</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_filiacao2_nome">Nome</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_nome" name="aluno_filiacao2_nome" value="{{ request.POST.aluno_filiacao2_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_nome }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_filiacao2_cpf">CPF</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_cpf" name="aluno_filiacao2_cpf" value="{{ request.POST.aluno_filiacao2_cpf }}" maxlength="14">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_cpf }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_filiacao2_rg">RG</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_rg" name="aluno_filiacao2_rg" value="{{ request.POST.aluno_filiacao2_rg }}" maxlength="20">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_rg }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-1">
+                <label for="aluno_filiacao2_ddd1">DDD 1</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_ddd1" name="aluno_filiacao2_ddd1" value="{{ request.POST.aluno_filiacao2_ddd1 }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_ddd1 }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_filiacao2_telefone1">Telefone 1</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_telefone1" name="aluno_filiacao2_telefone1" value="{{ request.POST.aluno_filiacao2_telefone1 }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_telefone1 }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_filiacao2_ddd2">DDD 2</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_ddd2" name="aluno_filiacao2_ddd2" value="{{ request.POST.aluno_filiacao2_ddd2 }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_ddd2 }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_filiacao2_telefone2">Telefone 2</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_telefone2" name="aluno_filiacao2_telefone2" value="{{ request.POST.aluno_filiacao2_telefone2 }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_telefone2 }}</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="aluno_filiacao2_email">Email</label>
+                <input type="email" class="form-control" id="aluno_filiacao2_email" name="aluno_filiacao2_email" value="{{ request.POST.aluno_filiacao2_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_filiacao2_email }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><p>Responsável</p></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao2_respon_didatico" name="aluno_filiacao2_respon_didatico" value="1" {% if request.POST.aluno_filiacao2_respon_didatico == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao2_respon_didatico">Didático</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao2_respon_financeiro" name="aluno_filiacao2_respon_financeiro" value="1" {% if request.POST.aluno_filiacao2_respon_financeiro == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao2_respon_financeiro">Financeiro</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao2_respon_legal" name="aluno_filiacao2_respon_legal" value="1" {% if request.POST.aluno_filiacao2_respon_legal == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao2_respon_legal">Legal</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><p>Documentos da guarda</p></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao2_doc_guarda" name="aluno_filiacao2_doc_guarda" value="1" {% if request.POST.aluno_filiacao2_doc_guarda == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao2_doc_guarda">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_filiacao2_parentesco">Parentesco</label>
+                <input type="text" class="form-control" id="aluno_filiacao2_parentesco" name="aluno_filiacao2_parentesco" value="{{ request.POST.aluno_filiacao2_parentesco }}" maxlength="50">
+            </div>
+        </div>
+        <!-- Deficiencias -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Deficiência, Transtorno do Espectro Autista ou Altas Habilidades / Superdotação <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_deficiencia1" name="aluno_deficiencia" checked value="0" {% if request.POST.aluno_deficiencia == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_deficiencia1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_deficiencia2" name="aluno_deficiencia" value="1" {% if request.POST.aluno_deficiencia == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_deficiencia2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_cegueira" name="aluno_cegueira" value="1" {% if request.POST.aluno_cegueira == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_cegueira">Cegueira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_baixa_visao" name="aluno_baixa_visao" value="1" {% if request.POST.aluno_baixa_visao == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_baixa_visao">Baixa Visão</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_surdez" name="aluno_surdez" value="1" {% if request.POST.aluno_surdez == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_surdez">Surdez</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_deficiencia_auditiva" name="aluno_deficiencia_auditiva" value="1" {% if request.POST.aluno_deficiencia_auditiva == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_deficiencia_auditiva">Deficiência auditiva</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_surdocegueira" name="aluno_surdocegueira" value="1" {% if request.POST.aluno_surdocegueira == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_surdocegueira">Surdocegueira</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_deficiencia_fisica" name="aluno_deficiencia_fisica" value="1" {% if request.POST.aluno_deficiencia_fisica == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_deficiencia_fisica">Deficiência física</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_deficiencia_intelectual" name="aluno_deficiencia_intelectual" value="1" {% if request.POST.aluno_deficiencia_intelectual == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_deficiencia_intelectual">Deficiência intelectual</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_deficiencia_multipla" name="aluno_deficiencia_multipla" value="1" {% if request.POST.aluno_deficiencia_multipla == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_deficiencia_multipla">Deficiência múltipla</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_autismo" name="aluno_autismo" value="1" {% if request.POST.aluno_autismo == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_autismo">Autismo</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_altas_habilidades" name="aluno_altas_habilidades" value="1" {% if request.POST.aluno_altas_habilidades == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_altas_habilidades">Altas habilidades / superdotação</label>
+                </div>
+            </div>
+        </div>
+        <!-- Recursos necessários para uso e para a participação em avaliações -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Recursos necessários para uso do aluno(a) e para a participação em avaliações <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_necessidades_especiais1" name="aluno_necessidades_especiais" checked value="0" {% if request.POST.aluno_necessidades_especiais == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_necessidades_especiais1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_necessidades_especiais2" name="aluno_necessidades_especiais" value="1" {% if request.POST.aluno_necessidades_especiais == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_necessidades_especiais2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_auxilio_ledor" name="aluno_auxilio_ledor" value="1" {% if request.POST.aluno_auxilio_ledor == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_auxilio_ledor">Auxílio Ledor</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_auxilio_transcricao" name="aluno_auxilio_transcricao" value="1" {% if request.POST.aluno_auxilio_transcricao == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_auxilio_transcricao">Auxílio Transcrição</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_guia_interprete" name="aluno_guia_interprete" value="1" {% if request.POST.aluno_guia_interprete == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_guia_interprete">Guia Intérprete</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_tradutor_libras" name="aluno_tradutor_libras" value="1" {% if request.POST.aluno_tradutor_libras == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_tradutor_libras">Tradutor Intérprete de Libras</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_surdocegueira" name="aluno_surdocegueira" value="1" {% if request.POST.aluno_surdocegueira == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_surdocegueira">Surdocegueira</label>
+                </div>
+            </div>
+        </div>
+
 
 
 
