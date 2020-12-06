@@ -326,57 +326,61 @@ class Aluno(models.Model):
 		unique=True
 	)
 	# --- Aluno filiação --- #
-	# TODO radio field Html
-	# Required - Accept 0 / 1
+	# --- OK MEC --- #
 	aluno_filiacao = models.CharField(
 		'Filiação',
 		max_length=1,
 	)
 	# --- Aluno filiação 1 --- #
-	# TODO put (preferencialmente o nome da mãe) in Html
+	# --- OK MEC --- #
 	aluno_filiacao1_nome = models.CharField(
 		'Filiação 1 - Nome',
 		max_length=100,
 		blank=True,
 		validators=[validate_no_digits]
 	)
-	# TODO need mask
-	# Need 11 digits
+	# --- OK --- #
 	aluno_filiacao1_cpf = models.CharField(
 		'Filiação 1 - Cpf',
 		max_length=14,
 		blank=True,
 		validators=[validate_cpf]
 	)
+	# --- OK --- #
 	aluno_filiacao1_rg = models.CharField(
 		'Filiação 1 - RG',
 		max_length=20,
 		blank=True,
 	)
+	# --- OK --- #
 	aluno_filiacao1_ddd1 = models.CharField(
 		'Filiação 1 - DDD Telefone 1',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao1_telefone1 = models.CharField(
 		'Filiação 1 - Telefone 1',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao1_ddd2 = models.CharField(
 		'Filiação 1 - DDD Telefone 2',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao1_telefone2 = models.CharField(
 		'Filiação 1 - Telefone 2',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_filiacao1_email = models.EmailField(
 		'Filiação 1 - Email',
 		max_length=250,
@@ -854,5 +858,64 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
+	# --- Urgencia --- #
+	aluno_urgencia1_nome = models.CharField(
+		'Urgência 1 - Nome',
+		max_length=100,
+		blank=True
+	)
+	aluno_urgencia1_ddd = models.CharField(
+		'Urgência 1 - DDD',
+		max_length=2,
+		blank=True,
+		validators=[validate_ddd, validate_digits]
+	)
+	aluno_urgencia1_telefone = models.CharField(
+		'Urgência 1 - Telefone',
+		max_length=9,
+		blank=True,
+		validators=[validate_phone, validate_digits]
+	)
+	aluno_urgencia1_parentesco = models.CharField(
+		'Urgência 1 - Parentesco',
+		max_length=50,
+		blank=True
+	)
+	aluno_urgencia2_nome = models.CharField(
+		'Urgência 2 - Nome',
+		max_length=100,
+		blank=True
+	)
+	aluno_urgencia2_ddd = models.CharField(
+		'Urgência 2 - DDD',
+		max_length=2,
+		blank=True,
+		validators=[validate_ddd, validate_digits]
+	)
+	aluno_urgencia2_telefone = models.CharField(
+		'Urgência 2 - Telefone',
+		max_length=9,
+		blank=True,
+		validators=[validate_phone, validate_digits]
+	)
+	aluno_urgencia2_parentesco = models.CharField(
+		'Urgência 2 - Parentesco',
+		max_length=50,
+		blank=True
+	)
+	aluno_urgencia_procedimentos = models.TextField(
+		'Procedimentos em caso de urgência',
+		blank=True
+	)
+	# --- cuidados especiais --- #
+	aluno_medicacao = models.TextField(
+		'Instruções para medicação',
+		blank=True
+	)
+	aluno_cuidados_diferenciados = models.TextField(
+		'Cuidados diferenciados',
+		blank=True
+	)
+	# --- Data de criação ou modificação --- #
 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
 	modified = models.DateTimeField('Data da alteração', auto_now=True)

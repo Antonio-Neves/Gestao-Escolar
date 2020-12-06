@@ -10,6 +10,7 @@
             <div class="form-group col-md-6">
                 <label for="aluno_nome">Nome <span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="aluno_nome" name="aluno_nome" value="{{ request.POST.aluno_nome }}" maxlength="100" required>
+                <p class="errorlist">{{ form.errors.aluno_nome }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_data_nascimento">Data de nascimento <span style="color: red;">*</span></label>
@@ -66,7 +67,7 @@
         <!-- Sexo / Cor -->
         <div class="form-row justify-content-between">
             <div class="form-group col-md-7">
-                <div><p class="form-check-label">Cor / Raça <span style="color: red;">*</span></p></div>
+                <div class="form-check-label"><p>Cor / Raça <span style="color: red;">*</span></p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" id="aluno_cor0" name="aluno_cor" value="0" checked {% if request.POST.aluno_cor == "0" %}checked="checked"{% endif %} required>
                   <label class="form-check-label" for="aluno_cor0">Não declarada</label>
@@ -93,7 +94,7 @@
                 </div>
             </div>
             <div class="form-group col-md-3">
-                <div><p class="form-check-label">Sexo <span style="color: red;">*</span></p></div>
+                <div class="form-check-label"><p>Sexo <span style="color: red;">*</span></p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" id="aluno_sexo1" name="aluno_sexo" value="1" {% if request.POST.aluno_sexo == "1" %}checked="checked"{% endif %} required>
                   <label class="form-check-label" for="aluno_sexo1">Masculino</label>
@@ -128,7 +129,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label for="aluno_estado_nascimento">Estado de nascimento</label>
                 <select class="form-control" id="aluno_estado_nascimento" name="aluno_estado_nascimento">
                     {% for estado_nascimento in form.aluno_estado_nascimento %}
@@ -139,7 +140,7 @@
                     Preencher se a nacionalidade for brasileira.
                 </small>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="aluno_municipio_nascimento">Municipio de nascimento</label>
                 <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" value="{{ request.POST.aluno_municipio_nascimento }}" maxlength="100">
 {#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
@@ -178,7 +179,7 @@
                 <label for="aluno_complemento_residencia">Complemento</label>
                 <input type="text" class="form-control" id="aluno_complemento_residencia" name="aluno_complemento_residencia" value="{{ request.POST.aluno_complemento_residencia }}" maxlength="100">
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label for="aluno_zona_residencia">Zona de Residência <span style="color: red;">*</span></label>
                 <select class="form-control" id="aluno_zona_residencia" name="aluno_zona_residencia" required>
                     {% for zona_residencia in form.aluno_zona_residencia %}
@@ -186,7 +187,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="aluno_localizacao_residencia">Localização diferenciada <span style="color: red;">*</span></label>
                 <select class="form-control" id="aluno_localizacao_residencia" name="aluno_localizacao_residencia" required>
                     {% for localizacao_residencia in form.aluno_localizacao_residencia %}
@@ -236,7 +237,7 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="aluno_ddd">DDD Telefone</label>
+                <label for="aluno_ddd">DDD</label>
                 <input type="text" class="form-control" id="aluno_ddd" name="aluno_ddd" value="{{ request.POST.aluno_ddd }}" maxlength="2">
                 <p class="errorlist">{{ form.errors.aluno_ddd }}</p>
             </div>
@@ -251,6 +252,99 @@
                 <p class="errorlist">{{ form.errors.aluno_email }}</p>
             </div>
         </div>
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Filiação <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_filiacao1" name="aluno_filiacao" value="0" {% if request.POST.aluno_filiacao == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_filiacao1">Não declarado/Ignorado</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_filiacao2" name="aluno_filiacao" value="1" checked {% if request.POST.aluno_filiacao == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao2">Filiação 1 e/ou Filiação 2</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div><h4>Filiação 1 <small>(preferencialmente a mãe)</small></h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_filiacao1_nome">Nome</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_nome" name="aluno_filiacao1_nome" value="{{ request.POST.aluno_filiacao1_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_nome }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_filiacao1_cpf">CPF</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_cpf" name="aluno_filiacao1_cpf" value="{{ request.POST.aluno_filiacao1_cpf }}" maxlength="14">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_cpf }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_filiacao1_rg">RG</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_rg" name="aluno_filiacao1_rg" value="{{ request.POST.aluno_filiacao1_rg }}" maxlength="20">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_rg }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-1">
+                <label for="aluno_filiacao1_ddd1">DDD 1</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_ddd1" name="aluno_filiacao1_ddd1" value="{{ request.POST.aluno_filiacao1_ddd1 }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_ddd1 }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_filiacao1_telefone1">Telefone 1</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_telefone1" name="aluno_filiacao1_telefone1" value="{{ request.POST.aluno_filiacao1_telefone1 }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_telefone1 }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_filiacao1_ddd2">DDD 2</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_ddd2" name="aluno_filiacao1_ddd2" value="{{ request.POST.aluno_filiacao1_ddd2 }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_ddd2 }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_filiacao1_telefone2">Telefone 2</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_telefone2" name="aluno_filiacao1_telefone2" value="{{ request.POST.aluno_filiacao1_telefone2 }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_telefone2 }}</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="aluno_filiacao1_email">Email</label>
+                <input type="email" class="form-control" id="aluno_filiacao1_email" name="aluno_filiacao1_email" value="{{ request.POST.aluno_filiacao1_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_filiacao1_email }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><p>Responsável</p></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao1_respon_didatico" name="aluno_filiacao1_respon_didatico" value="1" {% if request.POST.aluno_filiacao1_respon_didatico == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao1_respon_didatico">Didático</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao1_respon_financeiro" name="aluno_filiacao1_respon_financeiro" value="1" {% if request.POST.aluno_filiacao1_respon_financeiro == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao1_respon_financeiro">Financeiro</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao1_respon_legal" name="aluno_filiacao1_respon_legal" value="1" {% if request.POST.aluno_filiacao1_respon_legal == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao1_respon_legal">Legal</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><p>Documentos da guarda</p></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_filiacao1_doc_guarda" name="aluno_filiacao1_doc_guarda" value="1" {% if request.POST.aluno_filiacao1_doc_guarda == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_filiacao1_doc_guarda">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_filiacao1_parentesco">Parentesco</label>
+                <input type="text" class="form-control" id="aluno_filiacao1_parentesco" name="aluno_filiacao1_parentesco" value="{{ request.POST.aluno_filiacao1_parentesco }}" maxlength="50">
+            </div>
+        </div>
+
 
 
 
