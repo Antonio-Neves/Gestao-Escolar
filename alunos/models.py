@@ -718,30 +718,6 @@ class Aluno(models.Model):
 		max_length=50,
 		blank=True
 	)
-	# --- emergencia
-	aluno_emergencia_nome = models.CharField(
-		'Emergencia nome',
-		max_length=100,
-		blank=True
-	)
-	aluno_emergencia_ddd = models.CharField(
-		'Emergencia DDD Telefone',
-		max_length=2,
-		default=DDD,
-		blank=True,
-		validators=[validate_ddd, validate_digits]
-	)
-	aluno_emergencia_telefone = models.CharField(
-		'Emergencia telefone',
-		max_length=9,
-		blank=True,
-		validators=[validate_phone, validate_digits]
-	)
-	aluno_emergencia_parentesco = models.CharField(
-		'Emergencia parentesco',
-		max_length=50,
-		blank=True
-	)
 	# --- Saida escola
 	# TODO check field Html value 1 (sozinho)
 	# blank or 1
