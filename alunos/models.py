@@ -47,11 +47,6 @@ class Aluno(models.Model):
 		('2', 'A escola não recebeu os documentos solicitados')
 	)
 
-	CHOICES_ALUNO_SEXO = (
-		('1', 'Masculino'),
-		('2', 'Feminino')
-	)
-
 	CHOICES_ALUNO_COR = (
 		('0', 'Não declarada'),
 		('1', 'Branca'),
@@ -59,6 +54,11 @@ class Aluno(models.Model):
 		('3', 'Parda'),
 		('4', 'Amarela'),
 		('5', 'Indígena'),
+	)
+
+	CHOICES_ALUNO_SEXO = (
+		('1', 'Masculino'),
+		('2', 'Feminino')
 	)
 
 	CHOICES_ALUNO_NACIONALIDADE = (
@@ -91,19 +91,33 @@ class Aluno(models.Model):
 		('3', 'Área quilombola'),
 		('7', 'Não está em uma localização diferenciada')
 	)
+
+	CHOICES_FILIACAO = (
+		('0', 'Não declarado/Ignorado'),
+		('1', 'Filiação 1 e/ou Filiação 2')
+	)
+
 	CHOICES_SAIDA_ESCOLA = (
 		('1', 'Acompanhado'),
 		('2', 'Sozinho'),
-		('3', 'Transporte escolar')
+		('3', 'Transporte escolar (acompanhado)')
 	)
+
 	CHOICES_ENSINO_OUTRO_LUGAR = (
 		('1', 'Não'),
 		('2', 'Hospital'),
-		('3', 'Domicílio')
+		('3', 'Domicílio'),
+		('4', 'Instalações exteriores')
 	)
+
 	CHOICES_PODER_RESPONSAVEL_TRANSPORTE = (
 		('1', 'Estadual'),
 		('2', 'Municipal')
+	)
+
+	CHOICES_SIM_NAO = (
+		('0', 'Não'),
+		('1', 'Sim')
 	)
 	# --- End Choices constants --- #
 
@@ -340,6 +354,7 @@ class Aluno(models.Model):
 	aluno_filiacao = models.CharField(
 		'Filiação',
 		max_length=1,
+		choices=CHOICES_FILIACAO
 	)
 	# --- Aluno filiação 1 --- #
 	# --- OK MEC --- #
@@ -512,7 +527,7 @@ class Aluno(models.Model):
 	aluno_filiacao2_doc_guarda = models.CharField(
 		'Filiação 2 - Documento da guarda',
 		max_length=1,
-		blank=True
+		blank=True,
 	)
 	# --- OK --- #
 	aluno_filiacao2_parentesco = models.CharField(
@@ -525,7 +540,8 @@ class Aluno(models.Model):
 	# 0 or 1
 	aluno_deficiencia = models.CharField(
 		'Tem Deficiência Física',
-		max_length=1
+		max_length=1,
+		choices=CHOICES_SIM_NAO
 	)
 	# --- OK MEC --- #
 	# blank or 1
@@ -683,8 +699,8 @@ class Aluno(models.Model):
 		blank=True
 	)
 	# --- Saida escola
-	# TODO check field Html value 1 (sozinho)
-	# blank or 1
+	# --- OK --- #
+	# 1 -> 4
 	aluno_saida_escola = models.CharField(
 		'Saída da escola',
 		max_length=1,
@@ -692,22 +708,24 @@ class Aluno(models.Model):
 		choices=CHOICES_SAIDA_ESCOLA,
 		default='1'
 	)
-	# TODO radio field Html value 1 (sozinho)
+	# --- OK --- #
 	# 1 -> 3
 	aluno_ensino_outro_lugar = models.CharField(
 		'Ensino em outro lugar',
 		max_length=1,
 		blank=True,
-		choices=CHOICES_ENSINO_OUTRO_LUGAR
+		choices=CHOICES_ENSINO_OUTRO_LUGAR,
+		default='1'
 	)
-	# --- Transporte
-	# TODO check field Html value 1
+	# --- Transporte --- #
+	# --- OK --- #
 	# blank or 1
 	aluno_transporte_publico = models.CharField(
 		'Transporte Público',
 		max_length=1,
 		blank=True
 	)
+	# --- OK --- #
 	# 1 or 2
 	aluno_transporte_poder = models.CharField(
 		'Poder responsavél pelo transporte público',
@@ -716,49 +734,49 @@ class Aluno(models.Model):
 		choices=CHOICES_PODER_RESPONSAVEL_TRANSPORTE
 	)
 	# --- Transporte rodoviario
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_particular = models.CharField(
 		'Particular',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_bicicleta = models.CharField(
 		'Bicicleta',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_rodoviario_microonibus = models.CharField(
-		'Microonibus',
-		max_length=1,
-		blank=True
-	)
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_rodoviario_onibus = models.CharField(
-		'Onibus',
-		max_length=1,
-		blank=True
-	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_animal = models.CharField(
 		'Animal',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
+	# blank or 1
+	aluno_rodoviario_microonibus = models.CharField(
+		'Microonibus',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
+	# blank or 1
+	aluno_rodoviario_onibus = models.CharField(
+		'Onibus',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_van = models.CharField(
 		'Van',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_outro = models.CharField(
 		'Outro',
@@ -766,35 +784,35 @@ class Aluno(models.Model):
 		blank=True
 	)
 	# --- Transporte Aquaviário
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
-	aluno_aquaviario_outro = models.CharField(
+	aluno_aquaviario_particular = models.CharField(
 		'Particular',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_aquaviario_5 = models.CharField(
 		'5 lugares',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_aquaviario_15 = models.CharField(
 		'15 lugares',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_aquaviario_35 = models.CharField(
 		'35 lugares',
 		max_length=1,
 		blank=True
 	)
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_aquaviario_mais35 = models.CharField(
 		'Mais de 35 lugares',

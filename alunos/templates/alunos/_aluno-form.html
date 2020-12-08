@@ -1,4 +1,9 @@
 <div class="container back01">
+
+    {% for alunos in aluno_obj %}
+        {{ alunos.get_aluno_sexo_display }} - {{ alunos.get_aluno_saida_escola_display }} - {{ alunos.get_aluno_cor_display }} - {{ alunos.get_aluno_deficiencia_display }}
+    {% endfor %}
+
     <form method="POST" class="form-group" name="aluno_form" action="">
         {% csrf_token %}
         <div class="form-row">
@@ -572,8 +577,8 @@
         <!-- Saida de escola -->
         <hr>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <div class="form-check-label"><h4>Saída da escola <span style="color: red;">*</span></h4></div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><h4><label for="aluno_saida_escola">Saída da escola <span style="color: red;">*</span></label></h4></div>
 {#                <label for="aluno_saida_escola"><h4>Saída da escola <span style="color: red;">*</span></h4></label>#}
                 <select class="form-control" id="aluno_saida_escola" name="aluno_saida_escola">
                     {% for saida_escola in form.aluno_saida_escola %}
@@ -581,8 +586,102 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><h4><label for="aluno_ensino_outro_lugar">Ensino em outro lugar <span style="color: red;">*</span></label></h4></div>
+{#                <label for="aluno_saida_escola"><h4>Saída da escola <span style="color: red;">*</span></h4></label>#}
+                <select class="form-control" id="aluno_ensino_outro_lugar" name="aluno_ensino_outro_lugar">
+                    {% for ensino_outro_lugar in form.aluno_ensino_outro_lugar %}
+                        {{ ensino_outro_lugar }}
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-        <br>
+        <!-- Filiação 2 -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div><h4>Transporte</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div class="form-check-label">Transporte Público <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_transporte_publico1" name="aluno_transporte_publico" checked value="0" {% if request.POST.aluno_transporte_publico == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_transporte_publico1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_transporte_publico2" name="aluno_transporte_publico" value="1" {% if request.POST.aluno_transporte_publico == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_transporte_publico2">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="aluno_transporte_poder">Poder responsavél pelo transporte público</label>
+                <select class="form-control" id="aluno_transporte_poder" name="aluno_transporte_poder">
+                    {% for transporte_poder in form.aluno_transporte_poder %}
+                        {{ transporte_poder }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><p>Transporte Rodoviário</p>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_particular" name="aluno_rodoviario_particular" value="1" {% if request.POST.aluno_rodoviario_particular == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_particular">Particular</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_bicicleta" name="aluno_rodoviario_bicicleta" value="1" {% if request.POST.aluno_rodoviario_bicicleta == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_bicicleta">Bicicleta</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_animal" name="aluno_rodoviario_animal" value="1" {% if request.POST.aluno_rodoviario_animal == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_animal">Animal</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_microonibus" name="aluno_rodoviario_microonibus" value="1" {% if request.POST.aluno_rodoviario_microonibus == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_microonibus">Microônibus</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_onibus" name="aluno_rodoviario_onibus" value="1" {% if request.POST.aluno_rodoviario_onibus == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_onibus">Ônibus</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_van" name="aluno_rodoviario_van" value="1" {% if request.POST.aluno_rodoviario_van == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_van">Van</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_rodoviario_outro" name="aluno_rodoviario_outro" value="1" {% if request.POST.aluno_rodoviario_outro == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_rodoviario_outro">Outro</label>
+                </div>
+            </div>
+        </div>
+        <br><p>Transporte Aquaviário</p>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_aquaviario_particular" name="aluno_aquaviario_particular" value="1" {% if request.POST.aluno_aquaviario_particular == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_aquaviario_particular">Particular</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_aquaviario_5" name="aluno_aquaviario_5" value="1" {% if request.POST.aluno_aquaviario_5 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_aquaviario_5">Até 5 lugares</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_aquaviario_15" name="aluno_aquaviario_15" value="1" {% if request.POST.aluno_aquaviario_15 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_aquaviario_15">Até 15 lugares</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_aquaviario_35" name="aluno_aquaviario_35" value="1" {% if request.POST.aluno_aquaviario_35 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_aquaviario_35">Até 35 lugares</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="aluno_aquaviario_mais35" name="aluno_aquaviario_mais35" value="1" {% if request.POST.aluno_aquaviario_mais35 == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_aquaviario_mais35">Mais de 35 lugares</label>
+                </div>
+            </div>
+        </div>
 
 
 

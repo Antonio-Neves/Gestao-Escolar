@@ -12,9 +12,11 @@ h2 {
 }
 
 .back01 {
-    background: #D9DDDC;
+    /*background: #D9DDDC;*/
     /*background: #C1D1E6;*/
+    background: #dddddd;
     margin-top: 2%;
+    margin-bottom: 2%;
     padding: 2%;
     border-radius: 10px;
 }
