@@ -1012,7 +1012,28 @@ class Aluno(models.Model):
 		max_length=250,
 		blank=True,
 	)
+	# --- bolsa --- #
+	# --- OK --- #
+	# blank or 1
+	aluno_bolsa = models.CharField(
+		'Bolsa',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_bolsa_tipo = models.CharField(
+		'Bolsa',
+		max_length=100,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_bolsa_motivo = models.CharField(
+		'Bolsa',
+		max_length=100,
+		blank=True
+	)
 	# --- Observações --- #
+	# --- OK --- #
 	aluno_observacoes = models.TextField(
 		'Observações',
 		max_length=1000,

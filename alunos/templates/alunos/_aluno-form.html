@@ -895,6 +895,33 @@
                 <p class="errorlist">{{ form.errors.aluno_programa_social_email }}</p>
             </div>
         </div>
+        <!-- Bolsa -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Bolsa <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_bolsa1" name="aluno_bolsa" checked value="0" {% if request.POST.aluno_bolsa == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_bolsa1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_bolsa2" name="aluno_bolsa" value="1" {% if request.POST.aluno_bolsa == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_bolsa2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_bolsa_tipo">Tipo de bolsa</label>
+                <input type="text" class="form-control" id="aluno_bolsa_tipo" name="aluno_bolsa_tipo" value="{{ request.POST.aluno_bolsa_tipo }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_bolsa_tipo }}</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="aluno_bolsa_motivo">Motivo da bolsa</label>
+                <input type="text" class="form-control" id="aluno_bolsa_motivo" name="aluno_bolsa_motivo" value="{{ request.POST.aluno_bolsa_motivo }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_bolsa_motivo }}</p>
+            </div>
+        </div>
         <!-- Observações -->
         <hr>
         <div class="form-row">

@@ -180,6 +180,11 @@ aluno_progrma_social_ddd
 aluno_progrma_social_telefone
 aluno_progrma_social_email
 
+# --- Bolsa --- #
+aluno_bolsa
+aluno_bolsa_tipo
+aluno_bolsa_motivo
+
 # --- Observações --- #
 
 aluno_observacoes
