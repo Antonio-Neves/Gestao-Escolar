@@ -1,0 +1,191 @@
+aluno_id
+aluno_situacao
+
+# --- Aluno Documentos --- #
+
+aluno_inep
+aluno_cpf
+aluno_rg
+aluno_nis
+aluno_certidao_nova
+aluno_justificativa_documentos
+
+# --- Aluno Dados Pessoais --- #
+
+aluno_nome
+aluno_data_nascimento
+aluno_sexo
+aluno_cor
+
+# --- Aluno Nacionalidade --- #
+
+aluno_nacionalidade
+aluno_pais_nascimento
+aluno_estado_nascimento
+aluno_municipio_nascimento
+
+# --- Aluno residencia --- #
+
+aluno_logradouro_residencia
+aluno_numero_residencia
+aluno_complemento_residencia
+aluno_zona_residencia
+aluno_localizacao_residencia
+aluno_bairro_residencia
+aluno_cep_residencia
+aluno_estado_residencia
+aluno_municipio_residencia
+aluno_pais_residencia
+
+# --- Aluno contacto --- #
+
+aluno_ddd
+aluno_telefone
+aluno_email
+
+# --- Aluno filiação --- #
+
+aluno_filiacao
+
+# --- Aluno filiação 1 --- #
+
+aluno_filiacao1_nome
+aluno_filiacao1_cpf
+aluno_filiacao1_rg
+aluno_filiacao1_ddd1
+aluno_filiacao1_telefone1
+aluno_filiacao1_ddd2
+aluno_filiacao1_telefone2
+aluno_filiacao1_email
+aluno_filiacao1_respon_didatico
+aluno_filiacao1_respon_financeiro
+aluno_filiacao1_respon_legal
+aluno_filiacao1_doc_guarda
+aluno_filiacao1_parentesco
+
+# --- Aluno filiação 2 --- #
+
+aluno_filiacao2_nome
+aluno_filiacao2_cpf
+aluno_filiacao2_rg
+aluno_filiacao2_ddd1
+aluno_filiacao2_telefone1
+aluno_filiacao2_ddd2
+aluno_filiacao2_telefone2
+aluno_filiacao2_email
+aluno_filiacao2_respon_didatico
+aluno_filiacao2_respon_financeiro
+aluno_filiacao2_respon_legal
+aluno_filiacao2_doc_guarda
+aluno_filiacao2_parentesco
+
+# --- Aluno deficiencias --- #
+
+aluno_deficiencia
+aluno_cegueira
+aluno_baixa_visao
+aluno_surdez
+aluno_deficiencia_auditiva
+aluno_surdocegueira
+aluno_deficiencia_fisica
+aluno_deficiencia_intelectual
+aluno_deficiencia_multipla
+aluno_autismo
+aluno_altas_habilidades
+
+# --- Aluno necessidades diferenciadas --- #
+
+aluno_necessidades_especiais
+aluno_auxilio_ledor
+aluno_auxilio_transcricao
+aluno_guia_interprete
+aluno_tradutor_libras
+aluno_leitura_labial
+aluno_prova_ampliada18
+aluno_prova_superampliada24
+aluno_cd_audio
+aluno_prova_portuguesa
+aluno_prova_video
+aluno_prova_braille
+
+# --- Saida escola --- #
+
+aluno_saida_escola
+aluno_ensino_outro_lugar
+
+# --- Transporte --- #
+
+aluno_transporte_publico
+aluno_transporte_poder
+
+# --- Transporte rodoviario --- #
+
+aluno_rodoviario_particular
+aluno_rodoviario_bicicleta
+aluno_rodoviario_animal
+aluno_rodoviario_microonibus
+aluno_rodoviario_onibus
+aluno_rodoviario_van
+aluno_rodoviario_outro
+
+# --- Transporte Aquaviário --- #
+
+aluno_aquaviario_particular
+aluno_aquaviario_5
+aluno_aquaviario_15
+aluno_aquaviario_35
+aluno_aquaviario_mais35
+
+# --- Urgencia --- #
+
+aluno_urgencia1_nome
+aluno_urgencia1_ddd
+aluno_urgencia1_telefone
+aluno_urgencia1_parentesco
+aluno_urgencia2_nome
+aluno_urgencia2_ddd
+aluno_urgencia2_telefone
+aluno_urgencia2_parentesco
+aluno_urgencia_procedimentos
+
+# --- Aluno cuidados diferenciados --- #
+
+aluno_alergia
+aluno_alergia_tipo
+aluno_apto_edfisica
+aluno_medicacao
+aluno_cuidados_diferenciados
+
+# --- Plano de saude --- #
+
+aluno_plano_saude
+aluno_plano_saude_nome
+aluno_plano_saude_ddd
+aluno_plano_saude_telefone
+aluno_plano_saude_email
+
+# --- Convenio --- #
+
+aluno_convenio
+aluno_convenio_nome
+aluno_convenio_ddd
+aluno_convenio_telefone
+aluno_convenio_email
+
+# --- Programa social --- #
+
+aluno_progrma_social
+aluno_progrma_social_nome
+aluno_progrma_social_ddd
+aluno_progrma_social_telefone
+aluno_progrma_social_email
+
+# --- Observações --- #
+
+aluno_observacoes
+
+# --- Data de criação ou modificação --- #
+
+created
+modified
+

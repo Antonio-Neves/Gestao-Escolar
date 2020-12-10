@@ -1,9 +1,5 @@
+<!-- Aluno Form -->
 <div class="container back01">
-
-    {% for alunos in aluno_obj %}
-        {{ alunos.get_aluno_sexo_display }} - {{ alunos.get_aluno_saida_escola_display }} - {{ alunos.get_aluno_cor_display }} - {{ alunos.get_aluno_deficiencia_display }}
-    {% endfor %}
-
     <form method="POST" class="form-group" name="aluno_form" action="">
         {% csrf_token %}
         <div class="form-row">
@@ -324,7 +320,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <div class="form-check-label"><p>Responsável</p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_filiacao1_respon_didatico" name="aluno_filiacao1_respon_didatico" value="1" {% if request.POST.aluno_filiacao1_respon_didatico == "1" %}checked="checked"{% endif %}>
@@ -339,14 +335,14 @@
                   <label class="form-check-label" for="aluno_filiacao1_respon_legal">Legal</label>
                 </div>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <div class="form-check-label"><p>Documentos da guarda</p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_filiacao1_doc_guarda" name="aluno_filiacao1_doc_guarda" value="1" {% if request.POST.aluno_filiacao1_doc_guarda == "1" %}checked="checked"{% endif %}>
                   <label class="form-check-label" for="aluno_filiacao1_doc_guarda">Sim</label>
                 </div>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="aluno_filiacao1_parentesco">Parentesco</label>
                 <input type="text" class="form-control" id="aluno_filiacao1_parentesco" name="aluno_filiacao1_parentesco" value="{{ request.POST.aluno_filiacao1_parentesco }}" maxlength="50">
             </div>
@@ -403,7 +399,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <div class="form-check-label"><p>Responsável</p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_filiacao2_respon_didatico" name="aluno_filiacao2_respon_didatico" value="1" {% if request.POST.aluno_filiacao2_respon_didatico == "1" %}checked="checked"{% endif %}>
@@ -418,14 +414,14 @@
                   <label class="form-check-label" for="aluno_filiacao2_respon_legal">Legal</label>
                 </div>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <div class="form-check-label"><p>Documentos da guarda</p></div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="aluno_filiacao2_doc_guarda" name="aluno_filiacao2_doc_guarda" value="1" {% if request.POST.aluno_filiacao2_doc_guarda == "1" %}checked="checked"{% endif %}>
                   <label class="form-check-label" for="aluno_filiacao2_doc_guarda">Sim</label>
                 </div>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="aluno_filiacao2_parentesco">Parentesco</label>
                 <input type="text" class="form-control" id="aluno_filiacao2_parentesco" name="aluno_filiacao2_parentesco" value="{{ request.POST.aluno_filiacao2_parentesco }}" maxlength="50">
             </div>
@@ -682,21 +678,241 @@
                 </div>
             </div>
         </div>
-
-
-
+        <!-- Urgencia -->
+        <hr>
         <div class="form-row">
-            <button class="btn btn-primary shadow-sm" type="submit">Salvar</button>
+            <div class="form-group col">
+                <div><h4>Urgência</h4></div>
+            </div>
         </div>
-
-
-
-
-
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_urgencia1_nome">Nome da 1ª pessoa a chamar em caso de urgência</label>
+                <input type="text" class="form-control" id="aluno_urgencia1_nome" name="aluno_urgencia1_nome" value="{{ request.POST.aluno_urgencia1_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_urgencia1_nome }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_urgencia1_ddd">DDD</label>
+                <input type="text" class="form-control" id="aluno_urgencia1_ddd" name="aluno_urgencia1_ddd" value="{{ request.POST.aluno_urgencia1_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_urgencia1_ddd }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_urgencia1_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_urgencia1_telefone" name="aluno_urgencia1_telefone" value="{{ request.POST.aluno_urgencia1_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_urgencia1_telefone }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_urgencia1_parentesco">Parentesco</label>
+                <input type="text" class="form-control" id="aluno_urgencia1_parentesco" name="aluno_urgencia1_parentesco" value="{{ request.POST.aluno_urgencia1_parentesco }}" maxlength="50">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aluno_urgencia2_nome">Nome da 2ª pessoa a chamar em caso de urgência</label>
+                <input type="text" class="form-control" id="aluno_urgencia2_nome" name="aluno_urgencia2_nome" value="{{ request.POST.aluno_urgencia2_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_urgencia2_nome }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_urgencia2_ddd">DDD</label>
+                <input type="text" class="form-control" id="aluno_urgencia2_ddd" name="aluno_urgencia2_ddd" value="{{ request.POST.aluno_urgencia2_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_urgencia2_ddd }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_urgencia2_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_urgencia2_telefone" name="aluno_urgencia2_telefone" value="{{ request.POST.aluno_urgencia2_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_urgencia2_telefone }}</p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="aluno_urgencia2_parentesco">Parentesco</label>
+                <input type="text" class="form-control" id="aluno_urgencia2_parentesco" name="aluno_urgencia2_parentesco" value="{{ request.POST.aluno_urgencia2_parentesco }}" maxlength="50">
+            </div>
+            <div class="form-group col">
+                <label for="aluno_urgencia_procedimentos">Procedimentos em caso de urgência</label>
+                <textarea class="form-control" id="aluno_urgencia_procedimentos" name="aluno_urgencia_procedimentos"  maxlength="1000">{{ request.POST.aluno_urgencia_procedimentos }}</textarea>
+            </div>
+        </div>
+        <!-- Cuidados diferenciados -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div><h4>Cuidados Diferenciados</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label">Alergia(s) <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_alergia1" name="aluno_alergia" checked value="0" {% if request.POST.aluno_alergia == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_alergia1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_alergia1" name="aluno_alergia" value="1" {% if request.POST.aluno_alergia == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_alergia2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="aluno_alergia_tipo">Tipo(s) de alergia(s), cuidados e procedimentos</label>
+                <textarea class="form-control" id="aluno_alergia_tipo" name="aluno_alergia_tipo"  maxlength="1000">{{ request.POST.aluno_alergia_tipo }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label">Aluno(a) apto para as aulas de Educação Física <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_apto_edfisica1" name="aluno_apto_edfisica" value="0" {% if request.POST.aluno_apto_edfisica == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_apto_edfisica1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_apto_edfisica2" name="aluno_apto_edfisica" checked value="1" {% if request.POST.aluno_apto_edfisica == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_apto_edfisica2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="aluno_medicacao">Medicação e procedimentos</label>
+                <textarea class="form-control" id="aluno_medicacao" name="aluno_medicacao"  maxlength="1000">{{ request.POST.aluno_medicacao }}</textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="aluno_cuidados_diferenciados">Cuidados diferenciados</label>
+                <textarea class="form-control" id="aluno_cuidados_diferenciados" name="aluno_cuidados_diferenciados"  maxlength="1000">{{ request.POST.aluno_cuidados_diferenciados }}</textarea>
+            </div>
+        </div>
+        <!-- Plano de saúde -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Plano de Saúde <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_plano_saude1" name="aluno_plano_saude" checked value="0" {% if request.POST.aluno_plano_saude == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_plano_saude1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_plano_saude2" name="aluno_plano_saude" value="1" {% if request.POST.aluno_plano_saude == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_plano_saude2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="aluno_plano_saude_nome">Nome do plano de saúde</label>
+                <input type="text" class="form-control" id="aluno_plano_saude_nome" name="aluno_plano_saude_nome" value="{{ request.POST.aluno_plano_saude_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_plano_saude_nome }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_plano_saude_ddd">DDD</label>
+                <input type="text" class="form-control" id="aluno_plano_saude_ddd" name="aluno_plano_saude_ddd" value="{{ request.POST.aluno_plano_saude_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_plano_saude_ddd }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_plano_saude_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_plano_saude_telefone" name="aluno_plano_saude_telefone" value="{{ request.POST.aluno_plano_saude_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_plano_saude_telefone }}</p>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="aluno_plano_saude_email">Email</label>
+                <input type="text" class="form-control" id="aluno_plano_saude_email" name="aluno_plano_saude_email" value="{{ request.POST.aluno_plano_saude_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_plano_saude_email }}</p>
+            </div>
+        </div>
+        <!-- Convenio -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Convênio <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_convenio1" name="aluno_convenio" checked value="0" {% if request.POST.aluno_convenio == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_convenio1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_convenio2" name="aluno_convenio" value="1" {% if request.POST.aluno_convenio == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_convenio2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="aluno_convenio_nome">Nome do convênio</label>
+                <input type="text" class="form-control" id="aluno_convenio_nome" name="aluno_convenio_nome" value="{{ request.POST.aluno_convenio_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_convenio_nome }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_convenio_ddd">DDD</label>
+                <input type="text" class="form-control" id="aluno_convenio_ddd" name="aluno_convenio_ddd" value="{{ request.POST.aluno_convenio_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_convenio_ddd }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_convenio_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_convenio_telefone" name="aluno_convenio_telefone" value="{{ request.POST.aluno_convenio_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_convenio_telefone }}</p>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="aluno_convenio_email">Email</label>
+                <input type="text" class="form-control" id="aluno_convenio_email" name="aluno_convenio_email" value="{{ request.POST.aluno_convenio_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_convenio_email }}</p>
+            </div>
+        </div>
+        <!-- Programa social -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check-label"><h4>Programa Social <span style="color: red;">*</span></h4></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_programa_social1" name="aluno_programa_social" checked value="0" {% if request.POST.aluno_programa_social == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="aluno_programa_social1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="aluno_programa_social2" name="aluno_programa_social" value="1" {% if request.POST.aluno_programa_social == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="aluno_programa_social2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="aluno_programa_social_nome">Nome do Programa Social</label>
+                <input type="text" class="form-control" id="aluno_programa_social_nome" name="aluno_programa_social_nome" value="{{ request.POST.aluno_programa_social_nome }}" maxlength="100">
+                <p class="errorlist">{{ form.errors.aluno_programa_social_nome }}</p>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="aluno_programa_social_ddd">DDD</label>
+                <input type="text" class="form-control" id="aluno_programa_social_ddd" name="aluno_programa_social_ddd" value="{{ request.POST.aluno_programa_social_ddd }}" maxlength="2">
+                <p class="errorlist">{{ form.errors.aluno_programa_social_ddd }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="aluno_programa_social_telefone">Telefone</label>
+                <input type="text" class="form-control" id="aluno_programa_social_telefone" name="aluno_programa_social_telefone" value="{{ request.POST.aluno_programa_social_telefone }}" maxlength="9">
+                <p class="errorlist">{{ form.errors.aluno_programa_social_telefone }}</p>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="aluno_programa_social_email">Email</label>
+                <input type="text" class="form-control" id="aluno_programa_social_email" name="aluno_programa_social_email" value="{{ request.POST.aluno_programa_social_email }}" maxlength="250">
+                <p class="errorlist">{{ form.errors.aluno_programa_social_email }}</p>
+            </div>
+        </div>
+        <!-- Observações -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col">
+                <div><h4>Observações</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="aluno_observacoes"></label>
+                <textarea class="form-control" id="aluno_observacoes" name="aluno_observacoes"  maxlength="1000">{{ request.POST.aluno_observacoes }}</textarea>
+            </div>
+        </div>
+        <hr><br>
+        <div class="form-row">
+            <div class="form-group col">
+                <button class="btn btn-primary shadow-sm" type="submit">Cadastrar aluno(a)</button>
+            </div>
+        </div>
     </form>
-
-
-
-
-
 </div>

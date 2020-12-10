@@ -698,7 +698,7 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
-	# --- Saida escola
+	# --- Saida escola --- #
 	# --- OK --- #
 	# 1 -> 4
 	aluno_saida_escola = models.CharField(
@@ -733,7 +733,7 @@ class Aluno(models.Model):
 		blank=True,
 		choices=CHOICES_PODER_RESPONSAVEL_TRANSPORTE
 	)
-	# --- Transporte rodoviario
+	# --- Transporte rodoviario --- #
 	# --- OK --- #
 	# blank or 1
 	aluno_rodoviario_particular = models.CharField(
@@ -783,7 +783,7 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
-	# --- Transporte Aquaviário
+	# --- Transporte Aquaviário --- #
 	# --- OK --- #
 	# blank or 1
 	aluno_aquaviario_particular = models.CharField(
@@ -820,120 +820,202 @@ class Aluno(models.Model):
 		blank=True
 	)
 	# --- Urgencia --- #
+	# --- OK --- #
 	aluno_urgencia1_nome = models.CharField(
 		'Urgência 1 - Nome',
 		max_length=100,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_urgencia1_ddd = models.CharField(
 		'Urgência 1 - DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_urgencia1_telefone = models.CharField(
 		'Urgência 1 - Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_urgencia1_parentesco = models.CharField(
 		'Urgência 1 - Parentesco',
 		max_length=50,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_urgencia2_nome = models.CharField(
 		'Urgência 2 - Nome',
 		max_length=100,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_urgencia2_ddd = models.CharField(
 		'Urgência 2 - DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
+	# --- OK --- #
 	aluno_urgencia2_telefone = models.CharField(
 		'Urgência 2 - Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
+	# --- OK --- #
 	aluno_urgencia2_parentesco = models.CharField(
 		'Urgência 2 - Parentesco',
 		max_length=50,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_urgencia_procedimentos = models.TextField(
 		'Procedimentos em caso de urgência',
 		blank=True
 	)
-	# --- convenio e programas sociais
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_convenio = models.CharField(
-		'convenio',
-		max_length=1,
-		blank=True
-	)
-	aluno_convenio_nome = models.CharField(
-		'Nome do convenio',
-		max_length=50,
-		blank=True
-	)
-	aluno_convenio_contato = models.CharField(
-		'Contato do convenio',
-		max_length=50,
-		blank=True
-	)
-	# TODO check field Html value 1
-	# blank or 1
-	aluno_progrma_social = models.CharField(
-		'Programa social',
-		max_length=1,
-		blank=True
-	)
-	aluno_programa_social_nome = models.CharField(
-		'Nome do programa social',
-		max_length=50,
-		blank=True
-	)
 	# --- Aluno cuidados diferenciados --- #
-	# TODO check field Html value 1
+	# --- OK --- #
 	# blank or 1
 	aluno_alergia = models.CharField(
 		'alergia',
 		max_length=1,
 		blank=True
 	)
-	aluno_alergia_tipo = models.CharField(
-		'Tipo de alergia',
-		max_length=50,
+	# --- OK --- #
+	aluno_alergia_tipo = models.TextField(
+		'Tipo de alergia(s) e cuidados',
+		max_length=1000,
 		blank=True
 	)
-	aluno_alergia_cuidados = models.CharField(
-		'Alergia cuidados',
-		max_length=50,
-		blank=True
-	)
-	# TODO check field Html value 1 default
+	# --- OK --- #
 	# blank or 1
 	aluno_apto_edfisica = models.CharField(
 		'alergia',
 		max_length=1,
 		blank=True
 	)
-	# --- Aluno atenção diferenciada --- #
+	# --- OK --- #
 	aluno_medicacao = models.TextField(
 		'Instruções para medicação',
+		max_length=1000,
 		blank=True
 	)
+	# --- OK --- #
 	aluno_cuidados_diferenciados = models.TextField(
 		'Cuidados diferenciados',
+		max_length=1000,
 		blank=True
 	)
+	# --- Plano de saude --- #
+	# --- OK --- #
+	# blank or 1
+	aluno_plano_saude = models.CharField(
+		'Plano de Saúde',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_plano_saude_nome = models.CharField(
+		'Nome do Plano de Saúde',
+		max_length=50,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_plano_saude_ddd = models.CharField(
+		'DDD',
+		max_length=2,
+		blank=True,
+		validators=[validate_ddd, validate_digits]
+	)
+	# --- OK --- #
+	aluno_plano_saude_telefone = models.CharField(
+		'Telefone',
+		max_length=9,
+		blank=True,
+		validators=[validate_phone, validate_digits]
+	)
+	# --- OK --- #
+	aluno_plano_saude_email = models.EmailField(
+		'Email',
+		max_length=250,
+		blank=True,
+	)
+	# --- Convenio --- #
+	# --- OK --- #
+	# blank or 1
+	aluno_convenio = models.CharField(
+		'Convênio',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_convenio_nome = models.CharField(
+		'Nome do convênio',
+		max_length=50,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_convenio_ddd = models.CharField(
+		'DDD',
+		max_length=2,
+		blank=True,
+		validators=[validate_ddd, validate_digits]
+	)
+	# --- OK --- #
+	aluno_convenio_telefone = models.CharField(
+		'Telefone',
+		max_length=9,
+		blank=True,
+		validators=[validate_phone, validate_digits]
+	)
+	# --- OK --- #
+	aluno_convenio_email = models.EmailField(
+		'Email',
+		max_length=250,
+		blank=True,
+	)
+	# --- Programa social --- #
+	# --- OK --- #
+	# blank or 1
+	aluno_programa_social = models.CharField(
+		'Convênio',
+		max_length=1,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_programa_social_nome = models.CharField(
+		'Nome do convênio',
+		max_length=50,
+		blank=True
+	)
+	# --- OK --- #
+	aluno_programa_social_ddd = models.CharField(
+		'DDD',
+		max_length=2,
+		blank=True,
+		validators=[validate_ddd, validate_digits]
+	)
+	# --- OK --- #
+	aluno_programa_social_telefone = models.CharField(
+		'Telefone',
+		max_length=9,
+		blank=True,
+		validators=[validate_phone, validate_digits]
+	)
+	# --- OK --- #
+	aluno_programa_social_email = models.EmailField(
+		'Email',
+		max_length=250,
+		blank=True,
+	)
+	# --- Observações --- #
 	aluno_observacoes = models.TextField(
 		'Observações',
+		max_length=1000,
 		blank=True
 	)
 	# --- Data de criação ou modificação --- #
