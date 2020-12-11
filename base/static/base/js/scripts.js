@@ -1,6 +1,8 @@
 // Masks
 $(document).ready(function(){
   $('#aluno_cpf').mask('000.000.000-00');
+  $('#aluno_filiacao1_cpf').mask('000.000.000-00');
+  $('#aluno_filiacao2_cpf').mask('000.000.000-00');
 });
 
 $(document).ready(function(){

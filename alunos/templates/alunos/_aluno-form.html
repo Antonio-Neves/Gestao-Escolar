@@ -1,5 +1,5 @@
 <!-- Aluno Form -->
-<div class="container back01">
+<div class="container bg-light back01">
     <form method="POST" class="form-group" name="aluno_form" action="">
         {% csrf_token %}
         <div class="form-row">
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="form-row justify-content-between">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-5">
                 <label for="aluno_certidao_nova">Certidão de nascimento (nova)</label>
                 <input type="text" class="form-control" id="aluno_certidao_nova" name="aluno_certidao_nova" value="{{ request.POST.aluno_certidao_nova }}" maxlength="40">
                 <p class="errorlist">{{ form.errors.aluno_certidao_nova }}</p>

@@ -2,26 +2,13 @@
 
 <div id="header">
 
-    <div id="nav-wrapper">
+    <div >
         <!-- Nav -->
 
-        <nav id="nav">
-
-            <!-- Logo -->
-{#            <div class="logo">#}
-{#              <a href="https://ansistemas.com" target="_blank" rel="noopener noreferrer">#}
-{#                <img class="active" src="{% static 'base/images/logo_an.png' %}" alt="AN Sistemas"/>#}
-{#              </a>#}
-{#            </div>#}
-
+        <div>
             <!-- Usuario -->
             <div class="usuario">
                 {% if user.is_anonymous %}
-{#                    <div>#}
-{#                    <a href="{% url 'novo-usuario' %}">#}
-{#                        Cadastrar#}
-{#                    </a>#}
-{#                    </div>#}
                     <div>
                     <a class="btn btn-primary shadow-lg mr-1" href="{% url 'login' %}">
                         Login
@@ -33,34 +20,13 @@
                         Sair
                     </a>
 
+                    <a class="btn btn-primary shadow-lg mr-1" href="{% url 'index-secretaria' %}">
+                        Cadastro de Aluno(a)
+                    </a>
+
                 {% endif %}
-
-                <a class="btn btn-primary shadow-lg mr-1" href="{% url 'aluno-novo' %}">
-                    Cadastro de Aluno(a)
-                </a>
-
-
             </div>
-
-{#            <!-- Nav Principal -->#}
-{#            <ul class="nav-principal">#}
-{#                <li class="active"><a href="{% url 'index' %}">Canais</a></li>#}
-{#                <li><a href="{% url 'categoria-index' %}">Categorias</a></li>#}
-{#                <li><a href="{% url 'playlist-index' %}">Playlists</a></li>#}
-{#                <li><a href="{% url 'agradecimentos' %}">Agradecimentos</a></li>#}
-{#                <li><a href="#footer">Contatos</a></li>#}
-{#            </ul>#}
-
-        </nav>
+        </div>
     </div>
 
-{#    <div class="container">#}
-{##}
-{#        <!-- Logo -->#}
-{#        <div id="logo">#}
-{#            <h1>My Tube Library</h1>#}
-{#            <span class="tag">#}
-{#            <a href="https://ansistemas.com" target="_blank" rel="noopener noreferrer">By AN Sistemas</a></span>#}
-{#        </div>#}
-{#    </div>#}
 </div>
