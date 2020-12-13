@@ -1,15 +1,16 @@
 from django.db import models
+
 from base.constants import (
 	DDD,
 	ESTADO,
 	MUNICIPIO,
 	CEP,
-	PAIS,
+	PAIS
 )
 from base.validators import (
 	validate_digits,
 	validate_no_digits,
-	validate_data_nasc,
+	validate_data,
 	validate_aluno_inep,
 	validate_cpf,
 	validate_ddd,
@@ -20,14 +21,6 @@ from base.validators import (
 	)
 
 from base.models import Municipio, Pais
-
-
-# class Base(models.Model):
-# 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
-# 	modified = models.DateTimeField('Data da alteração', auto_now=True)
-#
-# 	class Meta:
-# 		abstract = True
 
 
 class Aluno(models.Model):
@@ -195,10 +188,10 @@ class Aluno(models.Model):
 		validators=[validate_no_digits]
 	)
 	# --- OK MEC --- #
-	aluno_data_nascimento = models.DateField(
+	aluno_data_nascimento = models.CharField(
 		'Data de nascimento',
 		max_length=10,
-		validators=[validate_data_nasc]
+		validators=[validate_data]
 	)
 	# --- OK MEC --- #
 	# Required - Accept 1 / 2

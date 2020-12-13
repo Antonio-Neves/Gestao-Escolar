@@ -23,10 +23,10 @@ def validate_no_digits(value):
 		return value
 
 
-def validate_data_nasc(value):
+def validate_data(value):
 
-	if value > date.today():
-		raise ValidationError('A data de nascimento está errada')
+	if len(value) != 10:
+		raise ValidationError('A data está errada')
 
 	else:
 		return value

@@ -43,7 +43,7 @@ class AlunoNewView(SuccessMessageMixin, CreateView):
 			return redirect(self.success_url)
 
 		else:
-			messages.error(request, 'confirme os campos do formulário')
+			# messages.error(request, 'confirme os campos do formulário')
 			context = {
 				'aluno_obj': Aluno.objects.all(),
 				'form': AlunoForm(request.POST)
@@ -51,5 +51,18 @@ class AlunoNewView(SuccessMessageMixin, CreateView):
 			return render(request, self.template_name, context)
 
 
-class AlunoUpdateView(UpdateView):
-	pass
+class AlunoUpdateView(SuccessMessageMixin, UpdateView):
+	model = Aluno
+	form_class = AlunoForm
+	template_name = 'alunos/aluno-alterar.html'
+	success_message = 'As alterações foram efectuadas com sucesso'
+
+	def get_form(self, form_class=None):
+
+		form = super(AlunoUpdateView, self).get_form(form_class)
+
+		return form
+
+	def get_success_url(self):
+
+		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
