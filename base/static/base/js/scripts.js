@@ -17,6 +17,7 @@ $(document).ready(function(){
   $('#aluno_data_nascimento').mask('00/00/0000');
 });
 
+
 // Select2
 // $(document).ready(function() {
 //     $('#aluno_municipio_nascimento').select2();
