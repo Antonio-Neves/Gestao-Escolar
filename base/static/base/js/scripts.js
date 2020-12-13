@@ -16,6 +16,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('#aluno_data_nascimento').mask('00/00/0000');
 });
+
 // Select2
 // $(document).ready(function() {
 //     $('#aluno_municipio_nascimento').select2();
@@ -24,8 +25,6 @@ $(document).ready(function(){
 // $(document).ready(function() {
 //     $('#aluno_municipio_residencia').select2();
 // });
-
-
 
 // $(document).ready(function () {
 //     $('#id_aluno_municipio_nascimento').select2({
