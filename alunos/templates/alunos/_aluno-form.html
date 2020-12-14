@@ -16,7 +16,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_data_nascimento">Data de nascimento <span style="color: red;">*</span></label>
-                <input type="text" class="form-control" id="aluno_data_nascimento" placeholder="dd/mm/aaaa" required name="aluno_data_nascimento"
+                <input type="text" class="form-control" id="aluno_data_nascimento" placeholder="dd/mm/aaaa" required name="aluno_data_nascimento"  maxlength="10"
                        value="{% if request.POST %}{{ request.POST.aluno_data_nascimento }}{% elif object.aluno_data_nascimento %}{{ object.aluno_data_nascimento }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_data_nascimento }}</p>
             </div>
@@ -158,8 +158,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_municipio_nascimento">Municipio de nascimento</label>
-                <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento"
-                       value="{% if request.POST %}{{ request.POST.aluno_municipio_nascimento }}{% elif object.aluno_municipio_nascimento %}{{ object.aluno_municipio_nascimento }}{% endif %}" maxlength="100">
+                <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento"  maxlength="100"
+                       value="{% if request.POST %}{{ request.POST.aluno_municipio_nascimento }}{% elif object.aluno_municipio_nascimento %}{{ object.aluno_municipio_nascimento }}{% endif %}">
 {#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
 {#                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}#}
 {#                        {{ municipio_nascimento }}#}
@@ -805,25 +805,25 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="aluno_urgencia2_nome">Nome da 2ª pessoa a chamar em caso de urgência</label>
-                <input type="text" class="form-control" id="aluno_urgencia2_nome" name="aluno_urgencia2_nome"
+                <input type="text" class="form-control" id="aluno_urgencia2_nome" name="aluno_urgencia2_nome" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.aluno_urgencia2_nome }}{% elif object.aluno_urgencia2_nome %}{{ object.aluno_urgencia2_nome }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_urgencia2_nome }}</p>
             </div>
             <div class="form-group col-md-1">
                 <label for="aluno_urgencia2_ddd">DDD</label>
-                <input type="text" class="form-control" id="aluno_urgencia2_ddd" name="aluno_urgencia2_ddd"
+                <input type="text" class="form-control" id="aluno_urgencia2_ddd" name="aluno_urgencia2_ddd" maxlength="2"
                        value="{% if request.POST %}{{ request.POST.aluno_urgencia2_ddd }}{% elif object.aluno_urgencia2_ddd %}{{ object.aluno_urgencia2_ddd }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_urgencia2_ddd }}</p>
             </div>
             <div class="form-group col-md-2">
                 <label for="aluno_urgencia2_telefone">Telefone</label>
-                <input type="text" class="form-control" id="aluno_urgencia2_telefone" name="aluno_urgencia2_telefone"
+                <input type="text" class="form-control" id="aluno_urgencia2_telefone" name="aluno_urgencia2_telefone" maxlength="9"
                        value="{% if request.POST %}{{ request.POST.aluno_urgencia2_telefone }}{% elif object.aluno_urgencia2_telefone %}{{ object.aluno_urgencia2_telefone }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_urgencia2_telefone }}</p>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_urgencia2_parentesco">Parentesco</label>
-                <input type="text" class="form-control" id="aluno_urgencia2_parentesco" name="aluno_urgencia2_parentesco"
+                <input type="text" class="form-control" id="aluno_urgencia2_parentesco" name="aluno_urgencia2_parentesco" maxlength="50"
                        value="{% if request.POST %}{{ request.POST.aluno_urgencia2_parentesco }}{% elif object.aluno_urgencia2_parentesco %}{{ object.aluno_urgencia2_parentesco }}{% endif %}">
             </div>
             <div class="form-group col">
@@ -1037,13 +1037,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="aluno_bolsa_tipo">Tipo de bolsa</label>
-                <input type="text" class="form-control" id="aluno_bolsa_tipo" name="aluno_bolsa_tipo"
+                <input type="text" class="form-control" id="aluno_bolsa_tipo" name="aluno_bolsa_tipo" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.aluno_bolsa_tipo }}{% elif object.aluno_bolsa_tipo %}{{ object.aluno_bolsa_tipo }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_bolsa_tipo }}</p>
             </div>
             <div class="form-group col-md-6">
                 <label for="aluno_bolsa_motivo">Motivo da bolsa</label>
-                <input type="text" class="form-control" id="aluno_bolsa_motivo" name="aluno_bolsa_motivo"
+                <input type="text" class="form-control" id="aluno_bolsa_motivo" name="aluno_bolsa_motivo" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.aluno_bolsa_motivo }}{% elif object.aluno_bolsa_motivo %}{{ object.aluno_bolsa_motivo }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_bolsa_motivo }}</p>
             </div>

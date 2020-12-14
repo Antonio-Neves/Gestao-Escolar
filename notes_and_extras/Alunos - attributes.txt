@@ -153,6 +153,7 @@ aluno_urgencia_procedimentos
 aluno_alergia
 aluno_alergia_tipo
 aluno_apto_edfisica
+aluno_apto_edfisica_justificativa
 aluno_medicacao
 aluno_cuidados_diferenciados
 

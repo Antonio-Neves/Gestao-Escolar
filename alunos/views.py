@@ -14,7 +14,7 @@ class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
 
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class AlunoNewView(SuccessMessageMixin, CreateView):
 	model = Aluno
 	template_name = 'alunos/aluno-novo.html'
@@ -43,11 +43,11 @@ class AlunoNewView(SuccessMessageMixin, CreateView):
 			return redirect(self.success_url)
 
 		else:
-			# messages.error(request, 'confirme os campos do formulário')
 			context = {
 				'aluno_obj': Aluno.objects.all(),
 				'form': AlunoForm(request.POST)
 			}
+
 			return render(request, self.template_name, context)
 
 

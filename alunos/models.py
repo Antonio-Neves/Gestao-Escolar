@@ -891,6 +891,11 @@ class Aluno(models.Model):
 		max_length=1,
 		blank=True
 	)
+	aluno_apto_edfisica_justificativa = models.CharField(
+		'Justificativa para a inadptidão.',
+		max_length=100,
+		blank=True
+	)
 	# --- OK --- #
 	aluno_medicacao = models.TextField(
 		'Instruções para medicação',
