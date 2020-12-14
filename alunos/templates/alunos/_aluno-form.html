@@ -876,7 +876,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="aluno_apto_edfisica_justificativa">Justificativa para não participar nas aulas de Educação Física</label>
-                <input type="text" class="form-control" id="aluno_apto_edfisica_justificativa" name="aluno_apto_edfisica_justificativa" maxlength="100"
+                <input type="text" class="form-control" id="aluno_apto_edfisica_justificativa" name="aluno_apto_edfisica_justificativa" maxlength="50"
                        value="{% if request.POST %}{{ request.POST.aluno_apto_edfisica_justificativa }}{% elif object.aluno_apto_edfisica_justificativa %}{{ object.aluno_apto_edfisica_justificativa }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_apto_edfisica_justificativa }}</p>
             </div>
