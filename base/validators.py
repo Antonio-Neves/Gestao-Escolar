@@ -97,6 +97,16 @@ def validate_aluno_inep(value):
 		return value
 
 
+# --- Professor Validators --- #
+def validate_professor_inep(value):
+
+	if len(value) != 12:
+		raise ValidationError('O Inep necessita 12 números')
+
+	else:
+		return value
+
+
 # --- School Validators --- #
 def validate_ano_letivo(value):
 
