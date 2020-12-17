@@ -2,6 +2,12 @@ from django.db import models
 
 
 class Municipio(models.Model):
+	"""
+	Populate table with 'base_municipio.csv' in:
+	BASE_ROOT
+		notes_and_extras
+			Tabelas necessárias
+	"""
 	municipio_codigo = models.CharField(
 		'Código do Município',
 		max_length=7,
@@ -26,6 +32,12 @@ class Municipio(models.Model):
 
 
 class Pais(models.Model):
+	"""
+	Populate table with 'base_pais.csv' in:
+	BASE_ROOT
+		notes_and_extras
+			Tabelas necessárias
+	"""
 	pais_codigo = models.CharField(
 		'Código do País',
 		max_length=3,
@@ -46,6 +58,13 @@ class Pais(models.Model):
 
 
 class CursoFS(models.Model):
+	"""
+	Curso de Formação Superior
+	Populate table with 'base_cfs.csv' in:
+	BASE_ROOT
+		notes_and_extras
+			Tabelas necessárias
+	"""
 	cfs_id = models.CharField(
 		'Código do Curso de Formação Superior',
 		max_length=6,
