@@ -13,6 +13,7 @@ from base.validators import (
 	validate_ddd,
 	validate_phone,
 	validate_cep,
+	validate_year,
 	)
 
 from base.models import CursoFS, Municipio, Pais
@@ -383,6 +384,7 @@ class Professor(models.Model):
 		choices=CHOICES_TIPO_ENSINO_MEDIO
 	)
 	### --- Cursos --- #
+	### --- OK MEC --- #
 	professor_curso1 = models.ForeignKey(
 		CursoFS,
 		on_delete=models.DO_NOTHING,
@@ -391,12 +393,67 @@ class Professor(models.Model):
 		blank=True,
 		null=True
 	)
+	### --- OK MEC --- #
 	professor_curso_conclusao1 = models.CharField(
 		'Ano de conclusão',
 		max_length=4,
-
-
+		blank=True,
+		validators=[validate_year, validate_digits]
 	)
+	### --- OK MEC --- #
+	# TODO Need the institution number for use in MEC import
+	professor_curso_instituicao1 = models.CharField(
+		'Instituição de Educação Superior',
+		max_length=100,
+		blank=True,
+	)
+	### --- OK MEC --- #
+	professor_curso2 = models.ForeignKey(
+		CursoFS,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Curso Formação Superior',
+		related_name='professorcurso2',
+		blank=True,
+		null=True
+	)
+	### --- OK MEC --- #
+	professor_curso_conclusao2 = models.CharField(
+		'Ano de conclusão',
+		max_length=4,
+		blank=True,
+		validators=[validate_year, validate_digits]
+	)
+	### --- OK MEC --- #
+	# TODO Need the institution number for use in MEC import
+	professor_curso_instituicao2 = models.CharField(
+		'Instituição de Educação Superior',
+		max_length=100,
+		blank=True,
+	)
+	### --- OK MEC --- #
+	professor_curso3 = models.ForeignKey(
+		CursoFS,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Curso Formação Superior',
+		related_name='professorcurso3',
+		blank=True,
+		null=True
+	)
+	### --- OK MEC --- #
+	professor_curso_conclusao3 = models.CharField(
+		'Ano de conclusão',
+		max_length=4,
+		blank=True,
+		validators=[validate_year, validate_digits]
+	)
+	### --- OK MEC --- #
+	# TODO Need the institution number for use in MEC import
+	professor_curso_instituicao3 = models.CharField(
+		'Instituição de Educação Superior',
+		max_length=100,
+		blank=True,
+	)
+
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #
 	# 0 or 1

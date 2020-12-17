@@ -32,6 +32,15 @@ def validate_data(value):
 		return value
 
 
+def validate_year(value):
+
+	if len(value) != 4:
+		raise ValidationError('São necessários 4 digitos')
+
+	else:
+		return value
+
+
 # --- Documents Validators --- #
 def validate_cpf(value):
 
