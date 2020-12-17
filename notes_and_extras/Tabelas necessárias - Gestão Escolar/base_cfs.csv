@@ -1,0 +1,256 @@
+cfs_id,cfs_nome_grau
+345A01,Administração - Bacharelado
+582A02,Agrimensura - Tecnológico
+621A06,Agroecologia - Tecnológico
+621A03,Agroindústria - Tecnológico
+621T03,Agronegócio - Tecnológico
+621A04,Agronomia - Bacharelado
+541T01,Alimentos  - Tecnológico
+483S01,Análise e desenvolvimento de sistemas / Segurança da informação - Tecnológico
+312A01,Antropologia - Bacharelado
+624A01,Aqüicultura - Tecnológico
+225A01,Arqueologia - Bacharelado
+581A05,Arquitetura e Urbanismo - Bacharelado
+322A01,Arquivologia - Bacharelado
+211A02,Artes Visuais - Bacharelado
+146F04,Artes Visuais - Licenciatura
+520A01,Automação industrial - Tecnológico
+720S01,Bacharelado Interdisciplinar Ciências da Saúde - Bacharelado
+220H01,Bacharelado Interdisciplinar Ciências Humanas - Bacharelado 
+210A01,Bacharelado Interdisciplinar em Artes - Bacharelado
+440C01,Bacharelado Interdisciplinar em Ciência e Tecnologia  - Bacharelado
+481B01,Banco de dados - Tecnológico
+322B01,Biblioteconomia - Bacharelado
+524T04,Biocombustíveis - Tecnológico
+542B01,Bioenergia - Tecnológico
+421B07,Biomedicina - Bacharelado
+421B12,Biotecnologia - Tecnológico
+621T04,Cafeicultura - Tecnológico
+213C07,Carnaval - Tecnológico
+543C01,Cerâmica - Tecnológico
+481C01,Ciência da Computação - Bacharelado
+443C01,Ciência da Terra - Licenciatura
+313C01,Ciência política - Bacharelado
+840C04,Ciências Aeronáuticas - Bacharelado*
+462C01,Ciências Atuariais - Bacharelado
+421C01,Ciências Biológicas - Bacharelado
+145F01,Ciências Biológicas - Licenciatura
+344C02,Ciências Contábeis - Bacharelado
+863C02,Ciências da Logística - Bacharelado*
+314E02,Ciências Econômicas - Bacharelado
+863C01,Ciências Militares - Bacharelado*
+145F02,Ciências Naturais - Licenciatura
+840C05,Ciências Navais - Bacharelado*
+310C02,Ciências Sociais - Bacharelado
+145F24,Ciências Sociais - Licenciatura
+321C01,Cinema e Audiovisual - Bacharelado
+340N02,Comércio exterior - Tecnológico
+223C01,Comunicação assistiva - Tecnológico
+342C01,Comunicação institucional - Tecnológico
+321C02,Comunicação Social (Área Geral) - Bacharelado
+215C02,Conservação e restauro - Tecnológico
+582C05,Construção de Edifícios - Tecnológico
+525C04,Construção naval - Tecnológico
+582O01,Controle de obras - Tecnológico
+146F07,Dança - Licenciatura
+212D01,Dança – Bacharelado
+214D05,Design - Bacharelado
+214D06,Design de Interiores  - Tecnológico
+214D02,Design de moda - Tecnológico
+214P01,Design de produto - Tecnológico
+213C06,Design gráfico - Tecnológico
+380D01,Direito - Bacharelado
+814E02,Economia doméstica - Bacharelado
+720E01,Educação Física - Bacharelado
+146F15,Educação Física - Licenciatura
+145F05,Educação Religiosa - Licenciatura
+523T06,Eletrônica industrial - Tecnológico
+522T02,Eletrotécnica industrial - Tecnológico
+723E01,Enfermagem - Bacharelado
+520E01,Engenharia - Bacharelado
+525E04,Engenharia Aeronáutica - Bacharelado
+621E03,Engenharia Agrícola - Bacharelado
+520E09,Engenharia Ambiental e Sanitária - Bacharelado
+525E05,Engenharia automotiva - Bacharelado
+523B01,Engenharia Biomédica - Bacharelado
+582E02,Engenharia Cartográfica e de Agrimensura - Bacharelado
+582E03,Engenharia Civil - Bacharelado
+541E01,Engenharia de Alimentos - Bacharelado
+524E01,Engenharia de Bioprocessos - Bacharelado
+523E04,Engenharia de Computação - Bacharelado
+523E11,Engenharia de Controle e Automação - Bacharelado
+520E04,Engenharia de Materiais - Bacharelado
+544E01,Engenharia de Minas - Bacharelado
+624E01,Engenharia de Pesca - Bacharelado
+544E07,Engenharia de Petróleo - Bacharelado
+520E05,Engenharia de Produção - Bacharelado
+523E12,Engenharia de Telecomunicações - Bacharelado
+522E06,Engenharia Elétrica - Bacharelado
+523E09,Engenharia Eletrônica - Bacharelado
+623E01,Engenharia Florestal - Bacharelado
+521E05,Engenharia Mecânica - Bacharelado
+523E10,Engenharia mecatrônica - Bacharelado
+521E06,Engenharia Metalúrgica - Bacharelado
+525E08,Engenharia Naval - Bacharelado
+524E06,Engenharia nuclear - Bacharelado
+524E07,Engenharia Química - Bacharelado
+542E03,Engenharia Têxtil - Bacharelado
+462E01,Estatística - Bacharelado
+815E01,Estética e Cosmética - Tecnológico
+582T04,Estradas - Tecnológico
+812E01,Eventos - Tecnológico
+215F01,Fabricação de Instrumentos Musicais - Tecnológico
+521T03,Fabricação mecânica - Tecnológico
+727F01,Farmácia - Bacharelado
+226F01,Filosofia - Bacharelado
+145F08,Filosofia - Licenciatura
+145F09,Física - Licenciatura
+441F01,Física – Bacharelado
+441R01,Física Medica e Radioterapia - Bacharelado
+726F01,Fisioterapia - Bacharelado
+726F03,Fonoaudiologia - Bacharelado
+863F01,Formação Militar - Bacharelado*
+213F01,Fotografia - Tecnológico
+813F02,Futebol - Tecnológico
+811G01,Gastronomia - Tecnológico
+443G03,Geofísica - Bacharelado
+443G05,Geografia - Bacharelado
+145F10,Geografia - Licenciatura
+443G06,Geologia - Bacharelado
+520G01,Geoprocessamento - Tecnológico
+345G16,Gestão comercial  - Tecnológico
+520P02,Gestão da produção industrial - Tecnológico
+345G10,Gestão da qualidade  - Tecnológico
+481T01,Gestão da tecnologia da informação - Tecnológico
+345A02,Gestão de cooperativas  - Tecnológico
+345G09,Gestão de recursos humanos  - Tecnológico
+345G26,Gestão de segurança privada - Tecnológico
+343S01,Gestão de Seguros - Tecnológico
+520T01,Gestão de telecomunicações - Tecnológico
+812P01,Gestão de Turismo - Tecnológico
+813G02,Gestão desportiva e de lazer - Tecnológico
+345G17,Gestão financeira  - Tecnológico
+345A07,Gestão hospitalar  - Tecnológico
+840S01,Gestão portuária - Tecnológico
+345A10,Gestão pública  - Tecnológico
+145F11,História - Licenciatura
+225H01,História – Bacharelado
+622H01,Horticultura - Tecnológico
+811H02,Hotelaria - Tecnológico
+811H03,Hotelaria Hospitalar - Tecnológico
+146F05,Informática - Licenciatura
+621T01,Irrigação e Drenagem - Tecnológico
+481T02,Jogos Digitais - Tecnológico
+321J01,Jornalismo - Bacharelado
+541I02,Laticínios  - Tecnológico
+222L01,Letras - Língua Estrangeira - Bacharelado
+145F14,Letras - Língua Estrangeira - Licenciatura
+223L01,Letras - Língua Portuguesa - Bacharelado
+145F15,Letras - Língua Portuguesa - Licenciatura
+220L03,Letras - Língua Portuguesa e Estrangeira - Bacharelado
+145F17,Letras - Língua Portuguesa e Estrangeira - Licenciatura
+223L02,Libras - Bacharelado
+145F28,Libras - Licenciatura
+144F13,Licenciatura Intercultural Indígena - Licenciatura 
+146F02,Licenciatura Interdisciplinar em Artes (Educação Artística) - Licenciatura
+144F12,Licenciatura Interdisciplinar em Ciências Humanas - Licenciatura
+146F09,Licenciatura Interdisciplinar em Educação no Campo - Licenciatura
+146P01,Licenciatura para a Educação Profissional e Tecnológica - Licenciatura
+345G13,Logística  - Tecnológico
+525M01,Manutenção de aeronaves - Tecnológico
+520M01,Manutenção industrial - Tecnológico
+342M02,Marketing - Tecnológico
+145F18,Matemática - Licenciatura
+461M01,Matemática – Bacharelado
+582M02,Material de construção - Tecnológico
+521M03,Mecânica de precisão - Tecnológico
+525A01,Mecanização Agrícola - Tecnológico
+523T04,Mecatrônica industrial - Tecnológico
+721M01,Medicina - Bacharelado
+641M01,Medicina Veterinária - Bacharelado
+443M01,Meteorologia - Bacharelado
+544M02,Mineração e extração - Tecnológico
+214M01,Moda - Bacharelado
+225M02,Museografia - Tecnológico
+225M01,Museologia - Bacharelado
+146F20,Música - Licenciatura
+212M02,Música – Bacharelado
+720N01,Naturologia - Bacharelado
+341N01,Negócios imobiliários - Tecnológico
+726N02,Nutrição - Bacharelado
+582A01,Obras hidráulicas - Tecnológico
+443O01,Oceanografia - Bacharelado
+724O01,Odontologia - Bacharelado
+721O02,Oftálmica - Tecnológico
+726O01,Óptica e Optometria - Tecnológico 
+999991,Outro curso de formação superior - Bacharelado
+999990,Outro curso de formação superior - Licenciatura
+999992,Outro curso de formação superior - Tecnológico
+543F05,Papel e celulose  - Tecnológico
+142P01,Pedagogia - Licenciatura
+142C01,Pedagogia (Ciências da Educação) - Bacharelado
+544E05,Petróleo e gás  - Tecnológico
+840A01,Pilotagem profissional de aeronaves - Tecnológico
+543P06,Polímeros - Tecnológico
+541P05,Processamento de Carnes  - Tecnológico
+850G01,Processos ambientais / Gestão ambiental - Tecnológico
+142A01,Processos Escolares - Tecnológico
+345C01,Processos gerenciais  - Tecnológico
+521T02,Processos metalúrgicos - Tecnológico
+524T03,Processos químicos - Tecnológico
+621M02,Produção Agrícola - Tecnológico
+213A05,Produção audiovisual - Tecnológico
+212C02,Produção cênica - Tecnológico
+213P07,Produção Cultural - Tecnológico
+541T03,Produção de Cachaça  - Tecnológico
+621T05,Produção de Grãos - Tecnológico
+542I01,Produção de vestuário  - Tecnológico
+213P03,Produção fonográfica - Tecnológico
+540F03,Produção Gráfica  - Tecnológico
+540F02,Produção Joalheira/Design de jóias e gemas - Tecnológico
+543F03,Produção moveleira  - Tecnológico
+213P02,Produção multimídia - Tecnológico
+624T01,Produção Pesqueira - Tecnológico
+213P05,Produção publicitária - Tecnológico
+541T02,Produção Sucroalcooleira  - Tecnológico
+542I02,Produção têxtil  - Tecnológico
+311P02,Psicologia - Bacharelado
+342P02,Publicidade e Propaganda - Bacharelado
+145F21,Química - Licenciatura
+442Q01,Química – Bacharelado
+726Q01,Quiropraxia - Bacharelado
+321R01,"Radio, TV, Internet - Bacharelado"
+725T06,Radiologia - Tecnológico
+481A01,Redes de computadores - Tecnológico
+523T01,Redes de telecomunicações / Sistemas de telecomunicações - Tecnológico
+522R01,Refrigeração/Aquecimento - Tecnológico
+313R01,Relações Internacionais - Bacharelado
+342R01,Relações Públicas - Bacharelado
+544R01,Rochas ornamentais  - Tecnológico
+422S01,Saneamento ambiental - Tecnológico
+346S01,Secretariado  - Tecnológico
+346S03,Secretariado Executivo - Bacharelado
+862S01,Segurança no trabalho - Tecnológico
+861S02,Segurança no trânsito / Segurança pública - Tecnológico
+762S01,Serviço Social - Bacharelado
+861S03,Serviços penais - Tecnológico
+623S01,Silvicultura - Tecnológico
+525S01,Sistemas Automotivos - Tecnológico
+523M01,Sistemas biomédicos - Tecnológico
+522E08,Sistemas de energia - Tecnológico
+483S02,Sistemas de Informação - Bacharelado
+840N02,Sistemas de navegação fluvial - Tecnológico
+522D02,Sistemas elétricos - Tecnológico
+523S03,Sistemas eletrônicos - Tecnológico
+482U01,Sistemas para internet - Tecnológico
+212T01,Teatro - Bacharelado
+146F22,Teatro - Licenciatura
+544T01,Tecnologia de Mineração - Tecnológico
+523T05,Telemática - Tecnológico
+221T01,Teologia - Bacharelado
+726T01,Terapia Ocupacional - Bacharelado
+840S02,Transporte aéreo - Tecnológico
+840T02,Transporte terrestre - Tecnológico
+812T01,Turismo - Bacharelado
+541P09,Viticultura e Enologia  - Tecnológico
+621Z01,Zootecnia - Bacharelado

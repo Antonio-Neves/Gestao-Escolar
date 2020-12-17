@@ -15,7 +15,7 @@ from base.validators import (
 	validate_cep,
 	)
 
-from base.models import Municipio, Pais
+from base.models import CursoFS, Municipio, Pais
 
 
 class Professor(models.Model):
@@ -383,6 +383,20 @@ class Professor(models.Model):
 		choices=CHOICES_TIPO_ENSINO_MEDIO
 	)
 	### --- Cursos --- #
+	professor_curso1 = models.ForeignKey(
+		CursoFS,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Curso Formação Superior',
+		related_name='professorcurso1',
+		blank=True,
+		null=True
+	)
+	professor_curso_conclusao1 = models.CharField(
+		'Ano de conclusão',
+		max_length=4,
+
+
+	)
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #
 	# 0 or 1
