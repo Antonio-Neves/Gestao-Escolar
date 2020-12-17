@@ -27,7 +27,7 @@ class Municipio(models.Model):
 
 class Pais(models.Model):
 	pais_codigo = models.CharField(
-		'Codigo do País',
+		'Código do País',
 		max_length=3,
 		primary_key=True,
 		unique=True
@@ -43,3 +43,24 @@ class Pais(models.Model):
 
 	def __str__(self):
 		return self.pais_nome
+
+
+class CursoFS(models.Model):
+	cfs_id = models.CharField(
+		'Código do Curso de Formação Superior',
+		max_length=6,
+		primary_key=True,
+		unique=True
+	)
+	cfs_nome_grau = models.CharField(
+		'Nome do curso de Formação Superior',
+		max_length=100,
+		unique=True
+	)
+
+	class Meta:
+		verbose_name = 'Curso Formação Superior'
+		verbose_name_plural = 'Cursos de Formação Superior'
+
+	def __str__(self):
+		return self.cfs_nome_grau
