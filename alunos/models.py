@@ -1040,3 +1040,10 @@ class Aluno(models.Model):
 	# --- Data de criação ou modificação --- #
 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
 	modified = models.DateTimeField('Data da alteração', auto_now=True)
+
+	class Meta:
+		verbose_name = 'Aluno'
+		verbose_name_plural = 'Alunos'
+
+	def __str__(self):
+		return self.aluno_nome

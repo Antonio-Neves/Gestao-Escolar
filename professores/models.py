@@ -16,7 +16,7 @@ from base.validators import (
 	validate_year,
 	)
 
-from base.models import CursoFS, Municipio, Pais
+from base.models import AreaConhecimento, CursoFS, Municipio, Pais
 
 
 class Professor(models.Model):
@@ -453,11 +453,33 @@ class Professor(models.Model):
 		max_length=100,
 		blank=True,
 	)
-	# # --- Formação / Complementação Pedagógica --- #
-	# professor_area_conhecimento = models.CharField(
-	# 	'Área do conhecimento',
-	#
-	# )
+	# --- Formação / Complementação Pedagógica --- #
+	professor_area_conhecimento1 = models.ForeignKey(
+		AreaConhecimento,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Área do conhecimento',
+		related_name='professorareaconhecimento1',
+		blank=True,
+		null=True
+	)
+	professor_area_conhecimento2 = models.ForeignKey(
+		AreaConhecimento,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Área do conhecimento',
+		related_name='professorareaconhecimento2',
+		blank=True,
+		null=True
+	)
+	professor_area_conhecimento3 = models.ForeignKey(
+		AreaConhecimento,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Área do conhecimento',
+		related_name='professorareaconhecimento3',
+		blank=True,
+		null=True
+	)
+	# --- Pós Graduações concluidas --- #
+
 # ----------------------------------------------------------------------
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #
