@@ -453,7 +453,12 @@ class Professor(models.Model):
 		max_length=100,
 		blank=True,
 	)
-
+	# # --- Formação / Complementação Pedagógica --- #
+	# professor_area_conhecimento = models.CharField(
+	# 	'Área do conhecimento',
+	#
+	# )
+# ----------------------------------------------------------------------
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #
 	# 0 or 1

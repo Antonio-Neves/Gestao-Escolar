@@ -65,7 +65,7 @@ class CursoFS(models.Model):
 		notes_and_extras
 			Tabelas necessárias
 	"""
-	cfs_id = models.CharField(
+	cfs_codigo = models.CharField(
 		'Código do Curso de Formação Superior',
 		max_length=6,
 		primary_key=True,
@@ -83,3 +83,28 @@ class CursoFS(models.Model):
 
 	def __str__(self):
 		return self.cfs_nome_grau
+
+
+class AreaConhecimento(models.Model):
+	"""
+	Area de conhecimento
+	Populate table with 'base_area_conhecimento.csv' in:
+	BASE_ROOT
+		notes_and_extras
+			Tabelas necessárias
+	"""
+	area_codigo = models.CharField(
+		'Código da componente curricular',
+		max_length=2,
+		primary_key=True,
+		unique=True
+	)
+	componente_curricular = models.CharField(
+		'Componente curricular',
+		max_length=50,
+		unique=True
+	)
+	area_conhecimento = models.CharField(
+		'Área de conhecimento',
+		max_length=50
+	)
