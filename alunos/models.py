@@ -1044,6 +1044,7 @@ class Aluno(models.Model):
 	class Meta:
 		verbose_name = 'Aluno'
 		verbose_name_plural = 'Alunos'
+		ordering = ['aluno_nome']
 
 	def __str__(self):
 		return self.aluno_nome
