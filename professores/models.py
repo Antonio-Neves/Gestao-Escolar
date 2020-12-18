@@ -22,14 +22,15 @@ from base.models import AreaConhecimento, CursoFS, Municipio, Pais
 class Professor(models.Model):
 
 	CHOICES_PROFESSOR_SITUACAO = (
-		('0', 'Ativo'),
-		('1', 'Inativo'),
+		('0', 'Concursado'),
+		('1', 'CLT'),
 		('2', 'Demitido'),
 		('3', 'Curriculo'),
 		('4', 'Atestado'),
 		('5', 'Temporário'),
 		('6', 'Substituto'),
-		('7', 'Estagiário')
+		('7', 'Estagiário'),
+		('8', 'Terceirizado')
 	)
 
 	CHOICES_PROFESSOR_JUSTIFICATIVA_DOCUMENTOS = (
@@ -401,7 +402,21 @@ class Professor(models.Model):
 		validators=[validate_year, validate_digits]
 	)
 	### --- OK MEC --- #
-	# TODO Need the institution number for use in MEC import
+	# blank or 1
+	professor_curso_publica1 = models.CharField(
+		'Pública',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_privada1 = models.CharField(
+		'Privada',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# TODO will change for the institution number for use in MEC import
 	professor_curso_instituicao1 = models.CharField(
 		'Instituição de Educação Superior',
 		max_length=100,
@@ -422,6 +437,20 @@ class Professor(models.Model):
 		max_length=4,
 		blank=True,
 		validators=[validate_year, validate_digits]
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_publica2 = models.CharField(
+		'Pública',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_privada2 = models.CharField(
+		'Privada',
+		max_length=1,
+		blank=True
 	)
 	### --- OK MEC --- #
 	# TODO Need the institution number for use in MEC import
@@ -445,6 +474,20 @@ class Professor(models.Model):
 		max_length=4,
 		blank=True,
 		validators=[validate_year, validate_digits]
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_publica3 = models.CharField(
+		'Pública',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_privada3 = models.CharField(
+		'Privada',
+		max_length=1,
+		blank=True
 	)
 	### --- OK MEC --- #
 	# TODO Need the institution number for use in MEC import
@@ -478,9 +521,155 @@ class Professor(models.Model):
 		blank=True,
 		null=True
 	)
-	# --- Pós Graduações concluidas --- #
-
-# ----------------------------------------------------------------------
+	# --- Pós graduações concluidas --- #
+	# TODO radio field
+	# 0 or 1
+	professor_pos_graduacao_concluida = models.CharField(
+		'Tem pós graduação concluida',
+		max_length=1,
+		choices=CHOICES_SIM_NAO
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_especializacao = models.CharField(
+		'Especialização',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_mestrado = models.CharField(
+		'Mestrado',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_doutorado = models.CharField(
+		'Doutorado',
+		max_length=1,
+		blank=True
+	)
+	# --- Outros cursos específicos --- #
+	# TODO radio field
+	# 0 or 1
+	professor_outros_cursos = models.CharField(
+		'Outros cursos específicos',
+		max_length=1,
+		choices=CHOICES_SIM_NAO
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_creche = models.CharField(
+		'Creche',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_pre_escola = models.CharField(
+		'Pré-escola',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_fundamental1 = models.CharField(
+		'Anos iniciais do ensino fundamental',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_fundamental2 = models.CharField(
+		'Anos finais do ensino fundamental',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_ensino_medio = models.CharField(
+		'Ensino médio',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_jovens_adultos = models.CharField(
+		'Educação de jovens e adultos',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_educacao_especial = models.CharField(
+		'Educação especial',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_educacao_indigena = models.CharField(
+		'Educação indígena',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_educacao_campo = models.CharField(
+		'Educação do campo',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_educacao_ambiental = models.CharField(
+		'Educação ambiental',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_direitos_humanos = models.CharField(
+		'Educação em direitos humanos',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_diversidade_sexual = models.CharField(
+		'Gênero e diversidade sexual',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_direitos_crianca = models.CharField(
+		'Direitos de crianças e adolescentes',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_relacoes_etnicas = models.CharField(
+		'Educação para as relações étnico-raciais',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_gestao_escolar = models.CharField(
+		'Gestão escolar',
+		max_length=1,
+		blank=True
+	)
+	### --- OK MEC --- #
+	# blank or 1
+	professor_curso_outros = models.CharField(
+		'Outros cursos',
+		max_length=1,
+		blank=True
+	)
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #
 	# 0 or 1
@@ -749,3 +938,11 @@ class Professor(models.Model):
 	# --- Data de criação ou modificação --- #
 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
 	modified = models.DateTimeField('Data da alteração', auto_now=True)
+
+	class Meta:
+		verbose_name = 'Professor'
+		verbose_name_plural = 'Professores'
+		ordering = ['professor_nome']
+
+	def __str__(self):
+		return self.professor_nome
