@@ -24,13 +24,13 @@ class Professor(models.Model):
 	CHOICES_PROFESSOR_SITUACAO = (
 		('0', 'Concursado'),
 		('1', 'CLT'),
-		('2', 'Demitido'),
-		('3', 'Curriculo'),
-		('4', 'Atestado'),
-		('5', 'Temporário'),
-		('6', 'Substituto'),
-		('7', 'Estagiário'),
-		('8', 'Terceirizado')
+		('2', 'Temporário'),
+		('3', 'Substituto'),
+		('4', 'Estagiário'),
+		('5', 'Terceirizado'),
+		('6', 'Curriculo'),
+		('7', 'Atestado'),
+		('8', 'Demitido'),
 	)
 
 	CHOICES_PROFESSOR_JUSTIFICATIVA_DOCUMENTOS = (
