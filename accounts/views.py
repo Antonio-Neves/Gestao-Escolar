@@ -14,7 +14,7 @@ class UserCreate(SuccessMessageMixin, CreateView):
 	model = CustomUser
 	form_class = CustomUserCreateForm
 	template_name = 'accounts/user-new.html'
-	success_url = '/accounts/login'
+	success_url = '/usuarios/login'
 	success_message = 'Bem vindo! Faça login para começar'
 
 

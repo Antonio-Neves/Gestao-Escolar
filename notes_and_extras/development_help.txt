@@ -103,3 +103,25 @@ class AnoEscolarView(SuccessMessageMixin, CreateView):
 		context = {'aluno_obj': Aluno.objects.all()}
 
 		return super().get_context_data(**context)
+
+
+# ------------------------------------------------------------------ #
+# --- Login required and test departments --- #
+
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
+	...
+	...
+
+	def test_func(self):
+
+		if self.request.user.department == 'AD':
+			return True
+
+	def handle_no_permission(self):
+
+		if self.raise_exception or self.request.user.is_authenticated:
+			return redirect('index-manager')
+
+		return redirect('login')
