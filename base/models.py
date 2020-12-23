@@ -108,3 +108,11 @@ class AreaConhecimento(models.Model):
 		'Área de conhecimento',
 		max_length=50
 	)
+
+	class Meta:
+		verbose_name = 'Componente curricular'
+		verbose_name_plural = 'Componentes curriculares'
+		ordering = ['componente_curricular']
+
+	def __str__(self):
+		return self.componente_curricular

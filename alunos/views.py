@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib import messages
 
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
@@ -43,25 +42,6 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 		return redirect('login')
 
-	# def post(self, request, *args, **kwargs):
-	# 	form = AlunoForm(request.POST)
-	#
-	# 	if form.is_valid():
-	# 		form_model = form.save(commit=False)
-	# 		form_model.save()
-	# 		form.save_m2m()
-	# 		messages.success(request, self.success_message)
-	#
-	# 		return redirect(self.success_url)
-	#
-	# 	else:
-	# 		context = {
-	# 			'aluno_obj': Aluno.objects.all(),
-	# 			'form': AlunoForm(request.POST)
-	# 		}
-	#
-	# 		return render(request, self.template_name, context)
-
 
 class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
 	model = Aluno
@@ -75,7 +55,7 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 		tem acesso a funções administrativas.
 		"""
 
-		authorized_admin_access = ['AD']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['AD', 'SE']  # lista de acesso a funções administrativas
 
 		if self.request.user.department in authorized_admin_access:
 			return True

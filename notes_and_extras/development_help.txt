@@ -125,3 +125,53 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 			return redirect('index-manager')
 
 		return redirect('login')
+
+
+# ------------------------------------------------------------------ #
+# --- Print --- #
+
+    <div>
+        <input class="noprint" type="button" onclick="printBy();" value="Imprimir Div separadamente">
+    </div>
+
+# --- CSS --- #
+
+@media print {
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    #printable {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 14px;
+    }
+
+    #printable ~ * {
+        display: none;
+    }
+
+    .noprint {
+        display: none;
+    }
+
+}
+
+# --- JS --- #
+
+function printBy(selector){
+    var $print = $(selector)
+        .clone()
+        .addClass('print')
+        .prependTo('body');
+
+    // Stop JS execution
+    window.print();
+
+    // Remove div once printed
+    $print.remove();
+}

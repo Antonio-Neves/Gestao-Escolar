@@ -18,6 +18,19 @@ $(document).ready(function(){
 });
 
 
+// function printBy(selector){
+//     var $print = $(selector)
+//         .clone()
+//         .addClass('print')
+//         .prependTo('body');
+//
+//     // Stop JS execution
+//     window.print();
+//
+//     // Remove div once printed
+//     $print.remove();
+// }
+
 // Select2
 // $(document).ready(function() {
 //     $('#aluno_municipio_nascimento').select2();
