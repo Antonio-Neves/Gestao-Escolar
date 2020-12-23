@@ -154,13 +154,6 @@ class Professor(models.Model):
 		null=True,
 		unique=True
 	)
-	### --- OK --- #
-	professor_justificativa_documentos = models.CharField(
-		'Justificativa da falta de documentos',
-		max_length=1,
-		blank=True,
-		choices=CHOICES_PROFESSOR_JUSTIFICATIVA_DOCUMENTOS
-	)
 	# --- professor Dados Pessoais --- #
 	### --- OK MEC --- #
 	professor_nome = models.CharField(
@@ -669,6 +662,13 @@ class Professor(models.Model):
 		'Outros cursos',
 		max_length=1,
 		blank=True
+	)
+	### --- OK --- #
+	professor_justificativa_documentos = models.CharField(
+		'Justificativa da falta de documentos',
+		max_length=1,
+		blank=True,
+		choices=CHOICES_PROFESSOR_JUSTIFICATIVA_DOCUMENTOS
 	)
 	# --- professor deficiencias --- #
 	### --- OK MEC --- #

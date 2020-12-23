@@ -1,0 +1,197 @@
+professor_id
+*professor_situacao
+
+# --- professor Documentos --- #
+
+*professor_inep
+*professor_cpf
+*professor_rg
+
+# --- professor Dados Pessoais --- #
+
+*professor_nome
+*professor_data_nascimento
+professor_sexo
+professor_cor
+
+# --- professor Nacionalidade --- #
+
+professor_nacionalidade
+professor_pais_nascimento
+professor_estado_nascimento
+professor_municipio_nascimento
+
+# --- professor residencia --- #
+
+professor_logradouro_residencia
+professor_numero_residencia
+professor_complemento_residencia
+professor_zona_residencia
+professor_localizacao_residencia
+professor_bairro_residencia
+professor_cep_residencia
+professor_estado_residencia
+professor_municipio_residencia
+professor_pais_residencia
+
+# --- professor contacto --- #
+
+professor_ddd1
+professor_telefone1
+professor_ddd1
+professor_telefone1
+professor_email
+
+# --- professor filiação --- #
+
+professor_filiacao
+professor_filiacao1_nome
+professor_filiacao2_nome
+
+# --- Escolaridade --- #
+
+professor_nivel_escolaridade
+professor_tipo_ensino_medio
+
+# --- Cursos --- #
+
+professor_curso1
+professor_curso_conclusao1
+professor_curso_publica1
+professor_curso_privada1
+professor_curso_instituicao1
+
+professor_curso2
+professor_curso_conclusao2
+professor_curso_publica2
+professor_curso_privada2
+professor_curso_instituicao2
+
+professor_curso3
+professor_curso_conclusao3
+professor_curso_publica3
+professor_curso_privada3
+professor_curso_instituicao3
+
+# --- Formação / Complementação Pedagógica --- #
+
+professor_area_conhecimento1
+professor_area_conhecimento2
+professor_area_conhecimento3
+
+# --- Pós graduações concluidas --- #
+
+professor_pos_graduacao_concluida
+professor_especializacao
+professor_mestrado
+professor_doutorado
+
+# --- Outros cursos específicos --- #
+
+professor_outros_cursos
+professor_curso_creche
+professor_curso_pre_escola
+professor_curso_fundamental1
+professor_curso_fundamental2
+professor_curso_ensino_medio
+professor_curso_jovens_adultos
+professor_curso_educacao_especial
+professor_curso_educacao_indigena
+professor_curso_educacao_campo
+professor_curso_educacao_ambiental
+professor_curso_direitos_humanos
+professor_curso_diversidade_sexual
+professor_curso_direitos_crianca
+professor_curso_relacoes_etnicas
+professor_curso_gestao_escolar
+professor_curso_outros
+
+professor_justificativa_documentos
+
+# --- professor deficiencias --- #
+
+professor_deficiencia
+professor_cegueira
+professor_baixa_visao
+professor_surdez
+professor_deficiencia_auditiva
+professor_surdocegueira
+professor_deficiencia_fisica
+professor_deficiencia_intelectual
+professor_deficiencia_multipla
+professor_autismo
+professor_altas_habilidades
+
+# --- professor necessidades diferenciadas --- #
+
+professor_necessidades_especiais
+professor_auxilio_ledor
+professor_auxilio_transcricao
+professor_guia_interprete
+professor_tradutor_libras
+professor_leitura_labial
+professor_prova_ampliada18
+professor_prova_superampliada24
+professor_cd_audio
+professor_prova_portuguesa
+professor_prova_video
+professor_prova_braille
+
+# --- Saida escola --- #
+
+professor_ensino_outro_lugar
+
+# --- Urgencia --- #
+
+professor_urgencia_nome
+professor_urgencia_ddd
+professor_urgencia_telefone
+professor_urgencia_parentesco
+professor_urgencia_procedimentos
+
+# --- professor cuidados diferenciados --- #
+
+professor_alergia
+professor_alergia_tipo
+professor_cuidados_diferenciados
+
+# --- Plano de saude --- #
+
+professor_plano_saude
+professor_plano_saude_nome
+professor_plano_saude_ddd
+professor_plano_saude_telefone
+professor_plano_saude_email
+
+# --- Convenio --- #
+
+professor_convenio
+professor_convenio_nome
+professor_convenio_ddd
+professor_convenio_telefone
+professor_convenio_email
+
+# --- Programa social --- #
+
+professor_progrma_social
+professor_progrma_social_nome
+professor_progrma_social_ddd
+professor_progrma_social_telefone
+professor_progrma_social_email
+
+# --- Estagio --- #
+
+professor_estagio
+professor_estagio_instituicao
+professor_estagio_tempo
+professor_estagio_observacoes
+
+# --- Observações --- #
+
+professor_observacoes
+
+# --- Data de criação ou modificação --- #
+
+created
+modified
+
