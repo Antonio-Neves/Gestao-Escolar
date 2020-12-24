@@ -493,7 +493,7 @@ class Professor(models.Model):
 	professor_area_conhecimento1 = models.ForeignKey(
 		AreaConhecimento,
 		on_delete=models.DO_NOTHING,
-		verbose_name='Área do conhecimento',
+		verbose_name='Componenete curricular',
 		related_name='professorareaconhecimento1',
 		blank=True,
 		null=True
@@ -501,7 +501,7 @@ class Professor(models.Model):
 	professor_area_conhecimento2 = models.ForeignKey(
 		AreaConhecimento,
 		on_delete=models.DO_NOTHING,
-		verbose_name='Área do conhecimento',
+		verbose_name='Componenete curricular',
 		related_name='professorareaconhecimento2',
 		blank=True,
 		null=True
@@ -509,7 +509,7 @@ class Professor(models.Model):
 	professor_area_conhecimento3 = models.ForeignKey(
 		AreaConhecimento,
 		on_delete=models.DO_NOTHING,
-		verbose_name='Área do conhecimento',
+		verbose_name='Componenete curricular',
 		related_name='professorareaconhecimento3',
 		blank=True,
 		null=True
