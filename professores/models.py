@@ -295,28 +295,14 @@ class Professor(models.Model):
 	)
 	# --- professor contacto --- #
 	### --- OK --- #
-	professor_ddd1 = models.CharField(
+	professor_ddd = models.CharField(
 		'professor - DDD Telefone',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits],
 	)
 	### --- OK --- #
-	professor_telefone1 = models.CharField(
-		'professor - Telefone',
-		max_length=9,
-		blank=True,
-		validators=[validate_phone, validate_digits],
-	)
-	### --- OK --- #
-	professor_ddd2 = models.CharField(
-		'professor - DDD Telefone',
-		max_length=2,
-		blank=True,
-		validators=[validate_ddd, validate_digits],
-	)
-	### --- OK --- #
-	professor_telefone2 = models.CharField(
+	professor_telefone = models.CharField(
 		'professor - Telefone',
 		max_length=9,
 		blank=True,
