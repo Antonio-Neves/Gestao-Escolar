@@ -32,3 +32,13 @@ h2 {
 .errorlist {
     color: red;
 }
+
+.btn-dark-blue {
+    background-color: #102D69;
+    color: white;
+}
+
+.btn-dark-blue:hover {
+    background-color: #004F9F;
+    color: white;
+}
