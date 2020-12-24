@@ -11,42 +11,44 @@ professor_id
 
 *professor_nome
 *professor_data_nascimento
-professor_sexo
-professor_cor
+*professor_sexo
+*professor_cor
 
 # --- professor Nacionalidade --- #
 
-professor_nacionalidade
-professor_pais_nascimento
-professor_estado_nascimento
-professor_municipio_nascimento
+*professor_nacionalidade
+*professor_pais_nascimento
+*professor_estado_nascimento
+*professor_municipio_nascimento
 
 # --- professor residencia --- #
 
-professor_logradouro_residencia
-professor_numero_residencia
-professor_complemento_residencia
-professor_zona_residencia
-professor_localizacao_residencia
-professor_bairro_residencia
-professor_cep_residencia
-professor_estado_residencia
-professor_municipio_residencia
-professor_pais_residencia
+*professor_logradouro_residencia
+*professor_numero_residencia
+*professor_complemento_residencia
+*professor_zona_residencia
+*professor_localizacao_residencia
+*professor_bairro_residencia
+*professor_cep_residencia
+*professor_estado_residencia
+*professor_municipio_residencia
+*professor_pais_residencia
 
 # --- professor contacto --- #
 
-professor_ddd1
-professor_telefone1
-professor_ddd1
-professor_telefone1
-professor_email
+*professor_ddd
+*professor_telefone
+*professor_email
 
 # --- professor filiação --- #
 
-professor_filiacao
-professor_filiacao1_nome
-professor_filiacao2_nome
+*professor_filiacao
+*professor_filiacao1_nome
+*professor_filiacao2_nome
+
+# --- Ensino em outro lugar --- #
+
+*professor_ensino_outro_lugar
 
 # --- Escolaridade --- #
 
@@ -110,85 +112,66 @@ professor_justificativa_documentos
 
 # --- professor deficiencias --- #
 
-professor_deficiencia
-professor_cegueira
-professor_baixa_visao
-professor_surdez
-professor_deficiencia_auditiva
-professor_surdocegueira
-professor_deficiencia_fisica
-professor_deficiencia_intelectual
-professor_deficiencia_multipla
-professor_autismo
-professor_altas_habilidades
-
-# --- professor necessidades diferenciadas --- #
-
-professor_necessidades_especiais
-professor_auxilio_ledor
-professor_auxilio_transcricao
-professor_guia_interprete
-professor_tradutor_libras
-professor_leitura_labial
-professor_prova_ampliada18
-professor_prova_superampliada24
-professor_cd_audio
-professor_prova_portuguesa
-professor_prova_video
-professor_prova_braille
-
-# --- Saida escola --- #
-
-professor_ensino_outro_lugar
+*professor_deficiencia
+*professor_cegueira
+*professor_baixa_visao
+*professor_surdez
+*professor_deficiencia_auditiva
+*professor_surdocegueira
+*professor_deficiencia_fisica
+*professor_deficiencia_intelectual
+*professor_deficiencia_multipla
+*professor_autismo
+*professor_altas_habilidades
 
 # --- Urgencia --- #
 
-professor_urgencia_nome
-professor_urgencia_ddd
-professor_urgencia_telefone
-professor_urgencia_parentesco
-professor_urgencia_procedimentos
+*professor_urgencia_nome
+*professor_urgencia_ddd
+*professor_urgencia_telefone
+*professor_urgencia_parentesco
+*professor_urgencia_procedimentos
 
 # --- professor cuidados diferenciados --- #
 
-professor_alergia
-professor_alergia_tipo
-professor_cuidados_diferenciados
+*professor_alergia
+*professor_alergia_tipo
+*professor_cuidados_diferenciados
 
 # --- Plano de saude --- #
 
-professor_plano_saude
-professor_plano_saude_nome
-professor_plano_saude_ddd
-professor_plano_saude_telefone
-professor_plano_saude_email
+*professor_plano_saude
+*professor_plano_saude_nome
+*professor_plano_saude_ddd
+*professor_plano_saude_telefone
+*professor_plano_saude_email
 
 # --- Convenio --- #
 
-professor_convenio
-professor_convenio_nome
-professor_convenio_ddd
-professor_convenio_telefone
-professor_convenio_email
+*professor_convenio
+*professor_convenio_nome
+*professor_convenio_ddd
+*professor_convenio_telefone
+*professor_convenio_email
 
 # --- Programa social --- #
 
-professor_progrma_social
-professor_progrma_social_nome
-professor_progrma_social_ddd
-professor_progrma_social_telefone
-professor_progrma_social_email
+*professor_progrma_social
+*professor_progrma_social_nome
+*professor_progrma_social_ddd
+*professor_progrma_social_telefone
+*professor_progrma_social_email
 
-# --- Estagio --- #
+# --- Estágio --- #
 
-professor_estagio
-professor_estagio_instituicao
-professor_estagio_tempo
-professor_estagio_observacoes
+*professor_estagio
+*professor_estagio_instituicao
+*professor_estagio_tempo
+*professor_estagio_observacoes
 
 # --- Observações --- #
 
-professor_observacoes
+*professor_observacoes
 
 # --- Data de criação ou modificação --- #
 

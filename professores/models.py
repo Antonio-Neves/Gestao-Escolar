@@ -109,7 +109,7 @@ class Professor(models.Model):
 
 	CHOICES_TIPO_ENSINO_MEDIO = (
 		('1', 'Formação geral'),
-		('2', 'Modalidade normal (magistério'),
+		('2', 'Modalidade normal (magistério)'),
 		('3', 'Curso técnico'),
 		('4', 'Magistério indígena, modalidade normal')
 	)
