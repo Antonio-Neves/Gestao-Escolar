@@ -354,7 +354,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="professor_curso_instituicao1">Instituição de Educação Superior</label>
-                <input type="text" class="form-control" id="professor_curso_instituicao1" name="professor_curso_instituicao1" maxlength="4"
+                <input type="text" class="form-control" id="professor_curso_instituicao1" name="professor_curso_instituicao1" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.professor_curso_instituicao1 }}{% elif object.professor_curso_instituicao1 %}{{ object.professor_curso_instituicao1 }}{% endif %}">
                 <p class="errorlist">{{ form.errors.professor_curso_instituicao1 }}</p>
             </div>
@@ -393,7 +393,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="professor_curso_instituicao2">Instituição de Educação Superior</label>
-                <input type="text" class="form-control" id="professor_curso_instituicao2" name="professor_curso_instituicao2" maxlength="4"
+                <input type="text" class="form-control" id="professor_curso_instituicao2" name="professor_curso_instituicao2" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.professor_curso_instituicao2 }}{% elif object.professor_curso_instituicao2 %}{{ object.professor_curso_instituicao2 }}{% endif %}">
                 <p class="errorlist">{{ form.errors.professor_curso_instituicao2 }}</p>
             </div>
@@ -431,7 +431,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="professor_curso_instituicao3">Instituição de Educação Superior</label>
-                <input type="text" class="form-control" id="professor_curso_instituicao3" name="professor_curso_instituicao3" maxlength="4"
+                <input type="text" class="form-control" id="professor_curso_instituicao3" name="professor_curso_instituicao3" maxlength="100"
                        value="{% if request.POST %}{{ request.POST.professor_curso_instituicao3 }}{% elif object.professor_curso_instituicao3 %}{{ object.professor_curso_instituicao3 }}{% endif %}">
                 <p class="errorlist">{{ form.errors.professor_curso_instituicao3 }}</p>
             </div>
@@ -453,7 +453,7 @@
         <!-- Formação / Complementação Pedagógica / Componente curricular -->
         <hr>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <div><h4>Formação / Complementação Pedagógica</h4></div>
             </div>
         </div>
@@ -466,22 +466,121 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><label for="professor_area_conhecimento2">Componenete curricular 2</label></div>
+                <select class="form-control" id="professor_area_conhecimento2" name="professor_area_conhecimento2">
+                    {% for area_conhecimento2 in form.professor_area_conhecimento2 %}
+                        {{ area_conhecimento2 }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="form-check-label"><label for="professor_area_conhecimento3">Componenete curricular 3</label></div>
+                <select class="form-control" id="professor_area_conhecimento3" name="professor_area_conhecimento3">
+                    {% for area_conhecimento3 in form.professor_area_conhecimento3 %}
+                        {{ area_conhecimento3 }}
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-
-
+        <!-- Pós graduações concluidas -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div><h4>Pós graduações concluidas</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <div class="form-check-label">Tem pós graduação concluida <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_pos_graduacao_concluida1" name="professor_pos_graduacao_concluida"
+                         checked value="0" {% if request.POST.professor_pos_graduacao_concluida == "0" or object.professor_pos_graduacao_concluida == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="professor_pos_graduacao_concluida1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_pos_graduacao_concluida2" name="professor_pos_graduacao_concluida"
+                         value="1" {% if request.POST.professor_pos_graduacao_concluida == "1" or object.professor_pos_graduacao_concluida == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="professor_pos_graduacao_concluida2">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="form-check-label">Especialização <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_especializacao1" name="professor_especializacao"
+                         checked value="0" {% if request.POST.professor_especializacao == "0" or object.professor_especializacao == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="professor_especializacao1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_especializacao2" name="professor_especializacao"
+                         value="1" {% if request.POST.professor_especializacao == "1" or object.professor_especializacao == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="professor_especializacao2">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="form-check-label">Mestrado <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_mestrado1" name="professor_mestrado"
+                         checked value="0" {% if request.POST.professor_mestrado == "0" or object.professor_mestrado == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="professor_mestrado1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_mestrado2" name="professor_mestrado"
+                         value="1" {% if request.POST.professor_mestrado == "1" or object.professor_mestrado == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="professor_mestrado2">Sim</label>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="form-check-label">Doutorado <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_doutorado1" name="professor_doutorado"
+                         checked value="0" {% if request.POST.professor_doutorado == "0" or object.professor_doutorado == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="professor_doutorado1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_doutorado2" name="professor_doutorado"
+                         value="1" {% if request.POST.professor_doutorado == "1" or object.professor_doutorado == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="professor_doutorado2">Sim</label>
+                </div>
+            </div>
+        </div>
+        <!-- Outros cursos específicos -->
+        <hr>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div><h4>Outros cursos específicos</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-check-label">Tem outros cursos específicos <span style="color: red;">*</span></div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_outros_cursos1" name="professor_outros_cursos"
+                         checked value="0" {% if request.POST.professor_outros_cursos == "0" or object.professor_outros_cursos == "0" %}checked="checked"{% endif %} required>
+                  <label class="form-check-label" for="professor_outros_cursos1">Não</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="professor_outros_cursos2" name="professor_outros_cursos"
+                         value="1" {% if request.POST.professor_outros_cursos == "1" or object.professor_outros_cursos == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="professor_outros_cursos2">Sim</label>
+                </div>
+            </div>
+        </div>
 
 
 
 
         <!-- Falta de documentos -->
         <hr>
-        <div class="form-group col-md-5">
-            <label for="professor_justificativa_documentos">Justificativa da falta de documentos</label>
-            <select class="form-control" id="professor_justificativa_documentos" name="professor_justificativa_documentos">
-                {% for justificativa in form.professor_justificativa_documentos %}
-                    {{ justificativa }}
-                {% endfor %}
-            </select>
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="professor_justificativa_documentos">Justificativa da falta de documentos</label>
+                <select class="form-control" id="professor_justificativa_documentos" name="professor_justificativa_documentos">
+                    {% for justificativa in form.professor_justificativa_documentos %}
+                        {{ justificativa }}
+                    {% endfor %}
+                </select>
+            </div>
         </div>
         <!-- Deficiencias -->
         <hr>

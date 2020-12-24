@@ -3,6 +3,7 @@ $(document).ready(function(){
   $('#aluno_cpf').mask('000.000.000-00');
   $('#aluno_filiacao1_cpf').mask('000.000.000-00');
   $('#aluno_filiacao2_cpf').mask('000.000.000-00');
+  $('#professor_cpf').mask('000.000.000-00');
 });
 
 $(document).ready(function(){
@@ -11,10 +12,12 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('#aluno_cep_residencia').mask('00000-000');
+  $('#professor_cep_residencia').mask('00000-000');
 });
 
 $(document).ready(function(){
   $('#aluno_data_nascimento').mask('00/00/0000');
+  $('#professor_data_nascimento').mask('00/00/0000');
 });
 
 
