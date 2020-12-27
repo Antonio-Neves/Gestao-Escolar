@@ -574,15 +574,15 @@ class Professor(models.Model):
 	)
 	### --- OK MEC --- #
 	# blank or 1
-	professor_curso_jovens_adultos = models.CharField(
-		'Educação de jovens e adultos',
+	professor_curso_educacao_especial = models.CharField(
+		'Educação especial',
 		max_length=1,
 		blank=True
 	)
 	### --- OK MEC --- #
 	# blank or 1
-	professor_curso_educacao_especial = models.CharField(
-		'Educação especial',
+	professor_curso_jovens_adultos = models.CharField(
+		'Educação de jovens e adultos',
 		max_length=1,
 		blank=True
 	)
