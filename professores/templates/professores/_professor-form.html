@@ -566,15 +566,134 @@
                 </div>
             </div>
         </div>
-
-
-
-
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_creche" name="professor_curso_creche"
+                         value="1" {% if request.POST.professor_curso_creche == "1" or object.professor_curso_creche == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_creche">Creche</label>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_pre_escola" name="professor_curso_pre_escola"
+                         value="1" {% if request.POST.professor_curso_pre_escola == "1" or object.professor_curso_pre_escola == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_pre_escola">Pré-escola</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_fundamental1" name="professor_curso_fundamental1"
+                         value="1" {% if request.POST.professor_curso_fundamental1 == "1" or object.professor_curso_fundamental1 == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_fundamental1">Anos iniciais do ensino fundamental</label>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_fundamental2" name="professor_curso_fundamental2"
+                         value="1" {% if request.POST.professor_curso_fundamental2 == "1" or object.professor_curso_fundamental2 == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_fundamental2">Anos finais do ensino fundamental</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_ensino_medio" name="professor_curso_ensino_medio"
+                         value="1" {% if request.POST.professor_curso_ensino_medio == "1" or object.professor_curso_ensino_medio == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_ensino_medio">Ensino médio</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_educacao_especial" name="professor_curso_educacao_especial"
+                         value="1" {% if request.POST.professor_curso_educacao_especial == "1" or object.professor_curso_educacao_especial == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_educacao_especial">Educação especial</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_jovens_adultos" name="professor_curso_jovens_adultos"
+                         value="1" {% if request.POST.professor_curso_jovens_adultos == "1" or object.professor_curso_jovens_adultos == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_jovens_adultos">Educação de jovens e adultos</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_educacao_indigena" name="professor_curso_educacao_indigena"
+                         value="1" {% if request.POST.professor_curso_educacao_indigena == "1" or object.professor_curso_educacao_indigena == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_educacao_indigena">Educação indígena</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_educacao_campo" name="professor_curso_educacao_campo"
+                         value="1" {% if request.POST.professor_curso_educacao_campo == "1" or object.professor_curso_educacao_campo == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_educacao_campo">Educação do campo</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_educacao_ambiental" name="professor_curso_educacao_ambiental"
+                         value="1" {% if request.POST.professor_curso_educacao_ambiental == "1" or object.professor_curso_educacao_ambiental == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_educacao_ambiental">Educação ambiental</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_direitos_humanos" name="professor_curso_direitos_humanos"
+                         value="1" {% if request.POST.professor_curso_direitos_humanos == "1" or object.professor_curso_direitos_humanos == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_direitos_humanos">Educação em direitos humanos</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_diversidade_sexual" name="professor_curso_diversidade_sexual"
+                         value="1" {% if request.POST.professor_curso_diversidade_sexual == "1" or object.professor_curso_diversidade_sexual == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_diversidade_sexual">Gênero e diversidade sexual</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_direitos_crianca" name="professor_curso_direitos_crianca"
+                         value="1" {% if request.POST.professor_curso_direitos_crianca == "1" or object.professor_curso_direitos_crianca == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_direitos_crianca">Direitos de crianças e adolescentes</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_relacoes_etnicas" name="professor_curso_relacoes_etnicas"
+                         value="1" {% if request.POST.professor_curso_relacoes_etnicas == "1" or object.professor_curso_relacoes_etnicas == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_relacoes_etnicas">Educação para as relações étnico-raciais</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_gestao_escolar" name="professor_curso_gestao_escolar"
+                         value="1" {% if request.POST.professor_curso_gestao_escolar == "1" or object.professor_curso_gestao_escolar == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_gestao_escolar">Gestão escolar</label>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="professor_curso_outros" name="professor_curso_outros"
+                         value="1" {% if request.POST.professor_curso_outros == "1" or object.professor_curso_outros == "1" %}checked="checked"{% endif %}>
+                    <label class="form-check-label" for="professor_curso_outros">Outros cursos</label>
+                </div>
+            </div>
+        </div>
         <!-- Falta de documentos -->
         <hr>
         <div class="form-row">
             <div class="form-group col-md-5">
-                <label for="professor_justificativa_documentos">Justificativa da falta de documentos</label>
+                <label for="professor_justificativa_documentos"><h4>Justificativa da falta de documentos</h4></label>
                 <select class="form-control" id="professor_justificativa_documentos" name="professor_justificativa_documentos">
                     {% for justificativa in form.professor_justificativa_documentos %}
                         {{ justificativa }}
