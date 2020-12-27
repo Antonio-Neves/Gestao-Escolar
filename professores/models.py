@@ -925,6 +925,12 @@ class Professor(models.Model):
 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
 	modified = models.DateTimeField('Data da alteração', auto_now=True)
 
+	def professor_codigo_id(self):
+		"""
+		Return custom unique identification
+		"""
+		return 'PROF-' + str(self.professor_id)
+
 	class Meta:
 		verbose_name = 'Professor'
 		verbose_name_plural = 'Professores'
