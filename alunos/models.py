@@ -1041,6 +1041,12 @@ class Aluno(models.Model):
 	created = models.DateTimeField('Data da Criação', auto_now_add=True)
 	modified = models.DateTimeField('Data da alteração', auto_now=True)
 
+	def aluno_codigo_id(self):
+		"""
+		Return custom unique identification
+		"""
+		return 'ALUNO-' + str(self.aluno_id)
+
 	class Meta:
 		verbose_name = 'Aluno'
 		verbose_name_plural = 'Alunos'
