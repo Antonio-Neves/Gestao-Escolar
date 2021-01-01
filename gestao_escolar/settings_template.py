@@ -221,7 +221,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # ----------------------------------------------------------
 # --- Login Logout User --- #
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index-manager'
 LOGOUT_REDIRECT_URL = 'index'
 
 # ----------------------------------------------------------
