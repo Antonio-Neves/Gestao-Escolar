@@ -1,0 +1,23 @@
+{%  load static %}
+<header>
+    <!-- NavBar Principal -->
+    <nav class="navbar navbar-dark navbar-principal sticky-top flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{% url 'index' %}">
+            <!-- TODO change source for logo -->
+            <img class="logo mr-3" src="{% static 'base/images/logo2.png' %}" alt="AN Sistemas">
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul class="navbar-nav px-3 mr-2">
+            <li class="nav-item text-nowrap">
+                {% if user.is_authenticated %}
+                    <a class="nav-link text-white" href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+</header>
