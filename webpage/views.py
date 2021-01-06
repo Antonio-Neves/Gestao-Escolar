@@ -29,5 +29,5 @@ class IndexManagerView(TemplateView):
 			return redirect('index-{}'.format(template))
 
 		else:
-			return render(request, 'webpage/index.html')
-
+			return redirect('login')
+			# return render(request, 'webpage/index.html')

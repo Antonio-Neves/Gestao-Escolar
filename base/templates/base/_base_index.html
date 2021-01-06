@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>{% block title %}{% endblock %}</title>
     {% include 'base/_head.html' %}
@@ -8,10 +8,10 @@
 <body>
     {% include 'base/_header_principal.html' %}
     {% include 'base/_messages.html' %}
-    <div class="container mt-3">
-        <h1>{% block body_title %}{% endblock %}</h1>
-    </div>
-    {% block body_content %}{% endblock %}
+
+    {% block body_content %}
+        {% block body_title %}{% endblock %}
+    {% endblock %}
     <!-- Scripts -->
     {% include 'base/_scripts_js.html' %}
 </body>

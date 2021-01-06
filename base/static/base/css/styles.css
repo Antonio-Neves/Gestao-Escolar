@@ -11,9 +11,15 @@ h2 {
     margin-bottom: 2%;
 }
 
+.logo {
+    width: 50px;
+}
+
 .back01 {
-    background: #D9DDDC;
-    margin-top: 2%;
+    background: #102D69;
+    color: white;
+    /*background: #D9DDDC;*/
+    margin-top: 5%;
     margin-bottom: 2%;
     padding: 2%;
     border-radius: 10px;
@@ -27,7 +33,6 @@ h2 {
     padding: 2%;
     border-radius: 10px;
 }
-
 
 .errorlist {
     color: red;
@@ -51,6 +56,13 @@ h2 {
     box-shadow: None;
 }
 
-.logo {
-    width: 50px;
+.container-login {
+    width: 33%;
+}
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+    .container-login {
+        width: 90%;
+    }
 }

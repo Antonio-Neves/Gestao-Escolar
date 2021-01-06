@@ -33,31 +33,22 @@
             <!-- SideBar -->
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
-                    <ul class="nav flex-column accordion">
+                    <ul class="nav flex-column">
                         <li class="nav-item border-0 m-2 mb-3 rounded-right shadow-sm">
-                            <a class="nav-link" href="{% url 'index-administracao' %}">
+                            <a class="nav-link active" href="{% url 'index-administracao' %}">
                                 <span data-feather="home"></span>
-                                Início
+                                Início <span class="sr-only">(current)</span>
                             </a>
                         </li>
-
-                        <li class="nav-item border-0 m-2 rounded-right shadow-sm">
-                            <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <li class="nav-item dropdown border-0 m-2 rounded-right shadow-sm">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 <span data-feather="users"></span>
                                 Alunos
                             </a>
-                        </li>
-                            <div class="collapse pl-4 m-2" id="collapseExample">
-                                <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                                     Cadastrar aluno
-                                </a>
-                                <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                                     Alterar aluno
-                                </a>
-                                <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                                     Apagar aluno
-                                </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
                             </div>
+                        </li>
                         <li class="nav-item border-0 m-2 rounded-right shadow-sm">
                             <a class="nav-link" href="#">
                                 <span data-feather="file"></span>
@@ -135,11 +126,12 @@
                         </button>
                     </div>
                 </div>
-                {% include 'base/_messages.html' %}
-                {% block main_content %}{% endblock %}
+                    {% include 'base/_messages.html' %}
+                    {% block main_content %}{% endblock %}
             </main>
         </div>
     </div>
     {% include 'base/_scripts_js.html' %}
 </body>
 </html>
+
