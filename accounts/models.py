@@ -46,12 +46,12 @@ class UserManager(BaseUserManager):
 class CustomUser(AbstractUser):
 
 	DEPARTMENT_CHOICES = (
-		('AD', 'Administração'),
-		('FI', 'Financeiro'),
-		('SE', 'Secretaria'),
-		('PR', 'Professor'),
-		('RE', 'Responsável'),
-		('AL', 'Aluno')
+		('ad', 'Administração'),
+		('fi', 'Financeiro'),
+		('se', 'Secretaria'),
+		('pr', 'Professor'),
+		('re', 'Responsável'),
+		('al', 'Aluno')
 	)
 
 	email = models.EmailField('Email', unique=True)

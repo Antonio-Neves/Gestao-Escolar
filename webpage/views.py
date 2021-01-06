@@ -15,12 +15,12 @@ class IndexManagerView(TemplateView):
 		"""
 
 		department = {
-			'AD': 'administracao',
-			'FI': 'financeiro',
-			'SE': 'secretaria',
-			'PR': 'professor',
-			'RE': 'responsavel',
-			'AL': 'aluno',
+			'ad': 'administracao',
+			'fi': 'financeiro',
+			'se': 'secretaria',
+			'pr': 'professor',
+			're': 'responsavel',
+			'al': 'aluno',
 		}
 
 		if request.user.is_authenticated:
