@@ -58,6 +58,11 @@ h2 {
 
 .container-login {
     width: 33%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    color: #102D69;
 }
 
 /* --- Responsive --- */

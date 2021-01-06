@@ -26,7 +26,7 @@ class ProfessorNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMi
 		tem acesso a funções administrativas.
 		"""
 
-		authorized_admin_access = ['AD', 'SE']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
 
 		if self.request.user.department in authorized_admin_access:
 			return True
@@ -55,7 +55,7 @@ class ProfessorUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessag
 		tem acesso a funções administrativas.
 		"""
 
-		authorized_admin_access = ['AD', 'SE']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
 
 		if self.request.user.department in authorized_admin_access:
 			return True

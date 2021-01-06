@@ -1,7 +1,7 @@
 {% extends 'base/_base_index.html' %}
 {% block title %}Login{% endblock %}
 {% block body_content %}
-    <div class="container back01 container-login">
+    <div class="container bg-light container-login">
         <h1 class="mb-4">{% block body_title %}Login{% endblock %}</h1>
         <form class="form-signin form-group" method="POST" autocomplete="off" id="form-login">
             {% csrf_token %}
@@ -19,7 +19,7 @@
             </div>
             <div class="form-row mt-4">
                 <div class="form-group col">
-                    <button class="btn btn-primary mr-2" type="submit">Entrar</button>
+                    <button class="btn btn-dark-blue mr-2" type="submit">Entrar</button>
                 </div>
             </div>
         </form>
