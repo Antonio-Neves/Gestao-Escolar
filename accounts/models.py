@@ -54,7 +54,7 @@ class CustomUser(AbstractUser):
 		('al', 'Aluno')
 	)
 
-	identifier = models.CharField('Usuário', max_length=50, unique=True)
+	identifier = models.CharField('Usuário', max_length=30, unique=True)
 	is_staff = models.BooleanField('Team member', default=True)
 	department = models.CharField(
 		'Departamento',
