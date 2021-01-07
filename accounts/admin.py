@@ -15,12 +15,12 @@ class CustomUserAdmin(UserAdmin):
 		'first_name',
 		'last_name',
 		'department',
-		'email',
+		'identifier',
 		'is_staff',
 	)
 
 	fieldsets = (
-		(None, {'fields': ('email', 'password')}),
+		(None, {'fields': ('identifier', 'password')}),
 		('Personal information',
 		 {'fields': ('first_name', 'last_name', 'department')}),
 		('Permissions', {
@@ -32,3 +32,32 @@ class CustomUserAdmin(UserAdmin):
 		}),
 		('Important dates', {'fields': ('last_login', 'date_joined')}),
 	)
+
+
+# @admin.register(CustomUser)
+# class CustomUserAdmin(UserAdmin):
+# 	add_form = CustomUserCreateForm
+# 	form = CustomUserChangeForm
+# 	model = CustomUser
+#
+# 	list_display = (
+# 		'first_name',
+# 		'last_name',
+# 		'department',
+# 		'email',
+# 		'is_staff',
+# 	)
+#
+# 	fieldsets = (
+# 		(None, {'fields': ('email', 'password')}),
+# 		('Personal information',
+# 		 {'fields': ('first_name', 'last_name', 'department')}),
+# 		('Permissions', {
+# 			'fields': ('is_active',
+# 					   'is_staff',
+# 					   'is_superuser',
+# 					   'groups',
+# 					   'user_permissions')
+# 		}),
+# 		('Important dates', {'fields': ('last_login', 'date_joined')}),
+# 	)
