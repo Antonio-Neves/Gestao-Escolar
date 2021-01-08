@@ -1,12 +1,12 @@
-{% extends 'base/_base_index.html' %}
+{% extends 'base/_dashboard_base.html' %}
 
 {% block title %}Alterar perfil{% endblock %}
 
 {% block body_title %}Alterar perfil{% endblock %}
 
-{% block body_content %}
+{% block main_content %}
 
-    <div class="container back01">
+    <div class="container bg-light back02">
 
         <form method="post" class="form" autocomplete="off">
         {% csrf_token %}
@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="email">Email<span style="color: red;">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required autofocus>
+                        <label for="identifier">Usuário<span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="identifier" name="identifier" value="{{ user.identifier }}" required autofocus>
                     </div>
                 </div>
                 <div class="col">
@@ -46,8 +46,8 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn mr-2 btn-primary shadow-lg" name="btn_cadastro_canal">Alterar</button>
-                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index' %}">Cancelar</a>
+                <button type="submit" class="btn mr-2 btn-primary shadow-lg">Alterar</button>
+                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index-manager' %}">Cancelar</a>
             </div>
 
         </form>
