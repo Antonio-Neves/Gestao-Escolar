@@ -33,7 +33,6 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 			cpf1 = request.POST.get('aluno_filiacao1_cpf')
 			cpf2 = request.POST.get('aluno_filiacao2_cpf')
-			department = 're'
 
 			if cpf1:  # if 'filiação1' create user
 
@@ -52,7 +51,7 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 					password=password1,
 					first_name=first_name1,
 					last_name=last_name1,
-					department=department
+					department='re'
 				)
 
 			if cpf2:  # if 'filiação2' create user
@@ -72,7 +71,7 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 					password=password2,
 					first_name=first_name2,
 					last_name=last_name2,
-					department=department
+					department='re'
 				)
 
 			return self.form_valid(form)
