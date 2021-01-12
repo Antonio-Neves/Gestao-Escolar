@@ -1,7 +1,9 @@
 from django.urls import path
-from secretaria.views import index_secretaria_view
+from secretaria.views import (
+	IndexSecretariaView
+)
 
 
 urlpatterns = [
-	path('', index_secretaria_view, name='index-secretaria')
+	path('', IndexSecretariaView.as_view(), name='index-secretaria')
 ]

@@ -1,3 +1,5 @@
+from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from accounts.forms import CustomUserCreateForm, CustomUserChangeForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -10,12 +12,34 @@ from django.contrib.auth.views import (
 	)
 
 
-class UserCreate(SuccessMessageMixin, CreateView):
+class UserCreate(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 	model = CustomUser
 	form_class = CustomUserCreateForm
 	template_name = 'accounts/user-new.html'
-	success_url = '/usuarios/login'
-	success_message = 'Bem vindo! Faça login para começar'
+	success_url = '/index-manager/'
+	success_message = 'Novo usuário cadastrado com sucesso'
+
+	def test_func(self):
+		"""
+		Testa se o departamento do usuario logado,
+		tem acesso a funções administrativas.
+		"""
+
+		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
+
+		if self.request.user.department in authorized_admin_access:
+			return True
+
+	def handle_no_permission(self):
+		"""
+		Redirecionamentos no caso do departamento do usuário logado
+		não ter acesso a funções administrativas.
+		"""
+
+		if self.raise_exception or self.request.user.is_authenticated:
+			return redirect('index-manager')
+
+		return redirect('login')
 
 
 class UserChange(SuccessMessageMixin, UpdateView):

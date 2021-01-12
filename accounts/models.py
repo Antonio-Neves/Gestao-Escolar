@@ -16,9 +16,9 @@ class UserManager(BaseUserManager):
 	def _create_user(self, identifier, password, **extra_fields):
 
 		if not identifier:
-			raise ValueError('É necessário um nome de usuário')
+			raise ValueError('É necessário preencher o campo usuário')
 
-		identifier = self.normalize_email(identifier)
+		# identifier = self.normalize_email(identifier)
 		user = self.model(identifier=identifier, username=identifier, **extra_fields)
 		user.set_password(password)
 		user.save(using=self._db)
@@ -54,7 +54,7 @@ class CustomUser(AbstractUser):
 		('al', 'Aluno')
 	)
 
-	identifier = models.CharField('Usuário', max_length=30, unique=True)
+	identifier = models.CharField('Usuário', max_length=11, unique=True)
 	is_staff = models.BooleanField('Team member', default=True)
 	department = models.CharField(
 		'Departamento',

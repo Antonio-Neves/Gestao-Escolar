@@ -8,12 +8,12 @@
                 </a>
             </li>
             <li class="nav-item border-0 m-2 rounded-right shadow-sm">
-                <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="false" aria-controls="collapseAlunos">
                     <span data-feather="users"></span>
                     Alunos
                 </a>
             </li>
-                <div class="collapse pl-4 m-2" id="collapseExample">
+                <div class="collapse pl-4 m-2" id="collapseAlunos">
                     <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
                          Cadastrar aluno
                     </a>
@@ -48,6 +48,23 @@
                     Turmas
                 </a>
             </li>
+            <li class="nav-item border-0 m-2 rounded-right shadow-sm">
+                <a class="nav-link" data-toggle="collapse" href="#collapseUsuarios" role="button" aria-expanded="false" aria-controls="collapseUsuarios">
+                    <span data-feather="users"></span>
+                    Usuários do Sistema
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseUsuarios">
+                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
+                         Cadastrar aluno
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
+                         Alterar aluno
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
+                         Apagar aluno
+                    </a>
+                </div>
         </ul>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Secretaria</span>

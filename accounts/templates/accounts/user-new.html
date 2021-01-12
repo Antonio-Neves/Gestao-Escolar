@@ -1,22 +1,19 @@
-{% extends 'base/_base_index.html' %}
-
+{% extends 'base/_dashboard_base.html' %}
 {% block title %}Novo usuário{% endblock %}
-
 {% block body_title %}Novo usuário{% endblock %}
-
-{% block body_content %}
-
+{% block main_content %}
     <div class="container bg-light back02">
-
         <form method="post" class="form" action="{% url 'user-new' %}" autocomplete="off">
         {% csrf_token %}
-
             <div class="row">
                 <div class="col col-md-6">
                     <div class="form-group">
                         <label for="username">Usuário<span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" id="username" name="username" maxlength="30" required autofocus
+                        <input type="text" class="form-control" id="username" name="username" maxlength="11" required autofocus
                         value="{% if request.POST %}{{ request.POST.username }}{% elif object.username %}{{ object.username }}{% endif %}">
+                        <small id="password-help" class="form-text text-muted">
+                        Utilizar o CPF como usuário.
+                        </small>
                         <p class="errorlist">{{ form.errors.username }}</p>
                     </div>
                 </div>
@@ -47,15 +44,14 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col col-md-6">
                     <div class="form-group">
                         <label for="password1">Senha<span style="color: red;">*</span></label>
                         <input type="password" class="form-control" id="password1" name="password1" required>
-                    <small id="password-help" class="form-text text-muted">
-                        Sua senha precisa conter pelo menos 8 caracteres, não pode ser inteiramente numérica, não pode ser uma senha comum nem parecida com os seus dados.
-                    </small>
+                        <small id="password-help" class="form-text text-muted">
+                        Cadastrar a senha com o primeiro nome do usuário, sem acento e com letras minúsculas, e os 6 primeiros números do CPF.
+                        </small>
                     </div>
                 </div>
 
@@ -66,15 +62,11 @@
                         <p class="errorlist">{{ form.errors.password2 }}</p>
                     </div>
                 </div>
-
             </div>
-
             <div class="form-group">
                 <button type="submit" class="btn btn-primary shadow-lg">Salvar</button>
                 <div id="msgSubmit" class="h3 text-center hidden"></div>
             </div>
         </form>
-
     </div>
-
 {% endblock %}
