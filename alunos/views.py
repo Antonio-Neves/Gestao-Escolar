@@ -5,7 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 
-from unidecode import unidecode
+from unidecode import unidecode  # normalize strings Csii
 
 from alunos.models import Aluno
 from alunos.forms import AlunoForm
@@ -29,11 +29,14 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 		if form.is_valid():
 
+			# Create user after 'aluno' registration
+
 			cpf1 = request.POST.get('aluno_filiacao1_cpf')
 			cpf2 = request.POST.get('aluno_filiacao2_cpf')
 			department = 're'
 
-			if cpf1:
+			if cpf1:  # if 'filiação1' create user
+
 				# Data from Filiação 1 for user creation
 				cpf1_split_1 = cpf1.split('.')
 				cpf1_split_2 = ''.join(cpf1_split_1).split('-')
@@ -52,9 +55,9 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 					department=department
 				)
 
-			if cpf2:
-				# Date from Filiação 2 for user creation
+			if cpf2:  # if 'filiação2' create user
 
+				# Date from Filiação 2 for user creation
 				cpf2_split_1 = cpf2.split('.')
 				cpf2_split_2 = ''.join(cpf2_split_1).split('-')
 				cpf2_join = ''.join(cpf2_split_2)
@@ -78,19 +81,17 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 	def test_func(self):
 		"""
-		Testa se o departamento do usuario logado,
-		tem acesso a funções administrativas.
+		Test if authenticated user can access to this view.
 		"""
 
-		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
 
 		if self.request.user.department in authorized_admin_access:
 			return True
 
 	def handle_no_permission(self):
 		"""
-		Redirecionamentos no caso do departamento do usuário logado
-		não ter acesso a funções administrativas.
+		Redirect if authenticated user can not access to this view.
 		"""
 
 		if self.raise_exception or self.request.user.is_authenticated:
@@ -107,19 +108,17 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 
 	def test_func(self):
 		"""
-		Testa se o departamento do usuario logado,
-		tem acesso a funções administrativas.
+		Test if authenticated user can access to this view.
 		"""
 
-		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
 
 		if self.request.user.department in authorized_admin_access:
 			return True
 
 	def handle_no_permission(self):
 		"""
-		Redirecionamentos no caso do departamento do usuário logado
-		não ter acesso a funções administrativas.
+		Redirect if authenticated user can not access to this view.
 		"""
 
 		if self.raise_exception or self.request.user.is_authenticated:
@@ -129,7 +128,7 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 
 	def get_success_url(self):
 		"""
-		Redireciona para o mesmo formulário do aluno que está sendo alterado.
+		Redirect to the form of created user, (change view).
 		"""
 
 		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
