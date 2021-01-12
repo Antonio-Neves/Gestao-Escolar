@@ -21,8 +21,7 @@ class UserCreate(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, C
 
 	def test_func(self):
 		"""
-		Testa se o departamento do usuario logado,
-		tem acesso a funções administrativas.
+		Test if authenticated user can access to this view.
 		"""
 
 		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
@@ -32,8 +31,7 @@ class UserCreate(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, C
 
 	def handle_no_permission(self):
 		"""
-		Redirecionamentos no caso do departamento do usuário logado
-		não ter acesso a funções administrativas.
+		Redirect if authenticated user can not access to this view.
 		"""
 
 		if self.raise_exception or self.request.user.is_authenticated:
