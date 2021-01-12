@@ -119,14 +119,14 @@ class Professor(models.Model):
 	professor_id = models.AutoField(
 		primary_key=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_situacao = models.CharField(
 		'Situação do professor(a)',
 		max_length=1,
 		choices=CHOICES_PROFESSOR_SITUACAO
 	)
 	# --- professor Documentos --- #
-	### --- OK MEC--- #
+	# --- OK MEC--- #
 	# Need 12 digits
 	professor_inep = models.CharField(
 		'Inep',
@@ -136,7 +136,7 @@ class Professor(models.Model):
 		unique=True,
 		validators=[validate_professor_inep, validate_digits]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# Need 11 digits
 	professor_cpf = models.CharField(
 		'Cpf',
@@ -146,7 +146,7 @@ class Professor(models.Model):
 		unique=True,
 		validators=[validate_cpf]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_rg = models.CharField(
 		'RG',
 		max_length=20,
@@ -155,19 +155,19 @@ class Professor(models.Model):
 		unique=True
 	)
 	# --- professor Dados Pessoais --- #
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_nome = models.CharField(
 		'Nome completo',
 		max_length=100,
 		validators=[validate_no_digits]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_data_nascimento = models.CharField(
 		'Data de nascimento',
 		max_length=10,
 		validators=[validate_data]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# Required - Accept 1 / 2
 	professor_sexo = models.CharField(
 		'Sexo',
@@ -175,7 +175,7 @@ class Professor(models.Model):
 		choices=CHOICES_PROFESSOR_SEXO,
 	)
 	# --- OK MEC --- #
-	### Required - Accept 0 -> 5
+	# Required - Accept 0 -> 5
 	professor_cor = models.CharField(
 		'Cor / Raça',
 		max_length=1,
@@ -184,14 +184,14 @@ class Professor(models.Model):
 	)
 	# --- professor Nacionalidade --- #
 	# Required - Accept 1 -> 3
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_nacionalidade = models.CharField(
 		'Nacionalidade',
 		max_length=1,
 		choices=CHOICES_PROFESSOR_NACIONALIDADE,
 		default='1'
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_pais_nascimento = models.ForeignKey(
 		Pais,
 		on_delete=models.DO_NOTHING,
@@ -199,14 +199,14 @@ class Professor(models.Model):
 		related_name='professorpaisnascimento',
 		default=PAIS,
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_estado_nascimento = models.CharField(
 		'Estado',
 		max_length=2,
 		choices=CHOICES_PROFESSOR_ESTADO,
 		blank=True,
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_municipio_nascimento = models.CharField(
 		'Municipio nascimento',
 		max_length=100,
@@ -221,23 +221,23 @@ class Professor(models.Model):
 	# 	null=True
 	# )
 	# --- professor residencia --- #
-	### --- OK --- #
+	# --- OK --- #
 	professor_logradouro_residencia = models.CharField(
 		'Logradoro',
 		max_length=100,
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_numero_residencia = models.CharField(
 		'Número',
 		max_length=10,
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_complemento_residencia = models.CharField(
 		'Complemento',
 		max_length=100,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# Required - Accept 1 2
 	professor_zona_residencia = models.CharField(
 		'Localização',
@@ -245,7 +245,7 @@ class Professor(models.Model):
 		choices=CHOICES_PROFESSOR_ZONA,
 		default='1'
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# Required - Accept 1 2 3 7
 	professor_localizacao_residencia = models.CharField(
 		'Localização diferenciada',
@@ -253,26 +253,26 @@ class Professor(models.Model):
 		choices=CHOICES_PROFESSOR_ZONA_DIFERENCIADA,
 		default='7'
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_bairro_residencia = models.CharField(
 		'Bairro',
 		max_length=50,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_cep_residencia = models.CharField(
 		'CEP',
 		max_length=9,
 		validators=[validate_cep],
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_estado_residencia = models.CharField(
 		'Estado',
 		max_length=2,
 		choices=CHOICES_PROFESSOR_ESTADO,
 		default=ESTADO
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_municipio_residencia = models.CharField(
 		'Municipio residência',
 		max_length=100,
@@ -285,7 +285,7 @@ class Professor(models.Model):
 	# 	related_name='professormunicipioresidencia',
 	# 	default=MUNICIPIO
 	# )
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_pais_residencia = models.ForeignKey(
 		Pais,
 		on_delete=models.DO_NOTHING,
@@ -294,21 +294,21 @@ class Professor(models.Model):
 		default=PAIS
 	)
 	# --- professor contacto --- #
-	### --- OK --- #
+	# --- OK --- #
 	professor_ddd = models.CharField(
 		'professor - DDD Telefone',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits],
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_telefone = models.CharField(
 		'professor - Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits],
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_email = models.EmailField(
 		'Email',
 		max_length=250,
@@ -317,7 +317,7 @@ class Professor(models.Model):
 		unique=True
 	)
 	# --- professor filiação --- #
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_filiacao = models.CharField(
 		'Filiação',
 		max_length=1,
@@ -332,7 +332,7 @@ class Professor(models.Model):
 		validators=[validate_no_digits]
 	)
 	# --- professor filiação 2 --- #
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_filiacao2_nome = models.CharField(
 		'Filiação 2 - Nome',
 		max_length=100,
@@ -340,7 +340,7 @@ class Professor(models.Model):
 		validators=[validate_no_digits]
 	)
 	# --- Ensino em outro lugar --- #
-	### --- OK --- #
+	# --- OK --- #
 	# 1 -> 4
 	professor_ensino_outro_lugar = models.CharField(
 		'Ensino em outro lugar',
@@ -350,21 +350,21 @@ class Professor(models.Model):
 		default='1'
 	)
 	# --- Escolaridade --- #
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_nivel_escolaridade = models.CharField(
 		'Maior nível de escolaridade',
 		max_length=1,
 		choices=CHOICES_NIVEL_ESCOLARIDADE
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_tipo_ensino_medio = models.CharField(
 		'Tipo de ensino médio cursado',
 		max_length=1,
 		blank=True,
 		choices=CHOICES_TIPO_ENSINO_MEDIO
 	)
-	### --- Cursos --- #
-	### --- OK MEC --- #
+	# --- Cursos --- #
+	# --- OK MEC --- #
 	professor_curso1 = models.ForeignKey(
 		CursoFS,
 		on_delete=models.DO_NOTHING,
@@ -373,35 +373,35 @@ class Professor(models.Model):
 		blank=True,
 		null=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_curso_conclusao1 = models.CharField(
 		'Ano de conclusão',
 		max_length=4,
 		blank=True,
 		validators=[validate_year, validate_digits]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_publica1 = models.CharField(
 		'Pública',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_privada1 = models.CharField(
 		'Privada',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# TODO will change for the institution number for use in MEC import
 	professor_curso_instituicao1 = models.CharField(
 		'Instituição de Educação Superior',
 		max_length=100,
 		blank=True,
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_curso2 = models.ForeignKey(
 		CursoFS,
 		on_delete=models.DO_NOTHING,
@@ -410,35 +410,35 @@ class Professor(models.Model):
 		blank=True,
 		null=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_curso_conclusao2 = models.CharField(
 		'Ano de conclusão',
 		max_length=4,
 		blank=True,
 		validators=[validate_year, validate_digits]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_publica2 = models.CharField(
 		'Pública',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_privada2 = models.CharField(
 		'Privada',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# TODO Need the institution number for use in MEC import
 	professor_curso_instituicao2 = models.CharField(
 		'Instituição de Educação Superior',
 		max_length=100,
 		blank=True,
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_curso3 = models.ForeignKey(
 		CursoFS,
 		on_delete=models.DO_NOTHING,
@@ -447,28 +447,28 @@ class Professor(models.Model):
 		blank=True,
 		null=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	professor_curso_conclusao3 = models.CharField(
 		'Ano de conclusão',
 		max_length=4,
 		blank=True,
 		validators=[validate_year, validate_digits]
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_publica3 = models.CharField(
 		'Pública',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_privada3 = models.CharField(
 		'Privada',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# TODO Need the institution number for use in MEC import
 	professor_curso_instituicao3 = models.CharField(
 		'Instituição de Educação Superior',
@@ -508,21 +508,21 @@ class Professor(models.Model):
 		max_length=1,
 		choices=CHOICES_SIM_NAO
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_especializacao = models.CharField(
 		'Especialização',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_mestrado = models.CharField(
 		'Mestrado',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_doutorado = models.CharField(
 		'Doutorado',
@@ -537,119 +537,119 @@ class Professor(models.Model):
 		max_length=1,
 		choices=CHOICES_SIM_NAO
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_creche = models.CharField(
 		'Creche',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_pre_escola = models.CharField(
 		'Pré-escola',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_fundamental1 = models.CharField(
 		'Anos iniciais do ensino fundamental',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_fundamental2 = models.CharField(
 		'Anos finais do ensino fundamental',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_ensino_medio = models.CharField(
 		'Ensino médio',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_educacao_especial = models.CharField(
 		'Educação especial',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_jovens_adultos = models.CharField(
 		'Educação de jovens e adultos',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_educacao_indigena = models.CharField(
 		'Educação indígena',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_educacao_campo = models.CharField(
 		'Educação do campo',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_educacao_ambiental = models.CharField(
 		'Educação ambiental',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_direitos_humanos = models.CharField(
 		'Educação em direitos humanos',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_diversidade_sexual = models.CharField(
 		'Gênero e diversidade sexual',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_direitos_crianca = models.CharField(
 		'Direitos de crianças e adolescentes',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_relacoes_etnicas = models.CharField(
 		'Educação para as relações étnico-raciais',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_gestao_escolar = models.CharField(
 		'Gestão escolar',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_curso_outros = models.CharField(
 		'Outros cursos',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_justificativa_documentos = models.CharField(
 		'Justificativa da falta de documentos',
 		max_length=1,
@@ -657,77 +657,77 @@ class Professor(models.Model):
 		choices=CHOICES_PROFESSOR_JUSTIFICATIVA_DOCUMENTOS
 	)
 	# --- professor deficiencias --- #
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# 0 or 1
 	professor_deficiencia = models.CharField(
 		'Tem Deficiência Física',
 		max_length=1,
 		choices=CHOICES_SIM_NAO
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_cegueira = models.CharField(
 		'Cegueira',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_baixa_visao = models.CharField(
 		'Baixa visão',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_surdez = models.CharField(
 		'Surdez',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_deficiencia_auditiva = models.CharField(
 		'Deficiência auditiva',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_surdocegueira = models.CharField(
 		'Surdocegueira',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_deficiencia_fisica = models.CharField(
 		'Deficiência física',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_deficiencia_intelectual = models.CharField(
 		'Deficiência intelectual',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_deficiencia_multipla = models.CharField(
 		'Deficiência múltipla',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_autismo = models.CharField(
 		'Autismo',
 		max_length=1,
 		blank=True
 	)
-	### --- OK MEC --- #
+	# --- OK MEC --- #
 	# blank or 1
 	professor_altas_habilidades = models.CharField(
 		'Altas habilidades',
@@ -735,187 +735,187 @@ class Professor(models.Model):
 		blank=True
 	)
 	# --- Urgencia --- #
-	### --- OK --- #
+	# --- OK --- #
 	professor_urgencia_nome = models.CharField(
 		'Urgência - Nome',
 		max_length=100,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_urgencia_ddd = models.CharField(
 		'Urgência - DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_urgencia_telefone = models.CharField(
 		'Urgência - Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_urgencia_parentesco = models.CharField(
 		'Urgência - Parentesco',
 		max_length=50,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_urgencia_procedimentos = models.TextField(
 		'Procedimentos em caso de urgência',
 		blank=True
 	)
 	# --- professor cuidados diferenciados --- #
-	### --- OK --- #
+	# --- OK --- #
 	# blank or 1
 	professor_alergia = models.CharField(
 		'alergia',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_alergia_tipo = models.TextField(
 		'Tipo de alergia(s) e cuidados',
 		max_length=1000,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_cuidados_diferenciados = models.TextField(
 		'Cuidados diferenciados',
 		max_length=1000,
 		blank=True
 	)
 	# --- Plano de saude --- #
-	### --- OK --- #
+	# --- OK --- #
 	# blank or 1
 	professor_plano_saude = models.CharField(
 		'Plano de Saúde',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_plano_saude_nome = models.CharField(
 		'Nome do Plano de Saúde',
 		max_length=50,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_plano_saude_ddd = models.CharField(
 		'DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_plano_saude_telefone = models.CharField(
 		'Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_plano_saude_email = models.EmailField(
 		'Email',
 		max_length=250,
 		blank=True,
 	)
 	# --- Convenio --- #
-	### --- OK --- #
+	# --- OK --- #
 	# blank or 1
 	professor_convenio = models.CharField(
 		'Convênio',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_convenio_nome = models.CharField(
 		'Nome do convênio',
 		max_length=50,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_convenio_ddd = models.CharField(
 		'DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_convenio_telefone = models.CharField(
 		'Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_convenio_email = models.EmailField(
 		'Email',
 		max_length=250,
 		blank=True,
 	)
 	# --- Programa social --- #
-	### --- OK --- #
+	# --- OK --- #
 	# blank or 1
 	professor_programa_social = models.CharField(
 		'Convênio',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_programa_social_nome = models.CharField(
 		'Nome do convênio',
 		max_length=50,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_programa_social_ddd = models.CharField(
 		'DDD',
 		max_length=2,
 		blank=True,
 		validators=[validate_ddd, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_programa_social_telefone = models.CharField(
 		'Telefone',
 		max_length=9,
 		blank=True,
 		validators=[validate_phone, validate_digits]
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_programa_social_email = models.EmailField(
 		'Email',
 		max_length=250,
 		blank=True,
 	)
 	# --- Estagio --- #
-	### --- OK --- #
+	# --- OK --- #
 	# blank or 1
 	professor_estagio = models.CharField(
 		'Estagio',
 		max_length=1,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_estagio_instituicao = models.CharField(
 		'Instituição',
 		max_length=100,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_estagio_tempo = models.CharField(
 		'Tempo',
 		max_length=100,
 		blank=True
 	)
-	### --- OK --- #
+	# --- OK --- #
 	professor_estagio_observacoes = models.TextField(
 		'Observações sobre o estágio',
 		max_length=1000,
 		blank=True
 	)
 	# --- Observações --- #
-	### --- OK --- #
+	# --- OK --- #
 	professor_observacoes = models.TextField(
 		'Observações',
 		max_length=1000,
