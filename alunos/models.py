@@ -1048,21 +1048,6 @@ class Aluno(models.Model):
 		"""
 		return 'ALUNO-' + str(self.aluno_id)
 
-	def aluno_usuario_sist(self):
-
-		first = unidecode(self.aluno_nome.split()[0]).lower()
-		last = unidecode(self.aluno_nome.split()[-1]).lower()
-
-		return '{}{}{}'.format(first, last, self.aluno_id)
-
-	def aluno_first_name_sist(self):
-
-		return '{}'.format(self.aluno_nome.split()[0])
-
-	def aluno_last_name_sist(self):
-
-		return '{}'.format(self.aluno_nome.split()[-1])
-
 	class Meta:
 		verbose_name = 'Aluno'
 		verbose_name_plural = 'Alunos'
