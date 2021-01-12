@@ -5,8 +5,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 
+from unidecode import unidecode  # normalize strings Csii
+
 from professores.models import Professor
 from professores.forms import ProfessorForm
+from accounts.models import CustomUser
 
 
 class IndexProfessorView(TemplateView):
@@ -20,21 +23,53 @@ class ProfessorNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMi
 	success_url = '/professores/professor-novo'
 	success_message = 'Professor cadastrado com sucesso'
 
+	def post(self, request, *args, **kwargs):
+
+		form = self.get_form()
+
+		if form.is_valid():
+
+			# Create user after 'professor' registration
+
+			cpf = request.POST.get('professor_cpf')
+
+			if cpf:  # if 'professor_cpf' create user
+
+				# Data from 'Professor' for user creation
+				cpf_split_1 = cpf.split('.')
+				cpf_split_2 = ''.join(cpf_split_1).split('-')
+				cpf_join = ''.join(cpf_split_2)
+				nome_form = request.POST.get('professor_nome')
+				nome_split = nome_form.split()
+				first_name = nome_split[0]
+				last_name = nome_split[-1]
+				password1 = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
+
+				CustomUser.objects.create_user(
+					identifier=cpf_join,
+					password=password1,
+					first_name=first_name,
+					last_name=last_name,
+					department='pr'
+				)
+
+			return self.form_valid(form)
+		else:
+			return self.form_invalid(form)
+
 	def test_func(self):
 		"""
-		Testa se o departamento do usuario logado,
-		tem acesso a funções administrativas.
+		Test if authenticated user can access to this view.
 		"""
 
-		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
 
 		if self.request.user.department in authorized_admin_access:
 			return True
 
 	def handle_no_permission(self):
 		"""
-		Redirecionamentos no caso do departamento do usuário logado
-		não ter acesso a funções administrativas.
+		Redirect if authenticated user can not access to this view.
 		"""
 
 		if self.raise_exception or self.request.user.is_authenticated:
@@ -51,19 +86,17 @@ class ProfessorUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessag
 
 	def test_func(self):
 		"""
-		Testa se o departamento do usuario logado,
-		tem acesso a funções administrativas.
+		Test if authenticated user can access to this view.
 		"""
 
-		authorized_admin_access = ['ad', 'se']  # lista de acesso a funções administrativas
+		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
 
 		if self.request.user.department in authorized_admin_access:
 			return True
 
 	def handle_no_permission(self):
 		"""
-		Redirecionamentos no caso do departamento do usuário logado
-		não ter acesso a funções administrativas.
+		Redirect if authenticated user can not access to this view.
 		"""
 
 		if self.raise_exception or self.request.user.is_authenticated:
@@ -73,7 +106,7 @@ class ProfessorUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessag
 
 	def get_success_url(self):
 		"""
-		Redireciona para o mesmo formulário do aluno que está sendo alterado.
+		Redirect to the form of created 'professor', (change view).
 		"""
 
 		return reverse('professor-alterar', kwargs={'pk': self.object.pk,})
