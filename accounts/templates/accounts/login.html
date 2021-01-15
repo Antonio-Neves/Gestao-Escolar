@@ -9,12 +9,14 @@
                 <div class="form-group col">
                     <label for="username">Usuário</label>
                     <input type="text" id="username" name="username" class="form-control" value="{{ request.POST.username }}" maxlength="30" required autofocus>
+                    <p class="errorlist">{{ form.errors.username }}</p>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password" class="form-control" required>
+                    <p class="errorlist">{{ form.errors.password }}</p>
                 </div>
             </div>
             <div class="form-row mt-4">
