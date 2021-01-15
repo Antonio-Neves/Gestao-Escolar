@@ -16,6 +16,14 @@ from django.contrib.auth.views import (
 class UserLogin(SuccessMessageMixin, LoginView):
 	template_name = 'accounts/login.html'
 
+	def get(self, request, *args, **kwargs):
+
+		if self.request.user.is_authenticated:
+			return redirect('index-manager')
+
+		else:
+			return self.render_to_response(self.get_context_data())
+
 
 class UserCreate(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 	model = CustomUser
