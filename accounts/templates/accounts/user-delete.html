@@ -1,26 +1,20 @@
-{% extends 'base/_base_index.html' %}
-
-{% block title %}Apagar perfil{% endblock %}
-
-{% block body_title %}Apagar perfil{% endblock %}
-
-{% block body_content %}
-
-    <div class="container back01">
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Apagar Usuário{% endblock %}
+{% block body_title %}Apagar Usuário{% endblock %}
+{% block main_content %}
+    <div class="container bg-light back02">
         <h2>{{ object.first_name }} {{ object.last_name }}</h2>
         <p>
-        Tem a certeza que deseja apagar a sua conta?
+        Tem a certeza que deseja apagar este usuário?
         <br>
-        Todos os seus dados serão removidos.
+        Todos os dados serão removidos.
         </p>
-
-        <form method="POST" class="form" name="form_canal">
+        <form method="POST" class="form">
             {% csrf_token %}
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btncustom shadow-lg mr-2">Sim</button>
-                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index'%}">Cancelar</a>
+                <button type="submit" class="btn btn-dark-blue px-4 shadow-lg mr-2">Sim</button>
+                <a class="btn btn-dark-blue px-4 shadow-lg mr-1" role="button" href="{% url 'index-manager'%}">Cancelar</a>
             </div>
         </form>
     </div>
-
 {% endblock %}

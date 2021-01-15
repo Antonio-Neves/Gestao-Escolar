@@ -1,56 +1,46 @@
 {% extends 'base/_dashboard_base.html' %}
-
-{% block title %}Alterar perfil{% endblock %}
-
-{% block body_title %}Alterar perfil{% endblock %}
-
+{% block title %}Alterar Usuário{% endblock %}
+{% block body_title %}Alterar Usuário{% endblock %}
 {% block main_content %}
-
     <div class="container bg-light back02">
-
         <form method="post" class="form" autocomplete="off">
         {% csrf_token %}
-
             <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="identifier">Usuário<span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" id="identifier" name="identifier" value="{{ user.identifier }}" required autofocus>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="username">Usuário<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="username" name="username" maxlength="12" required autofocus
+                    value="{% if request.POST %}{{ request.POST.username }}{% elif object.username %}{{ object.username }}{% endif %}">
+                    <small id="password-help" class="form-text text-muted">
+                    Utilizar o CPF como usuário.
+                    </small>
+                    <p class="errorlist">{{ form.errors.username }}</p>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="department">Departamento<span style="color: red;">*</span></label>
-                        <select class="form-control" id="department" name="department" required>
-                            {% for u_type in form.department %}
-                                {{ u_type }}
-                            {% endfor %}
-                        </select>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="department">Departamento<span style="color: red;">*</span></label>
+                    <select class="form-control" id="department" name="department" required>
+                        {% for u_type in form.department %}
+                            {{ u_type }}
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
-
             <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="first_name">Primeiro nome<span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}" required>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="first_name">Primeiro nome<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required
+                    value="{% if request.POST %}{{ request.POST.first_name }}{% elif object.first_name %}{{ object.first_name }}{% endif %}">
+                    <p class="errorlist">{{ form.errors.first_name }}</p>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="last_name">último nome<span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}" required>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="last_name">Último nome<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required
+                    value="{% if request.POST %}{{ request.POST.last_name }}{% elif object.last_name %}{{ object.last_name }}{% endif %}">
+                    <p class="errorlist">{{ form.errors.last_name }}</p>
                 </div>
             </div>
-
             <div class="form-group">
-                <button type="submit" class="btn mr-2 btn-primary shadow-lg">Alterar</button>
-                <a class="btn btn-primary btncustom shadow-lg mr-1" role="button" href="{% url 'index-manager' %}">Cancelar</a>
+                <button type="submit" class="btn btn-dark-blue px-4 shadow-sm">Alterar</button>
             </div>
-
         </form>
     </div>
-
 {% endblock %}
