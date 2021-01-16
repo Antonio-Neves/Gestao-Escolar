@@ -1,0 +1,20 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Apagar aluno(a){% endblock %}
+{% block body_title %}Apagar aluno(a){% endblock %}
+{% block main_content %}
+    <div class="container bg-light back02">
+        <h2>{{ object.aluno_nome }}</h2>
+        <p>
+        Tem a certeza que deseja apagar este aluno(a)?
+        <br>
+        Todos os dados serão removidos.
+        </p>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark-blue px-4 shadow-lg mr-2">Sim</button>
+                <a class="btn btn-dark-blue px-4 shadow-lg mr-1" role="button" href="{% url 'index-manager'%}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -3,13 +3,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from unidecode import unidecode  # normalize strings Csii
 
 from alunos.models import Aluno
 from alunos.forms import AlunoForm
 from accounts.models import CustomUser
+
+authorized_admin_access = ['ad', 'se']  # list for admin access
 
 
 class AlunoIndexView(TemplateView):
@@ -33,8 +35,12 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 			cpf1 = request.POST.get('aluno_filiacao1_cpf')
 			cpf2 = request.POST.get('aluno_filiacao2_cpf')
+			# Test if 'Filiação CPF' of new 'Aluno' exists in 'Aluno' table
+			cpf1_qs = Aluno.objects.filter(aluno_filiacao1_cpf=cpf1)
+			cpf2_qs = Aluno.objects.filter(aluno_filiacao2_cpf=cpf2)
 
-			if cpf1:  # if 'filiação1' create user
+			# if 'filiação1' in form and not already exist in 'User model' create user
+			if cpf1 and not cpf1_qs:
 
 				# Data from Filiação 1 for user creation
 				cpf1_split_1 = cpf1.split('.')
@@ -47,14 +53,15 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 				password1 = f'{unidecode(first_name1).lower()}{cpf1_join[0:6]}'
 
 				CustomUser.objects.create_user(
-					identifier=cpf1_join,
+					username=cpf1_join,
 					password=password1,
 					first_name=first_name1,
 					last_name=last_name1,
 					department='re'
 				)
 
-			if cpf2:  # if 'filiação2' create user
+			# if 'filiação2' in form and not already exist in 'User model' create user
+			if cpf2 and not cpf2_qs:
 
 				# Date from Filiação 2 for user creation
 				cpf2_split_1 = cpf2.split('.')
@@ -67,7 +74,7 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 				password2 = f'{unidecode(first_name2).lower()}{cpf2_join[0:6]}'
 
 				CustomUser.objects.create_user(
-					identifier=cpf2_join,
+					username=cpf2_join,
 					password=password2,
 					first_name=first_name2,
 					last_name=last_name2,
@@ -82,9 +89,6 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 		"""
 		Test if authenticated user can access to this view.
 		"""
-
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
 		if self.request.user.department in authorized_admin_access:
 			return True
 
@@ -92,7 +96,6 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 		"""
 		Redirect if authenticated user can not access to this view.
 		"""
-
 		if self.raise_exception or self.request.user.is_authenticated:
 			return redirect('index-manager')
 
@@ -109,9 +112,6 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 		"""
 		Test if authenticated user can access to this view.
 		"""
-
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
 		if self.request.user.department in authorized_admin_access:
 			return True
 
@@ -119,7 +119,6 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 		"""
 		Redirect if authenticated user can not access to this view.
 		"""
-
 		if self.raise_exception or self.request.user.is_authenticated:
 			return redirect('index-manager')
 
@@ -129,5 +128,29 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 		"""
 		Redirect to the form of created user, (change view).
 		"""
-
 		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
+
+
+class AlunoDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+	model = Aluno
+	template_name = 'alunos/aluno-delete.html'
+	success_url = '/index-manager/'
+	success_message = 'O aluno foi corretamente apagado da base de dados'
+
+	def test_func(self):
+		"""
+		Test if authenticated user can access to this view.
+		"""
+		if self.request.user.department in authorized_admin_access:
+			return True
+
+	def handle_no_permission(self):
+		"""
+		Redirect if authenticated user can not access to this view.
+		"""
+		if self.raise_exception or self.request.user.is_authenticated:
+			return redirect('index-manager')
+
+		return redirect('login')
+
+
