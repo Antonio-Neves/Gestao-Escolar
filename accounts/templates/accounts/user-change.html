@@ -11,7 +11,8 @@
                     <input type="text" class="form-control" id="username" name="username" maxlength="12" required autofocus
                     value="{% if request.POST %}{{ request.POST.username }}{% elif object.username %}{{ object.username }}{% endif %}">
                     <small id="password-help" class="form-text text-muted">
-                    Utilizar o CPF como usuário.
+                    Para funcionários utilizar a primeira letra do departamento e o cpf.<br>
+                    Para pais e alunos utilizar o CPF.
                     </small>
                     <p class="errorlist">{{ form.errors.username }}</p>
                 </div>
