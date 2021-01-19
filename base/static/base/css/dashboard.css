@@ -76,7 +76,6 @@ body {
 .nav-link-collapse:hover {
     color: #004F9F;
     /*font-weight: bold;*/
-    text-decoration: underline dotted #004F9F;
 }
 
 /* ----- Navbar ----- */
