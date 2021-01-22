@@ -1,5 +1,6 @@
 from django.db import models
 from unidecode import unidecode
+from datetime import datetime
 
 from base.constants import (
 	DDD,
@@ -1047,6 +1048,15 @@ class Aluno(models.Model):
 		Return custom unique identification
 		"""
 		return 'ALUNO-' + str(self.aluno_id)
+
+	def aluno_idade(self):
+		"""
+		Return age, diference between actual year and born year.
+		"""
+		d1 = datetime.now().year
+		dn = int(self.aluno_data_nascimento[-4:])
+
+		return str(d1 - dn)
 
 	class Meta:
 		verbose_name = 'Aluno'

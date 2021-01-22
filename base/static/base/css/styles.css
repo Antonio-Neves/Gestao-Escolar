@@ -56,6 +56,10 @@ h2 {
     box-shadow: None;
 }
 
+/*
+ --- Containers ---
+*/
+
 .container-login {
     width: 33%;
     margin-top: 5%;
@@ -65,9 +69,56 @@ h2 {
     color: #102D69;
 }
 
+.container-aluno {
+    background: #F8F9FA;
+    margin-bottom: 2rem !important;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.head-aluno {
+    padding: .75rem 1rem .75rem 0;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px 10px 0 0 ;
+}
+
+.button-aluno {
+    color: white;
+    background: #102D69;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    padding: .25rem;
+    width: 5rem;
+    text-align: center;
+}
+
+.button-aluno:hover {
+    color: white;
+    background: #004F9F;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    padding: .25rem;
+    width: 5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.del {
+    color: white;
+    background: crimson;
+}
+
+.del:hover {
+    background: red;
+}
+
+
 /* --- Responsive --- */
 @media (max-width: 800px) {
     .container-login {
         width: 90%;
     }
 }
+

@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from unidecode import unidecode  # normalize strings Csii
@@ -16,6 +17,32 @@ authorized_admin_access = ['ad', 'se']  # list for admin access
 
 class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
+
+
+class AlunoInfoView():
+	pass
+
+
+class AlunosView(ListView):
+	model = Aluno
+	template_name = 'alunos/alunos.html'
+
+	# def get_queryset(self):
+	#
+	# 	cat = Categoria.objects.filter(categoria_usuario=self.request.user)
+	# 	dia = DiaTransmissao.objects.all()
+	#
+	# 	self.extra_context = {
+	# 		'categoria_context': cat,
+	# 		'dia_context': dia
+	# 	}
+	#
+	# 	return super().get_queryset()
+
+
+class AlunosEfetivoView(ListView):
+	model = Aluno
+	template_name = 'alunos/alunos-efetivo.html'
 
 
 class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
