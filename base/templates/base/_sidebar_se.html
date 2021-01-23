@@ -1,6 +1,6 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column accordion">
+        <ul class="nav flex-column accordion" id="accordionSidebar">
             <li class="nav-item border-0 my-2 rounded-right shadow-sm">
                 <a class="nav-link" href="{% url 'index-administracao' %}">
                     <span data-feather="home"></span>
@@ -8,12 +8,12 @@
                 </a>
             </li>
             <li class="nav-item border-0 rounded-right shadow-sm">
-                <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="false" aria-controls="collapseAlunos">
+                <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="true" aria-controls="collapseAlunos">
                     <span data-feather="users"></span>
                     Alunos
                 </a>
             </li>
-                <div class="collapse pl-4 m-1" id="collapseAlunos">
+                <div class="collapse pl-4 m-1" id="collapseAlunos" data-parent="#accordionSidebar">
                     <a class="nav-link nav-link-collapse rounded-right" href="{% url 'aluno-novo' %}">
                          Cadastrar aluno
                     </a>
@@ -54,15 +54,15 @@
                     Usuários do Sistema
                 </a>
             </li>
-                <div class="collapse pl-4 m-2" id="collapseUsuarios">
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Cadastrar aluno
+                <div class="collapse pl-4 m-2" id="collapseUsuarios" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse" href="{% url 'user-new' %}">
+                         Cadastrar usuário
                     </a>
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Alterar aluno
+                    <a class="nav-link nav-link-collapse" href="#">
+                         Alterar usuário
                     </a>
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Apagar aluno
+                    <a class="nav-link nav-link-collapse" href="#">
+                         Apagar usuário
                     </a>
                 </div>
         </ul>

@@ -13,7 +13,7 @@
             {% csrf_token %}
             <div class="form-group">
                 <button type="submit" class="btn btn-dark-blue px-4 shadow-lg mr-2">Sim</button>
-                <a class="btn btn-dark-blue px-4 shadow-lg mr-1" role="button" href="{% url 'index-manager'%}">Cancelar</a>
+                <button class="btn btn-dark-blue px-4 shadow-lg" onclick="history.back();">Cancel</button>
             </div>
         </form>
     </div>

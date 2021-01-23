@@ -2,18 +2,18 @@
 {% block title %}Alunos{% endblock %}
 {% block body_title %}Alunos{% endblock %}
 {% block main_content %}
+    <div class=" accordion" id="accordionAluno">
     {% for aluno in object_list %}
         <div class="container container-aluno">
             <div class="row head-aluno">
-{#                <div class="col-md-5">#}
-{#                    <h6><a class="my-0 pl-3" href="#">{{ aluno.aluno_nome }}</a></h6>#}
-{#                </div>#}
-                <div class="col-md-4">
-                    <h6><a class="a-aluno" data-toggle="collapse" href="#collapse-aluno" role="button" aria-expanded="false" aria-controls="collapse-aluno">
+                <div class="col-md-5">
+                    <a class="a-aluno"
+                       data-toggle="collapse" href="#a{{ aluno.pk }}" role="button" aria-expanded="false" aria-controls="a{{ aluno.pk }}">
                         {{ aluno.aluno_nome }}
-                    </a></h6>
+                        <span data-feather="chevron-down"></span>
+                    </a>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     Idade: {{ aluno.aluno_idade }}
                 </div>
                 <div class="col-md-2">
@@ -23,23 +23,21 @@
                     Turma: {{ aluno.get_aluno_situacao_display }}
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <a href="{% url 'aluno-alterar' aluno.pk %}" class="ml-2 button-aluno">Alterar</a>
-                    <a href="{% url 'aluno-delete' aluno.pk %}" class="ml-3 button-aluno del">Apagar</a>
+                    <a class="ml-2 button-aluno" href="{% url 'aluno-alterar' aluno.pk %}">Alterar</a>
+                    <a class="ml-3 button-aluno del" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h6 class="my-0 pl-3">Body aaaaaaaaaaaaa</h6>
+                <div class="collapse pl-4 m-1" id="a{{ aluno.pk }}" data-parent="#accordionAluno">
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'aluno-novo' %}">
+                         Cadastrar aluno
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos-efetivo' %}">
+                         Efetivo alunos
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos' %}">
+                         Lista alunos
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h6 class="my-0 pl-3">Body aaaaaaaaaaaaa</h6>
-                </div>
-            </div>
-
-
-
         </div>
 
 {#        <div class="card mb-3">#}
@@ -81,4 +79,5 @@
 {#            </div>#}
 {#        </div>#}
     {% endfor %}
+    </div>
 {% endblock %}
