@@ -11,10 +11,8 @@
                        data-toggle="collapse" href="#a{{ aluno.pk }}" role="button" aria-expanded="false" aria-controls="a{{ aluno.pk }}">
                         {{ aluno.aluno_nome }}
                         <span data-feather="chevron-down"></span>
+
                     </a>
-                </div>
-                <div class="col-md-1">
-                    Idade: {{ aluno.aluno_idade }}
                 </div>
                 <div class="col-md-2">
                     Situação: {{ aluno.get_aluno_situacao_display }}
@@ -22,22 +20,34 @@
                 <div class="col-md-2">
                     Turma: {{ aluno.get_aluno_situacao_display }}
                 </div>
-                <div class="col-md-2 d-flex justify-content-end">
+                <div class="col-md-3 d-flex justify-content-end">
+                    <a class="button-aluno" href="{% url 'aluno-alterar' aluno.pk %}">Ver</a>
                     <a class="ml-2 button-aluno" href="{% url 'aluno-alterar' aluno.pk %}">Alterar</a>
                     <a class="ml-3 button-aluno del" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>
                 </div>
             </div>
-                <div class="collapse pl-4 m-1" id="a{{ aluno.pk }}" data-parent="#accordionAluno">
-                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'aluno-novo' %}">
-                         Cadastrar aluno
-                    </a>
-                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos-efetivo' %}">
-                         Efetivo alunos
-                    </a>
-                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos' %}">
-                         Lista alunos
-                    </a>
+            <!-- Area Collapse -->
+            <div class="collapse pt-3" id="a{{ aluno.pk }}" data-parent="#accordionAluno">
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <p>Idade: {{ aluno.aluno_idade }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Data de nascimento: {{ aluno.aluno_data_nascimento }}</p>
+                    </div>
                 </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <p>filiação 1: {{ aluno.aluno_filiacao1_nome }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Parentesco: {{ aluno.aluno_filiacao1_parentesco }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p>Telefones: ({{ aluno.aluno_filiacao1_ddd1 }}) {{ aluno.aluno_filiacao1_telefone1 }} / ({{ aluno.aluno_filiacao1_ddd2 }}) {{ aluno.aluno_filiacao1_telefone2 }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 {#        <div class="card mb-3">#}

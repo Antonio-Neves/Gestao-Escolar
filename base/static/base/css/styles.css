@@ -79,7 +79,7 @@ h2 {
 }
 
 .head-aluno {
-    padding: .75rem 1rem .75rem 0;
+    padding: .75rem 0 .75rem 0;
     margin-bottom: 0;
     background-color: rgba(0,0,0,.03);
     border-bottom: 1px solid rgba(0,0,0,.125);
@@ -91,6 +91,20 @@ h2 {
     text-decoration: none;
     font-size: 1.2em;
     /*font-weight: bold;*/
+}
+
+.a-aluno:hover {
+    color: #004F9F;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.a-aluno:active {
+    color: #004F9F;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .button-aluno {
@@ -106,11 +120,6 @@ h2 {
 .button-aluno:hover {
     color: white;
     background: #004F9F;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 5px;
-    padding: .25rem;
-    width: 5rem;
-    text-align: center;
     text-decoration: none;
 }
 
