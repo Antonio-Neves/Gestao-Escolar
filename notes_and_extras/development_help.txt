@@ -128,6 +128,12 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 
 
 # ------------------------------------------------------------------ #
+# --- Cancel button return previous page --- #
+
+<button class="btn btn-dark-blue px-4 shadow-lg" onclick="history.back();">Cancel</button>
+
+
+# ------------------------------------------------------------------ #
 # --- Print --- #
 
     <div>
