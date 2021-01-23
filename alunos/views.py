@@ -13,6 +13,7 @@ from alunos.forms import AlunoForm
 from accounts.models import CustomUser
 
 
+# --- General views --- #
 class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
 
