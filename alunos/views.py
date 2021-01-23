@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views.generic.base import TemplateView
-from django.views.generic import ListView
+from django.views.generic import View, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from unidecode import unidecode  # normalize strings Csii
@@ -12,40 +12,45 @@ from alunos.models import Aluno
 from alunos.forms import AlunoForm
 from accounts.models import CustomUser
 
-authorized_admin_access = ['ad', 'se']  # list for admin access
-
 
 class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
 
 
-class AlunoInfoView():
+class BaseAdminUsers(LoginRequiredMixin, UserPassesTestMixin, View):
+	"""
+	Base class for test if user department have authorized access to
+	admin functions.
+
+	- Administração
+	- Secretaria
+	"""
+
+	def test_func(self):
+		"""
+		Test if authenticated user can access to this view.
+		"""
+		authorized_admin_access = ['ad', 'se']  # list for admin access
+
+		if self.request.user.department in authorized_admin_access:
+			return True
+
+	def handle_no_permission(self):
+		"""
+		Redirect if authenticated user can not access to this view.
+		"""
+		if self.raise_exception or self.request.user.is_authenticated:
+			return redirect('index-manager')
+
+		return redirect('login')
+
+
+# --- Admin views --- #
+class AlunoInfoView(BaseAdminUsers):
 	pass
 
 
-class AlunosListView(ListView):
-	model = Aluno
-	template_name = 'alunos/alunos.html'
-
-	# def get_queryset(self):
-	#
-	# 	cat = Categoria.objects.filter(categoria_usuario=self.request.user)
-	# 	dia = DiaTransmissao.objects.all()
-	#
-	# 	self.extra_context = {
-	# 		'categoria_context': cat,
-	# 		'dia_context': dia
-	# 	}
-	#
-	# 	return super().get_queryset()
-
-
-class AlunosEfetivoListView(ListView):
-	model = Aluno
-	template_name = 'alunos/alunos-efetivo.html'
-
-
-class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
+class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
 	model = Aluno
 	template_name = 'alunos/aluno-novo.html'
 	form_class = AlunoForm
@@ -112,44 +117,12 @@ class AlunoNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
 		else:
 			return self.form_invalid(form)
 
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-		if self.request.user.department in authorized_admin_access:
-			return True
 
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
-
-
-class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
+class AlunoUpdateView(BaseAdminUsers, SuccessMessageMixin, UpdateView):
 	model = Aluno
 	form_class = AlunoForm
 	template_name = 'alunos/aluno-alterar.html'
 	success_message = 'As alterações foram efectuadas com sucesso'
-
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
 
 	def get_success_url(self):
 		"""
@@ -158,26 +131,19 @@ class AlunoUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMix
 		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
 
 
-class AlunoDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+class AlunoDeleteView(BaseAdminUsers, SuccessMessageMixin, DeleteView):
 	model = Aluno
 	template_name = 'alunos/aluno-delete.html'
 	success_url = '/index-manager/'
 	success_message = 'O aluno foi corretamente apagado da base de dados'
 
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-		if self.request.user.department in authorized_admin_access:
-			return True
 
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
+# --- Lists views --- #
+class AlunosListView(BaseAdminUsers, ListView):
+	model = Aluno
+	template_name = 'alunos/alunos.html'
 
 
+class AlunosEfetivoListView(BaseAdminUsers, ListView):
+	model = Aluno
+	template_name = 'alunos/alunos-efetivo.html'
