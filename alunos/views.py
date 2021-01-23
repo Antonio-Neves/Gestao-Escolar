@@ -23,7 +23,7 @@ class AlunoInfoView():
 	pass
 
 
-class AlunosView(ListView):
+class AlunosListView(ListView):
 	model = Aluno
 	template_name = 'alunos/alunos.html'
 
@@ -40,7 +40,7 @@ class AlunosView(ListView):
 	# 	return super().get_queryset()
 
 
-class AlunosEfetivoView(ListView):
+class AlunosEfetivoListView(ListView):
 	model = Aluno
 	template_name = 'alunos/alunos-efetivo.html'
 

@@ -1,0 +1,63 @@
+    <div class=" accordion" id="accordionAluno">
+    {% for aluno in object_list %}
+        <div class="container container-aluno">
+            <div class="row head-aluno">
+                <div class="col-md-5">
+                    <a class="a-aluno"
+                       data-toggle="collapse" href="#a{{ aluno.pk }}" role="button" aria-expanded="false" aria-controls="a{{ aluno.pk }}">
+                        {{ aluno.aluno_nome }}
+                        <span data-feather="chevron-down"></span>
+
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    Situação: {{ aluno.get_aluno_situacao_display }}
+                </div>
+                <div class="col-md-2">
+                    Turma: {{ aluno.get_aluno_situacao_display }}
+                </div>
+                <div class="col-md-3 d-flex justify-content-end">
+                    <a class="button-aluno" href="{% url 'aluno-alterar' aluno.pk %}">Ver</a>
+                    <a class="ml-2 button-aluno" href="{% url 'aluno-alterar' aluno.pk %}">Alterar</a>
+                    <a class="ml-3 button-aluno del" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>
+                </div>
+            </div>
+            <!-- Area Collapse -->
+            <div class="collapse pt-3" id="a{{ aluno.pk }}" data-parent="#accordionAluno">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Idade: {{ aluno.aluno_idade }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Data de nascimento: {{ aluno.aluno_data_nascimento }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p>Telefone: {{ aluno.aluno_ddd }} - {{ aluno.aluno_telefone }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Filiação 1: {{ aluno.aluno_filiacao1_nome }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Parentesco: {{ aluno.aluno_filiacao1_parentesco }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p>Telefones: {{ aluno.aluno_filiacao1_ddd1 }} - {{ aluno.aluno_filiacao1_telefone1 }} | {{ aluno.aluno_filiacao1_ddd2 }} - {{ aluno.aluno_filiacao1_telefone2 }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Filiação 2: {{ aluno.aluno_filiacao2_nome }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Parentesco: {{ aluno.aluno_filiacao2_parentesco }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p>Telefones: {{ aluno.aluno_filiacao2_ddd1 }} - {{ aluno.aluno_filiacao2_telefone1 }} | {{ aluno.aluno_filiacao2_ddd2 }} - {{ aluno.aluno_filiacao2_telefone2 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>

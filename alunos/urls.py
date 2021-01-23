@@ -1,7 +1,7 @@
 from django.urls import path
 from alunos.views import (
-	AlunosView,
-	AlunosEfetivoView,
+	AlunosListView,
+	AlunosEfetivoListView,
 	AlunoIndexView,
 	AlunoNewView,
 	AlunoUpdateView,
@@ -11,8 +11,8 @@ from alunos.views import (
 
 urlpatterns = [
 	path('', AlunoIndexView.as_view(), name='index-aluno'),
-	path('alunos/', AlunosView.as_view(), name='alunos'),
-	path('alunos-efetivo/', AlunosEfetivoView.as_view(), name='alunos-efetivo'),
+	path('alunos/', AlunosListView.as_view(), name='alunos'),
+	path('alunos-efetivo/', AlunosEfetivoListView.as_view(), name='alunos-efetivo'),
 	path('aluno-novo/', AlunoNewView.as_view(), name='aluno-novo'),
 	path('<int:pk>/alterar/', AlunoUpdateView.as_view(), name='aluno-alterar'),
 	path('<int:pk>/delete', AlunoDeleteView.as_view(), name='aluno-delete'),
