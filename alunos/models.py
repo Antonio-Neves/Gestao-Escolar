@@ -3,7 +3,6 @@ from unidecode import unidecode
 from datetime import datetime
 
 from base.constants import (
-	DDD,
 	ESTADO,
 	MUNICIPIO,
 	CEP,
