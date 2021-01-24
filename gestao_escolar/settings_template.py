@@ -62,7 +62,6 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 
 	# --- Django Apps Extras --- #
-	'debug_toolbar',
 
 	# --- My Apps ---#
 	'administracao',
@@ -81,8 +80,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
-	# --- Only in production for debug toolbar --- #
-	'debug_toolbar.middleware.DebugToolbarMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
