@@ -127,7 +127,7 @@ class AlunoUpdateView(BaseAdminUsers, SuccessMessageMixin, UpdateView):
 
 	def get_success_url(self):
 		"""
-		Redirect to the form of created user, (change view).
+		Reverse to the form of created user, (update view).
 		"""
 		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
 
