@@ -1,13 +1,8 @@
 from django.db import models
-from unidecode import unidecode
 from datetime import datetime
 
-from base.constants import (
-	ESTADO,
-	MUNICIPIO,
-	CEP,
-	PAIS
-)
+from base import constants
+
 from base.validators import (
 	validate_digits,
 	validate_no_digits,
@@ -224,7 +219,7 @@ class Aluno(models.Model):
 		on_delete=models.DO_NOTHING,
 		verbose_name='País de nascimento',
 		related_name='alunopaisnascimento',
-		default=PAIS,
+		default=constants.PAIS
 	)
 	# --- OK --- #
 	aluno_estado_nascimento = models.CharField(
@@ -297,7 +292,7 @@ class Aluno(models.Model):
 		'Estado',
 		max_length=2,
 		choices=CHOICES_ALUNO_ESTADO,
-		default=ESTADO
+		default=constants.ESTADO
 	)
 	# --- OK MEC --- #
 	aluno_municipio_residencia = models.CharField(
@@ -310,7 +305,7 @@ class Aluno(models.Model):
 	# 	on_delete=models.DO_NOTHING,
 	# 	verbose_name='Município',
 	# 	related_name='alunomunicipioresidencia',
-	# 	default=MUNICIPIO
+	# 	default=constants.MUNICIPIO
 	# )
 	# --- OK MEC --- #
 	aluno_pais_residencia = models.ForeignKey(
@@ -318,7 +313,7 @@ class Aluno(models.Model):
 		on_delete=models.DO_NOTHING,
 		verbose_name='País',
 		related_name='alunopaisresidencia',
-		default=PAIS
+		default=constants.PAIS
 	)
 	# --- Aluno contacto --- #
 	# --- OK --- #

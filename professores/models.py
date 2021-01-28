@@ -1,9 +1,7 @@
 from django.db import models
 
-from base.constants import (
-	ESTADO,
-	PAIS
-)
+from base import constants
+
 from base.validators import (
 	validate_digits,
 	validate_no_digits,
@@ -197,7 +195,7 @@ class Professor(models.Model):
 		on_delete=models.DO_NOTHING,
 		verbose_name='País de nascimento',
 		related_name='professorpaisnascimento',
-		default=PAIS,
+		default=constants.PAIS,
 	)
 	# --- OK --- #
 	professor_estado_nascimento = models.CharField(
@@ -218,7 +216,7 @@ class Professor(models.Model):
 	# 	verbose_name='Município',
 	# 	related_name='professormunicipionascimento',
 	# 	blank=True,
-	# 	null=True
+	# 	null=True,
 	# )
 	# --- professor residencia --- #
 	# --- OK --- #
@@ -270,7 +268,7 @@ class Professor(models.Model):
 		'Estado',
 		max_length=2,
 		choices=CHOICES_PROFESSOR_ESTADO,
-		default=ESTADO
+		default=constants.ESTADO
 	)
 	# --- OK MEC --- #
 	professor_municipio_residencia = models.CharField(
@@ -291,7 +289,7 @@ class Professor(models.Model):
 		on_delete=models.DO_NOTHING,
 		verbose_name='País',
 		related_name='professorpaisresidencia',
-		default=PAIS
+		default=constants.PAIS
 	)
 	# --- professor contacto --- #
 	# --- OK --- #

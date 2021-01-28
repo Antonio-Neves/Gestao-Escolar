@@ -115,6 +115,7 @@ class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
 				)
 
 			return self.form_valid(form)
+
 		else:
 			return self.form_invalid(form)
 
@@ -129,7 +130,7 @@ class AlunoUpdateView(BaseAdminUsers, SuccessMessageMixin, UpdateView):
 		"""
 		Reverse to the form of created user, (update view).
 		"""
-		return reverse('aluno-alterar', kwargs={'pk': self.object.pk,})
+		return reverse('aluno-alterar', kwargs={'pk': self.object.pk})
 
 
 class AlunoDeleteView(BaseAdminUsers, SuccessMessageMixin, DeleteView):
