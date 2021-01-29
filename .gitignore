@@ -1,0 +1,22 @@
+# Sensitive files
+gestao_escolar/settings.py
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+
+# Data Base
+db.sqlite3
+
+# PyCharm
+.idea
+
+# Virtualenv
+.venv
+
+# Folders
+media
+
+# Files
