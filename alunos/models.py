@@ -229,19 +229,19 @@ class Aluno(models.Model):
 		blank=True,
 	)
 	# --- OK MEC --- #
-	aluno_municipio_nascimento = models.CharField(
-		'Municipio nascimento',
-		max_length=100,
-		blank=True,
-	)
-	# aluno_municipio_nascimento = models.ForeignKey(
-	# 	Municipio,
-	# 	on_delete=models.DO_NOTHING,
-	# 	verbose_name='Município',
-	# 	related_name='alunomunicipionascimento',
+	# aluno_municipio_nascimento = models.CharField(
+	# 	'Municipio nascimento',
+	# 	max_length=100,
 	# 	blank=True,
-	# 	null=True
 	# )
+	aluno_municipio_nascimento = models.ForeignKey(
+		Municipio,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Município',
+		related_name='alunomunicipionascimento',
+		blank=True,
+		null=True
+	)
 	# --- Aluno residencia --- #
 	# --- OK --- #
 	aluno_logradouro_residencia = models.CharField(
@@ -295,18 +295,18 @@ class Aluno(models.Model):
 		default=constants.ESTADO
 	)
 	# --- OK MEC --- #
-	aluno_municipio_residencia = models.CharField(
-		'Municipio residência',
-		max_length=100,
-	)
-	# # Default for city school - first in cities table
-	# aluno_municipio_residencia = models.ForeignKey(
-	# 	Municipio,
-	# 	on_delete=models.DO_NOTHING,
-	# 	verbose_name='Município',
-	# 	related_name='alunomunicipioresidencia',
-	# 	default=constants.MUNICIPIO
+	# aluno_municipio_residencia = models.CharField(
+	# 	'Municipio residência',
+	# 	max_length=100,
 	# )
+	# # Default for city school - first in cities table
+	aluno_municipio_residencia = models.ForeignKey(
+		Municipio,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Município',
+		related_name='alunomunicipioresidencia',
+		default=constants.MUNICIPIO
+	)
 	# --- OK MEC --- #
 	aluno_pais_residencia = models.ForeignKey(
 		Pais,

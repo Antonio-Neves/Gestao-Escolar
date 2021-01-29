@@ -158,13 +158,13 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_municipio_nascimento">Municipio de nascimento</label>
-                <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento"  maxlength="100"
-                       value="{% if request.POST %}{{ request.POST.aluno_municipio_nascimento }}{% elif object.aluno_municipio_nascimento %}{{ object.aluno_municipio_nascimento }}{% endif %}">
-{#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
-{#                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}#}
-{#                        {{ municipio_nascimento }}#}
-{#                    {% endfor %}#}
-{#                </select>#}
+{#                <input type="text" class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento"  maxlength="100"#}
+{#                       value="{% if request.POST %}{{ request.POST.aluno_municipio_nascimento }}{% elif object.aluno_municipio_nascimento %}{{ object.aluno_municipio_nascimento }}{% endif %}">#}
+                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>
+                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}
+                        {{ municipio_nascimento }}
+                    {% endfor %}
+                </select>
                 <small id="password-help" class="form-text text-muted">
                     Preencher se a nacionalidade for brasileira.
                 </small>
@@ -234,13 +234,13 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_municipio_residencia">Municipio de residência <span style="color: red;">*</span></label>
-                <input type="text" class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" maxlength="100" required
-                       value="{% if request.POST %}{{ request.POST.aluno_municipio_residencia }} {% elif object.aluno_municipio_residencia %}{{ object.aluno_municipio_residencia }} {% else %} {{ "Canaã dos Carajás" }} {% endif %}">
-{#                <select class="form-control" id="aluno_municipio_nascimento" name="aluno_municipio_nascimento" required>#}
-{#                    {% for municipio_nascimento in form.aluno_municipio_nascimento %}#}
-{#                        {{ municipio_nascimento }}#}
-{#                    {% endfor %}#}
-{#                </select>#}
+{#                <input type="text" class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" maxlength="100" required#}
+{#                       value="{% if request.POST %}{{ request.POST.aluno_municipio_residencia }} {% elif object.aluno_municipio_residencia %}{{ object.aluno_municipio_residencia }} {% else %} {{ "Canaã dos Carajás" }} {% endif %}">#}
+                <select class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" required>
+                    {% for aluno_municipio_residencia in form.aluno_municipio_residencia %}
+                        {{ aluno_municipio_residencia }}
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="aluno_pais_residencia">País de residência <span style="color: red;">*</span></label>
