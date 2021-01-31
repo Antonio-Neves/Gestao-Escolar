@@ -1,13 +1,13 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column accordion" id="accordionSidebar">
-            <li class="nav-item border-0 my-2 rounded-right shadow-sm">
+            <li class="nav-item my-2 rounded-right">
                 <a class="nav-link" href="{% url 'index-administracao' %}">
                     <span data-feather="home"></span>
                     Início
                 </a>
             </li>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="true" aria-controls="collapseAlunos">
                     <span data-feather="users"></span>
                     Alunos
@@ -24,37 +24,37 @@
                          Lista alunos
                     </a>
                 </div>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" href="#">
                     <span data-feather="file"></span>
                     Diários
                 </a>
             </li>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" href="#">
                     <span data-feather="shopping-cart"></span>
                     Infantil
                 </a>
             </li>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" href="#">
                     <span data-feather="bar-chart-2"></span>
                     Notas
                 </a>
             </li>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" href="#">
                     <span data-feather="layers"></span>
                     Turmas
                 </a>
             </li>
-            <li class="nav-item border-0 rounded-right shadow-sm">
+            <li class="nav-item rounded-right">
                 <a class="nav-link" data-toggle="collapse" href="#collapseUsuarios" role="button" aria-expanded="false" aria-controls="collapseUsuarios">
                     <span data-feather="users"></span>
                     Usuários do Sistema
                 </a>
             </li>
-                <div class="collapse pl-4 m-2" id="collapseUsuarios" data-parent="#accordionSidebar">
+                <div class="collapse ml-4 m-2" id="collapseUsuarios" data-parent="#accordionSidebar">
                     <a class="nav-link nav-link-collapse" href="{% url 'user-new' %}">
                          Cadastrar usuário
                     </a>
