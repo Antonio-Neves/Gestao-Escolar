@@ -13,6 +13,37 @@ from alunos.forms import AlunoForm
 from accounts.models import CustomUser
 
 
+def create_user_after_registration(
+		username, password, first_name, last_name, department):
+	"""
+	Create user after aluno registration
+	"""
+	CustomUser.objects.create_user(
+		username=username,
+		password=password,
+		first_name=first_name,
+		last_name=last_name,
+		department=department
+	)
+
+
+def data_processing_user_creation(cpf, name_form, department):
+	"""
+	Processing data for user creation
+	"""
+
+	cpf_split_1 = cpf.split('.')
+	cpf_split_2 = ''.join(cpf_split_1).split('-')
+	cpf_join = ''.join(cpf_split_2)
+	name_split = name_form.split()
+	first_name = name_split[0]
+	last_name = name_split[-1]
+	password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
+
+	create_user_after_registration(
+		cpf_join, password, first_name, last_name, department)
+
+
 # --- General views --- #
 class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
@@ -64,8 +95,7 @@ class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
 
 		if form.is_valid():
 
-			# Create user after 'aluno' registration
-
+			# Data for user creation after 'aluno' registration
 			cpf1 = request.POST.get('aluno_filiacao1_cpf')
 			cpf2 = request.POST.get('aluno_filiacao2_cpf')
 			# Test if 'Filiação CPF' of new 'Aluno' exists in 'Aluno' table
@@ -76,43 +106,17 @@ class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
 			if cpf1 and not cpf1_qs:
 
 				# Data from Filiação 1 for user creation
-				cpf1_split_1 = cpf1.split('.')
-				cpf1_split_2 = ''.join(cpf1_split_1).split('-')
-				cpf1_join = ''.join(cpf1_split_2)
-				nome1_form = request.POST.get('aluno_filiacao1_nome')
-				nome1_split = nome1_form.split()
-				first_name1 = nome1_split[0]
-				last_name1 = nome1_split[-1]
-				password1 = f'{unidecode(first_name1).lower()}{cpf1_join[0:6]}'
+				name1_form = request.POST.get('aluno_filiacao1_nome')
 
-				CustomUser.objects.create_user(
-					username=cpf1_join,
-					password=password1,
-					first_name=first_name1,
-					last_name=last_name1,
-					department='re'
-				)
+				data_processing_user_creation(cpf1, name1_form, 're')
 
 			# if 'filiação2' in form and not already exist in 'User model' create user
 			if cpf2 and not cpf2_qs:
 
-				# Date from Filiação 2 for user creation
-				cpf2_split_1 = cpf2.split('.')
-				cpf2_split_2 = ''.join(cpf2_split_1).split('-')
-				cpf2_join = ''.join(cpf2_split_2)
-				nome2_form = request.POST.get('aluno_filiacao2_nome')
-				nome2_split = nome2_form.split()
-				first_name2 = nome2_split[0]
-				last_name2 = nome2_split[-1]
-				password2 = f'{unidecode(first_name2).lower()}{cpf2_join[0:6]}'
+				# Data from Filiação 2 for user creation
+				name2_form = request.POST.get('aluno_filiacao2_nome')
 
-				CustomUser.objects.create_user(
-					username=cpf2_join,
-					password=password2,
-					first_name=first_name2,
-					last_name=last_name2,
-					department='re'
-				)
+				data_processing_user_creation(cpf2, name2_form, 're')
 
 			return self.form_valid(form)
 
