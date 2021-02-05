@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from django.views.generic.base import TemplateView
 from django.views.generic import View, ListView
@@ -49,11 +50,11 @@ class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
 
 
-class BaseAdminUsers(LoginRequiredMixin, UserPassesTestMixin, View):
+class BaseAdminUsers(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, View):
 	"""
 	Base class for test if user department have authorized access to
 	admin functions.
-
+	And display sucess messages
 	- Administração
 	- Secretaria
 	"""
@@ -82,7 +83,7 @@ class AlunoInfoView(BaseAdminUsers):
 	pass
 
 
-class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
+class AlunoNewView(BaseAdminUsers, CreateView):
 	model = Aluno
 	template_name = 'alunos/aluno-novo.html'
 	form_class = AlunoForm
@@ -124,7 +125,7 @@ class AlunoNewView(BaseAdminUsers, SuccessMessageMixin, CreateView):
 			return self.form_invalid(form)
 
 
-class AlunoUpdateView(BaseAdminUsers, SuccessMessageMixin, UpdateView):
+class AlunoUpdateView(BaseAdminUsers, UpdateView):
 	model = Aluno
 	form_class = AlunoForm
 	template_name = 'alunos/aluno-alterar.html'
@@ -137,11 +138,19 @@ class AlunoUpdateView(BaseAdminUsers, SuccessMessageMixin, UpdateView):
 		return reverse('aluno-alterar', kwargs={'pk': self.object.pk})
 
 
-class AlunoDeleteView(BaseAdminUsers, SuccessMessageMixin, DeleteView):
+class AlunoDeleteView(BaseAdminUsers, DeleteView):
 	model = Aluno
 	template_name = 'alunos/aluno-delete.html'
-	success_url = '/index-manager/'
+	# success_url = '/alunos/alunos'
 	success_message = 'O aluno foi corretamente apagado da base de dados'
+
+	def get_success_url(self):
+		"""
+		Only for display sucess message after delete
+		"""
+		messages.success(self.request, self.success_message)
+
+		return reverse('alunos')
 
 
 # --- Lists views --- #
