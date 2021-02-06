@@ -7,27 +7,7 @@
 </head>
 <body>
     <!-- NavBar -->
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top flex-md-nowrap p-0 shadow">
-        <div class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
-            <!-- TODO change source for logo -->
-            <img class="logo-dash mr-3" src="{% static 'base/images/logo2.png' %}" alt="AN Sistemas">
-            {{ user.get_department_display }}
-        </div>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Pesquisar" aria-label="Pesquisar">
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap dropdown">
-                <a class="nav-link text-white dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ user.first_name }}
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+    {% include 'base/_dashboard_navbar_'|add:user.department|add:'.html' %}
     <!-- Body -->
     <div class="container-fluid">
         <div class="row">

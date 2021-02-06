@@ -146,7 +146,7 @@ class AlunoDeleteView(BaseAdminUsers, DeleteView):
 
 	def get_success_url(self):
 		"""
-		Only for display sucess message after delete
+		Only necessary for display sucess message after delete
 		"""
 		messages.success(self.request, self.success_message)
 
