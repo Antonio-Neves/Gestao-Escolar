@@ -1,6 +1,26 @@
-/* body {
-    margin-top: 2%;
-} */
+
+/*html, body, header, #intro {*/
+/*    height: 100%;*/
+/*}*/
+
+#intro {
+    height: 100vh;
+    min-height: 500px;
+    background: url("https://ansistemas.com/images/gestao_escolar_img_principal.jpg") no-repeat center center fixed;
+    /*background: url(https://cdn.pixabay.com/photo/2019/04/14/10/27/book-4126483_960_720.jpg) no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.col-principal {
+    background-color: rgba(16,45,105, 0.9);
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+}
+
 
 h1 {
     font-family: 'Roboto', sans-serif;
@@ -50,6 +70,7 @@ h2 {
 
 .navbar-principal {
     background-color: #102D69;
+    border-bottom: darkslategrey solid 1px;
 }
 
 .navbar-principal > .navbar-brand {
@@ -62,8 +83,8 @@ h2 {
 
 .container-login {
     width: 33%;
-    margin-top: 5%;
-    margin-bottom: 2%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     padding: 2%;
     border-radius: 10px;
     color: #102D69;
@@ -140,3 +161,146 @@ h2 {
     }
 }
 
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer .footer-h2 {
+		margin-bottom: 2rem;
+	}
+
+	#footer a:hover {
+		color: #00ff00;
+	}
+
+	.contact.contact-li{
+		font-size: 15pt;
+	}
+
+	.contact.contact-li a {
+		color: #051842;
+        font-family: 'Roboto', sans-serif;
+        font-weight: normal;
+	}
+
+    .contact.contact-li p {
+		color: #051842;
+        font-family: 'Roboto', sans-serif;
+        font-weight: normal;
+	}
+
+	#footer
+	{
+		position: relative;
+		text-align: center;
+        background-color: #E8F0FE;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+	}
+
+	#footer header h2
+	{
+		color: #051842 !important;
+	}
+
+	#footer header .byline
+	{
+		color: #051842;
+	}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright
+	{
+		position: relative;
+		text-align: center;
+		color: #bbccdd;
+	}
+
+	#copyright .container
+	{
+		padding: 2em 0em;
+		border-top: 1px solid;
+		border-color: rgba(255,255,255,.1);
+		color:  rgba(255,255,255,.1);
+	}
+
+	#copyright a
+	{
+		text-decoration: none;
+		color:  black;
+	}
+
+/*********************************************************************************/
+/* Icons                                                                         */
+/*********************************************************************************/
+
+	.fa
+	{
+		text-decoration: none;
+	}
+
+		.fa.solo
+		{
+		}
+
+			.fa.solo span
+			{
+				display: none;
+			}
+
+		.fa:before
+		{
+			display:inline-block;
+            font-family: FontAwesome;
+			font-size: 1.25em;
+			text-decoration: none;
+			font-style: normal;
+			font-weight: normal;
+			line-height: 1;
+			-webkit-font-smoothing:antialiased;
+			-moz-osx-font-smoothing:grayscale;
+		}
+
+/*********************************************************************************/
+/* Social Icon Styles                                                            */
+/*********************************************************************************/
+
+	ul.contact
+	{
+		padding: 1.5em 0 0 0;
+		list-style: none;
+		cursor: default;
+	}
+
+	ul.contact li
+	{
+		display: inline-block;
+		margin: 0 1em;
+	}
+
+	ul.contact li span
+	{
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.contact li a
+	{
+		color: #051842;
+		font-size: 1.75em;
+		display: inline-block;
+		-moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	}
+
+	ul.contact li a:hover
+	{
+		color: #fff;
+	}

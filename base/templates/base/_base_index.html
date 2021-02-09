@@ -6,14 +6,13 @@
     {% include 'base/_head.html' %}
 </head>
 <body>
-    {% include 'base/_header_principal.html' %}
+    {% include 'base/_base_nav_principal.html' %}
+    {% block body_content %}{% endblock %}
     {% include 'base/_messages.html' %}
-
-    {% block body_content %}
-        {% block body_title %}{% endblock %}
-    {% endblock %}
+    {% include 'base/_footer.html' %}
     <!-- Scripts -->
     {% include 'base/_scripts_js.html' %}
+    <!-- Cokie Consent -->
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
     window.cookieconsent.initialise({

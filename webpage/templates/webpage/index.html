@@ -1,13 +1,5 @@
 {% extends 'base/_base_index.html' %}
 {% block title %}Início{% endblock %}
-
 {% block body_content %}
-    <div class="container mt-3">
-        <h1>{% block body_title %}Início{% endblock %}</h1>
-    </div><br>
-    <div class="container mt-4">
-        <h3>Sistema ainda em desenvolvimento.</h3>
-        <p>Seja Bem Vindo(a), entre e faça login para usar o sistema.</p>
-        <p>Usuário: teste<br>Senha: testeuso</p>
-    </div>
+    {% include 'base/_header_principal.html' %}
 {% endblock %}
