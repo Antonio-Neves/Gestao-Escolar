@@ -21,6 +21,20 @@ $(document).ready(function(){
 });
 
 
+// Cokie Consent
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#102d69"
+    },
+    "button": {
+      "background": "#FBBA00"
+    }
+  },
+  "theme": "classic",
+  "position": "bottom-right"
+});
+
 // function printBy(selector){
 //     var $print = $(selector)
 //         .clone()
