@@ -32,7 +32,6 @@ window.cookieconsent.initialise({
     }
   },
   "theme": "classic",
-  "position": "bottom-right"
 });
 
 // function printBy(selector){
