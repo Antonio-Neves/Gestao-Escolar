@@ -1,4 +1,4 @@
-{% extends 'base/_base_index.html' %}
+{% extends 'webpage/_base_index.html' %}
 {% block title %}Login{% endblock %}
 {% block body_content %}
     <div class="container bg-light container-login">
@@ -25,5 +25,13 @@
                 </div>
             </div>
         </form>
+    </div>
+    <!-- Footer -->
+    {% include 'webpage/_base_footer.html' %}
+    <!-- Copyright -->
+    <div id="copyright">
+        <div class="container">
+            <a href="https://ansistemas.com" target="_blank" rel="noopener noreferrer"> © 2020 AN Sistemas</a>
+        </div>
     </div>
 {% endblock %}
