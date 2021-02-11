@@ -50,7 +50,8 @@ class AlunoIndexView(TemplateView):
 	template_name = 'alunos/index-aluno.html'
 
 
-class BaseAdminUsers(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, View):
+class BaseAdminUsers(
+	LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, View):
 	"""
 	Base class for test if user department have authorized access to
 	admin functions.
