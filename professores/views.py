@@ -1,22 +1,26 @@
 from django.shortcuts import redirect, render, reverse
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from unidecode import unidecode  # normalize strings Csii
 
 from professores.models import Professor
 from professores.forms import ProfessorForm
 from accounts.models import CustomUser
+# Classes to control admin acess and success messages
+from base.base_admin_permissions import BaseAdminUsersAdSe, BaseAdminUsersPr
 
 
-class IndexProfessorView(TemplateView):
+# --- General views --- #
+class IndexProfessorView(BaseAdminUsersPr, TemplateView):
 	template_name = 'professores/index-professor.html'
 
 
-class ProfessorNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
+# --- Admin views --- #
+class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 	model = Professor
 	template_name = 'professores/professor-novo.html'
 	form_class = ProfessorForm
@@ -43,11 +47,11 @@ class ProfessorNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMi
 				nome_split = nome_form.split()
 				first_name = nome_split[0]
 				last_name = nome_split[-1]
-				password1 = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
+				password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
 
 				CustomUser.objects.create_user(
-					identifier=cpf_join,
-					password=password1,
+					username=cpf_join,
+					password=password,
 					first_name=first_name,
 					last_name=last_name,
 					department='pr'
@@ -57,52 +61,12 @@ class ProfessorNewView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMi
 		else:
 			return self.form_invalid(form)
 
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
 
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
-
-
-class ProfessorUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
+class ProfessorUpdateView(BaseAdminUsersAdSe, UpdateView):
 	model = Professor
 	form_class = ProfessorForm
 	template_name = 'professores/professor-alterar.html'
 	success_message = 'As alterações foram efectuadas com sucesso'
-
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
 
 	def get_success_url(self):
 		"""
@@ -110,3 +74,23 @@ class ProfessorUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessag
 		"""
 
 		return reverse('professor-alterar', kwargs={'pk': self.object.pk,})
+
+
+class ProfessorDeleteView(BaseAdminUsersAdSe, DeleteView):
+	model = Professor
+	template_name = 'professores/professor-delete.html'
+	success_message = 'O dados do Professor(a) foram corretamente apagados da base de dados'
+
+	def get_success_url(self):
+		"""
+		Only necessary for display sucess message after delete
+		"""
+		messages.success(self.request, self.success_message)
+
+		return reverse('alunos')
+
+
+# # --- Lists views --- #
+# class ProfessorListView(BaseAdminUsersAdSe, ListView):
+# 	model = Professor
+# 	template_name = 'professores/professores.html'
