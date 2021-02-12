@@ -19,7 +19,7 @@ urlpatterns = [
 	path('responsaveis/', include('responsaveis.urls')),
 	path('secretaria/', include('secretaria.urls')),
 	path('turmas/', include('turmas.urls')),
-	path('admin/', admin.site.urls),
+	path('admin_site/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'webpage.views.error_404'

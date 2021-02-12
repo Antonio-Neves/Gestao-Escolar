@@ -1,47 +1,20 @@
 from django.shortcuts import redirect, render, reverse
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views.generic.base import TemplateView
-from django.views.generic import View, ListView
+from django.views.generic import ListView
 
 from django.db.models import Q
 
 from alunos.models import Aluno
-from accounts.models import CustomUser
+# Classes to control admin acess and success messages
+from base.base_admin_permissions import BaseAdminUsersSe
 
 
-class BaseSecretaria(
-	LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, View):
-	"""
-	Base class for test if user department have authorized access to
-	admin functions.
-	And display sucess messages
-	- Secretaria
-	"""
-
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-		if self.request.user.department == 'se':
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
-
-
-class IndexSecretariaView(BaseSecretaria, TemplateView):
+class IndexSecretariaView(BaseAdminUsersSe, TemplateView):
 	template_name = 'secretaria/index-secretaria.html'
 
 
-class SecretariaSearchView(BaseSecretaria, ListView):
+class SecretariaSearchView(BaseAdminUsersSe, ListView):
 	model = Aluno
 	template_name = 'secretaria/busca-se.html'
 
