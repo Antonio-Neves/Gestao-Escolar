@@ -39,8 +39,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="professor_cpf">CPF</label>
-                <input type="text" class="form-control" id="professor_cpf" maxlength="14"
-                       name="professor_cpf" value="{% if request.POST %}{{ request.POST.professor_cpf }}{% elif object.professor_cpf %}{{ object.professor_cpf }}{% endif %}">
+                <input type="text" class="form-control" id="professor_cpf" name="professor_cpf" maxlength="14"
+                       value="{% if request.POST %}{{ request.POST.professor_cpf }}{% elif object.professor_cpf %}{{ object.professor_cpf }}{% endif %}">
                 <p class="errorlist">{{ form.errors.professor_cpf }}</p>
             </div>
             <div class="form-group col-md-3">

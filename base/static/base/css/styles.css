@@ -144,12 +144,12 @@ h2 {
     text-decoration: none;
 }
 
-.del {
+.button-del {
     color: white;
     background: crimson;
 }
 
-.del:hover {
+.button-del:hover {
     background: red;
 }
 
