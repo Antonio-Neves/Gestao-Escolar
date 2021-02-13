@@ -43,23 +43,30 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 				cpf_split_1 = cpf.split('.')
 				cpf_split_2 = ''.join(cpf_split_1).split('-')
 				cpf_join = ''.join(cpf_split_2)
-				nome_form = request.POST.get('professor_nome')
-				nome_split = nome_form.split()
-				first_name = nome_split[0]
-				last_name = nome_split[-1]
-				password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
 
-				CustomUser.objects.create_user(
-					username=cpf_join,
-					password=password,
-					first_name=first_name,
-					last_name=last_name,
-					department='pr'
-				)
+				cpf_qs = CustomUser.objects.filter(username=cpf_join)
+
+				if not cpf_qs:
+
+					nome_form = request.POST.get('professor_nome')
+					nome_split = nome_form.split()
+					first_name = nome_split[0]
+					last_name = nome_split[-1]
+					password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
+
+					CustomUser.objects.create_user(
+						username=cpf_join,
+						password=password,
+						first_name=first_name,
+						last_name=last_name,
+						department='pr'
+					)
 
 			return self.form_valid(form)
+
 		else:
-			return self.form_invalid(form)
+			context = {'form': form}
+			return render(request, self.template_name, context)
 
 
 class ProfessorUpdateView(BaseAdminUsersAdSe, UpdateView):

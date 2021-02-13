@@ -94,7 +94,8 @@ class AlunoNewView(BaseAdminUsersAdSe, CreateView):
 			return self.form_valid(form)
 
 		else:
-			return self.form_invalid(form)
+			context = {'form': form}
+			return render(request, self.template_name, context)
 
 
 class AlunoUpdateView(BaseAdminUsersAdSe, UpdateView):
