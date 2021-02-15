@@ -41,8 +41,12 @@ def data_processing_user_creation(cpf, name_form, department):
 	last_name = name_split[-1]
 	password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
 
-	create_user_after_registration(
-		cpf_join, password, first_name, last_name, department)
+	# Test if user already exists
+	cpf_qs = CustomUser.objects.filter(username=cpf_join)
+
+	if not cpf_qs:
+		create_user_after_registration(
+			cpf_join, password, first_name, last_name, department)
 
 
 # --- General views --- #
@@ -69,22 +73,27 @@ class AlunoNewView(BaseAdminUsersAdSe, CreateView):
 		if form.is_valid():
 
 			# Data for user creation after 'aluno' registration
+			cpfa = request.POST.get('aluno_cpf')
 			cpf1 = request.POST.get('aluno_filiacao1_cpf')
 			cpf2 = request.POST.get('aluno_filiacao2_cpf')
-			# Test if 'Filiação CPF' of new 'Aluno' exists in 'Aluno' table
-			cpf1_qs = Aluno.objects.filter(aluno_filiacao1_cpf=cpf1)
-			cpf2_qs = Aluno.objects.filter(aluno_filiacao2_cpf=cpf2)
 
-			# if 'filiação1' in form and not already exist in 'User model' create user
-			if cpf1 and not cpf1_qs:
+			# if 'aluno CPF' in form
+			if cpfa:
+				# Data from 'aluno' for user creation
+				name_a_form = request.POST.get('aluno_nome')
+
+				data_processing_user_creation(cpfa, name_a_form, 'al')
+
+			# if 'filiação1 CPF' in form
+			if cpf1:
 
 				# Data from Filiação 1 for user creation
 				name1_form = request.POST.get('aluno_filiacao1_nome')
 
 				data_processing_user_creation(cpf1, name1_form, 're')
 
-			# if 'filiação2' in form and not already exist in 'User model' create user
-			if cpf2 and not cpf2_qs:
+			# if 'filiação2 CPF' in form
+			if cpf2:
 
 				# Data from Filiação 2 for user creation
 				name2_form = request.POST.get('aluno_filiacao2_nome')
@@ -128,6 +137,7 @@ class AlunoDeleteView(BaseAdminUsersAdSe, DeleteView):
 # --- Lists views --- #
 class AlunosListView(BaseAdminUsersAdSe, ListView):
 	model = Aluno
+	paginate_by = 20
 	template_name = 'alunos/alunos.html'
 
 

@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render, reverse
 from django.contrib import messages
 
-from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -44,6 +43,7 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 				cpf_split_2 = ''.join(cpf_split_1).split('-')
 				cpf_join = ''.join(cpf_split_2)
 
+				# Test if user already exists
 				cpf_qs = CustomUser.objects.filter(username=cpf_join)
 
 				if not cpf_qs:
@@ -55,7 +55,7 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 					password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
 
 					CustomUser.objects.create_user(
-						username=cpf_join,
+						username=f'pr{cpf_join}',
 						password=password,
 						first_name=first_name,
 						last_name=last_name,
