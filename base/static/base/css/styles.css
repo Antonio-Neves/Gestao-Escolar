@@ -153,6 +153,17 @@ h2 {
     background: red;
 }
 
+/* --- Pagination --- */
+
+.page-link {
+    color: #102D69;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #102D69;
+    border-color: #102D69;
+}
 
 /* --- Responsive --- */
 @media (max-width: 800px) {
