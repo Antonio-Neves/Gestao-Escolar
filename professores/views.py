@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, reverse
 from django.contrib import messages
 
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -45,8 +46,9 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 
 				# Test if user already exists
 				cpf_qs = CustomUser.objects.filter(username=cpf_join)
+				username_professor = f'pr{cpf_qs}'
 
-				if not cpf_qs:
+				if not username_professor:
 
 					nome_form = request.POST.get('professor_nome')
 					nome_split = nome_form.split()
@@ -94,10 +96,10 @@ class ProfessorDeleteView(BaseAdminUsersAdSe, DeleteView):
 		"""
 		messages.success(self.request, self.success_message)
 
-		return reverse('alunos')
+		return reverse('professores')
 
 
-# # --- Lists views --- #
-# class ProfessorListView(BaseAdminUsersAdSe, ListView):
-# 	model = Professor
-# 	template_name = 'professores/professores.html'
+# --- Lists views --- #
+class ProfessorListView(BaseAdminUsersAdSe, ListView):
+	model = Professor
+	template_name = 'professores/professores.html'

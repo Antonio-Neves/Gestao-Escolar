@@ -25,6 +25,20 @@
                     </a>
                 </div>
             <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseProfessores" role="button" aria-expanded="true" aria-controls="collapseProfessores">
+                    <span data-feather="users"></span>
+                    Professores
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseProfessores" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'professor-novo' %}">
+                         Cadastrar Professor(a)
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'professores' %}">
+                         Lista Professores
+                    </a>
+                </div>
+            <li class="nav-item rounded-right">
                 <a class="nav-link" href="#">
                     <span data-feather="file"></span>
                     Diários
