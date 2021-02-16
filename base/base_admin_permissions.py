@@ -56,9 +56,9 @@ class BaseAdminUsersSe(BaseAdminUsers):
 
 class BaseAdminUsersPr(BaseAdminUsers):
 	"""
-		Departments authorized to access admin functions.
-		- Secretaria
-		"""
+	Departments authorized to access admin functions.
+	- Professor
+	"""
 	authorized_admin_access = ['pr']  # list for admin access
 
 
