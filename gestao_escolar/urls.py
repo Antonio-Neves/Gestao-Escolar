@@ -23,3 +23,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'webpage.views.error_404'
+handler500 = 'webpage.views.error_500'

@@ -7,6 +7,11 @@ def error_404(request, exception):
 	return render(request, 'webpage/404.html', data)
 
 
+def error_500(request, exception=None):
+	data = {}
+	return render(request, 'webpage/500.html', data)
+
+
 class IndexView(TemplateView):
 	template_name = 'webpage/index.html'
 

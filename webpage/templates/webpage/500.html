@@ -1,0 +1,10 @@
+{% extends 'base/_base_index.html' %}
+{% block title %}Erro 500{% endblock %}
+{% block body_content %}
+    <div class="container bg-light back02 text-center">
+        <h1>Não é possivel apresentar esta página</h1>
+        <br>
+        <p>Erro 500</p>
+        <a class=" mx-auto btn btn-dark-blue px-4 shadow-lg" href="{% url 'index-manager' %}">Início</a>
+    </div>
+{% endblock %}
