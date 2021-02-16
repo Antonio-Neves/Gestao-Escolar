@@ -499,7 +499,6 @@ class Professor(models.Model):
 		null=True
 	)
 	# --- Pós graduações concluidas --- #
-	# TODO radio field
 	# 0 or 1
 	professor_pos_graduacao_concluida = models.CharField(
 		'Tem pós graduação concluida',
@@ -528,7 +527,6 @@ class Professor(models.Model):
 		blank=True
 	)
 	# --- Outros cursos específicos --- #
-	# TODO radio field
 	# 0 or 1
 	professor_outros_cursos = models.CharField(
 		'Outros cursos específicos',
