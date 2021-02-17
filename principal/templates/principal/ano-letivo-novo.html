@@ -1,0 +1,23 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Novo ano letivo{% endblock %}
+{% block body_title %}Novo ano letivo{% endblock %}
+{% block main_content %}
+    <div class="container bg-light back02">
+    <form method="POST" class="form-group" name="aluno_form" action="">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="ano_letivo_nome">Ano Letivo <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="ano_letivo_nome" name="ano_letivo_nome" maxlength="4" required
+                       value="{% if request.POST %}{{ request.POST.ano_letivo_nome }}{% elif object.ano_letivo_nome %}{{ object.ano_letivo_nome }}{% endif %}">
+                <p class="errorlist">{{ form.errors.ano_letivo_nome }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <button class="btn btn-dark-blue px-4 shadow-sm" type="submit">Salvar</button>
+            </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}

@@ -10,6 +10,7 @@ from unidecode import unidecode  # normalize strings Csii
 from alunos.models import Aluno
 from alunos.forms import AlunoForm
 from accounts.models import CustomUser
+
 # Classes to control admin acess and success messages
 from base.base_admin_permissions import BaseAdminUsersAdSe
 
@@ -67,6 +68,9 @@ class AlunoNewView(BaseAdminUsersAdSe, CreateView):
 	success_message = 'Aluno Cadastrado com sucesso'
 
 	def post(self, request, *args, **kwargs):
+		"""
+		Necessary for user creation after 'Aluno' registration.
+		"""
 
 		form = self.get_form()
 
