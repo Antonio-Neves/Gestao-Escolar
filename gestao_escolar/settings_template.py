@@ -34,8 +34,6 @@ ALLOWED_HOSTS = []
 
 # ----------------------------------------------------------
 # --- Necessary in production for Debug Tolbar --- #
-# See INSTALLED_APPS --> Django Apps Extras and MIDDLEWARE
-INTERNAL_IPS = ['127.0.0.1']
 
 
 # ----------------------------------------------------------
