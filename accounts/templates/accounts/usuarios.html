@@ -1,0 +1,7 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Usuários{% endblock %}
+{% block body_title %}Usuários do sistema{% endblock %}
+{% block main_content %}
+    {% include 'accounts/user-card.html' %}
+    {% include 'base/_pagination.html' %}
+{% endblock %}

@@ -64,6 +64,11 @@ class CustomUser(AbstractUser):
 	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['first_name', 'last_name', 'department']
 
+	class Meta:
+		verbose_name = 'Usuário'
+		verbose_name_plural= 'Usuários'
+		ordering = ['first_name']
+
 	def __str__(self):
 		return self.username
 

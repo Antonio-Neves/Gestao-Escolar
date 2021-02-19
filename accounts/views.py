@@ -1,12 +1,17 @@
 from django.shortcuts import redirect, reverse
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+
 from django.contrib.messages.views import SuccessMessageMixin
+
 from accounts.forms import CustomUserCreateForm, CustomUserChangeForm
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from accounts.models import CustomUser
+from base.base_admin_permissions import BaseAdminUsersAdSe
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 from django.contrib.auth.views import (
 	LoginView,
-	PasswordChangeView,
+	# PasswordChangeView,
 	# PasswordResetView,
 	# PasswordResetConfirmView,
 	# PasswordResetCompleteView,
@@ -25,118 +30,39 @@ class UserLogin(SuccessMessageMixin, LoginView):
 			return self.render_to_response(self.get_context_data())
 
 
-class UserCreate(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
+class UserCreate(BaseAdminUsersAdSe, CreateView):
 	model = CustomUser
 	form_class = CustomUserCreateForm
 	template_name = 'accounts/user-new.html'
 	success_url = '/index-manager/'
 	success_message = 'Novo usuário cadastrado com sucesso'
 
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
 
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
-
-
-class UserChange(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
+class UserChange(BaseAdminUsersAdSe, UpdateView):
 	model = CustomUser
 	form_class = CustomUserChangeForm
 	template_name = 'accounts/user-change.html'
+	success_url = '/usuarios/usuarios/'
 	success_message = 'Os dados do usuário foram alterados com sucesso'
 
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
 
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
+class UserDelete(BaseAdminUsersAdSe, DeleteView):
+	model = CustomUser
+	template_name = 'accounts/user-delete.html'
+	success_message = 'Os dados do usuário foram removidos da base de dados'
 
 	def get_success_url(self):
 		"""
-		Redirect to the form of created user, (change view).
+		Only necessary for display sucess message after delete
 		"""
+		messages.success(self.request, self.success_message)
 
-		return reverse('user-change', kwargs={'pk': self.object.pk,})
+		return reverse('users')
 
 
-class UserDelete(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+class UserListView(BaseAdminUsersAdSe, ListView):
 	model = CustomUser
-	success_url = '/index-manager/'
-	template_name = 'accounts/user-delete.html'
-
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
-
-
-class PasswordChange(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, PasswordChangeView):
-	template_name = 'accounts/password-change.html'
-	success_url = '/index-manager/'
-	success_message = 'A senha do usuário foi alterada com sucesso'
-
-	def test_func(self):
-		"""
-		Test if authenticated user can access to this view.
-		"""
-
-		authorized_admin_access = ['ad', 'se']  # list of the authorized departments
-
-		if self.request.user.department in authorized_admin_access:
-			return True
-
-	def handle_no_permission(self):
-		"""
-		Redirect if authenticated user can not access to this view.
-		"""
-
-		if self.raise_exception or self.request.user.is_authenticated:
-			return redirect('index-manager')
-
-		return redirect('login')
+	template_name = 'accounts/usuarios.html'
 
 
 # class PasswordReset(SuccessMessageMixin, PasswordResetView):

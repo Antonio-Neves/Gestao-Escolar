@@ -90,16 +90,16 @@ h2 {
     color: #102D69;
 }
 
-/* Aluno Professor Card */
+/* Cards minimum */
 
-.container-aluno {
+.container-card-min {
     background: #F8F9FA;
     margin-bottom: 1rem !important;
     padding: 0 1rem;
     border-radius: 10px;
 }
 
-.head-aluno {
+.head-card-min {
     padding: .75rem 0 .75rem 0;
     margin-bottom: 0;
     background-color: rgba(0,0,0,.03);
@@ -107,28 +107,28 @@ h2 {
     border-radius: 10px 10px 0 0 ;
 }
 
-.a-aluno {
+.a-card-min {
     color: #212529;
     text-decoration: none;
     font-size: 1.2em;
     /*font-weight: bold;*/
 }
 
-.a-aluno:hover {
+.a-card-min:hover {
     color: #004F9F;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.a-aluno:active {
+.a-card-min:active {
     color: #004F9F;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.button-aluno {
+.button-card-min {
     color: white;
     background: #102D69;
     border: 1px solid rgba(0,0,0,.125);
@@ -138,7 +138,7 @@ h2 {
     text-align: center;
 }
 
-.button-aluno:hover {
+.button-card-min:hover {
     color: white;
     background: #004F9F;
     text-decoration: none;
