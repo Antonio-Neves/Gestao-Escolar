@@ -1,9 +1,9 @@
     <div class=" accordion" id="accordionAluno">
     {% for professor in object_list %}
-        <div class="container container-aluno">
-            <div class="row head-aluno">
+        <div class="container container-card-min">
+            <div class="row head-card-min">
                 <div class="col-md-5">
-                    <a class="a-aluno"
+                    <a class="a-card-min"
                        data-toggle="collapse" href="#a{{ professor.pk }}" role="button" aria-expanded="false" aria-controls="a{{ professor.pk }}">
                         {{ professor.professor_nome }}
                         <span data-feather="chevron-down"></span>
@@ -17,9 +17,9 @@
                     Turma:
                 </div>
                 <div class="col-md-3 d-flex justify-content-end">
-                    <a class="button-aluno" href="{% url 'professor-alterar' professor.pk %}">Ver</a>
-                    <a class="ml-2 button-aluno" href="{% url 'professor-alterar' professor.pk %}">Alterar</a>
-                    <a class="ml-3 button-aluno button-del" href="{% url 'professor-delete' professor.pk %}">Apagar</a>
+                    <a class="button-card-min" href="{% url 'professor-alterar' professor.pk %}">Ver</a>
+                    <a class="ml-2 button-card-min" href="{% url 'professor-alterar' professor.pk %}">Alterar</a>
+                    <a class="ml-3 button-card-min button-del" href="{% url 'professor-delete' professor.pk %}">Apagar</a>
                 </div>
             </div>
             <!-- Area Collapse -->
