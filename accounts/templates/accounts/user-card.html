@@ -1,17 +1,19 @@
     <div class=" accordion" id="accordionUser">
     {% for user_list in object_list %}
+        <!-- User List that are not superuser -->
+        {% if not user_list.is_superuser %}
         <div class="container container-card-min">
             <div class="row head-card-min">
-                <div class="col-md-5">
-                    <h5  class="d-flex align-items-center">
+                <div class="col-md-3 d-flex align-items-center">
+                    <h6 class="p-card-min">
                         {{ user_list.first_name }} {{ user_list.last_name }}
-                    </h5>
+                    </h6>
                 </div>
-                <div class="col-md-2 d-flex align-items-center">
+                <div class="col-md-3 d-flex align-items-center">
                     Usuário: {{ user_list.username }}
                 </div>
-                <div class="col-md-2 d-flex align-items-center">
-                    Departamento: {{ user_list.department }}
+                <div class="col-md-3 d-flex align-items-center">
+                    Departamento: {{ user_list.get_department_display }}
                 </div>
                 <div class="col-md-3 d-flex justify-content-end">
                     <a class="button-card-min" href="{% url 'user-change' user_list.pk %}">Ver</a>
@@ -31,5 +33,6 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     {% endfor %}
     </div>
