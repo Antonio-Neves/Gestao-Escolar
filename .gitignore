@@ -23,5 +23,3 @@ htmlcov/*
 # Files
 
 # Testes
-.coverage
-.coveragerc
