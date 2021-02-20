@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- NavBar -->
-    {% if user.department == 'se' %}
+    {% if user.department == 'se' or user.department == 'ad' %}
         {% include 'base/_dashboard_navbar_search.html' %}
     {% else %}
         {% include 'base/_dashboard_navbar_simple.html' %}

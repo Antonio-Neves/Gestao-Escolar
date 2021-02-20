@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="username">Usuário<span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" id="username" name="username" maxlength="12" required autofocus
+                    <input type="text" class="form-control" id="username" name="username" maxlength="20" required autofocus
                     value="{% if request.POST %}{{ request.POST.username }}{% elif object.username %}{{ object.username }}{% endif %}">
                     <small id="password-help" class="form-text text-muted">
                     Para funcionários utilizar a primeira letra do departamento e o cpf.<br>

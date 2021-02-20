@@ -11,7 +11,7 @@
 {#        <form ">#}
         <div class="w-100 d-flex justify-content-between">
             <!-- Search -->
-            <form class="w-50" action="{% url 'busca-se' %}">
+            <form class="w-50" action="{% url 'busca-'|add:user.department %}">
                 <input class="form-control form-control-dark" name="term" type="search" value="" placeholder="Pesquisar alunos" aria-label="Pesquisar">
             </form>
             <!-- NavBar Links -->

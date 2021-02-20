@@ -1,7 +1,7 @@
 """
 	Base classes for test if user is authenticathed and
 	the department have authorized access to admin functions.
-	And display sucess messages
+	And display sucess messages.
 """
 
 from django.shortcuts import redirect, render, reverse
@@ -44,6 +44,15 @@ class BaseAdminUsersAdSe(BaseAdminUsers):
 	- Secretaria
 	"""
 	authorized_admin_access = ['ad', 'se']  # list for admin access
+
+
+class BaseAdminUsersAd(BaseAdminUsers):
+	"""
+	Departments authorized to access admin functions.
+	- Administração
+	- Secretaria
+	"""
+	authorized_admin_access = ['ad']  # list for admin access
 
 
 class BaseAdminUsersSe(BaseAdminUsers):
