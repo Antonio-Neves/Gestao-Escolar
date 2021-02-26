@@ -3,6 +3,11 @@
 {% block body_title %}Nova Etapa Básica{% endblock %}
 {% block main_content %}
     <div class="container bg-light back02">
+        <p>
+            {% for etapa in object %}
+                {{ etapa }}
+            {% endfor %}
+        </p>
         <form method="POST" class="form-group" name="aluno_form" action="">
             {% csrf_token %}
             <div class="form-row">

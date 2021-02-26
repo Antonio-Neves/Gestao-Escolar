@@ -28,6 +28,8 @@ class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
 	success_message = 'Nova etapa basica criada com sucesso'
 
 
+
+
 class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
 	model = AnoEscolar
 	template_name = 'principal/ano-escolar-novo.html'

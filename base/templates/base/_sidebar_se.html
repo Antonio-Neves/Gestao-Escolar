@@ -56,12 +56,25 @@
                     Turmas
                 </a>
             </li>
+            <!-- Ano letivo -->
             <li class="nav-item rounded-right">
-                <a class="nav-link" href="#">
+                <a class="nav-link" data-toggle="collapse" href="#collapseAnoLetivo" role="button" aria-expanded="false" aria-controls="collapseAnoLetivo">
                     <span data-feather="server"></span>
                     Ano Letivo
                 </a>
             </li>
+                <div class="collapse pl-4 m-2" id="collapseAnoLetivo" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse" href="{% url 'ano-letivo-novo' %}">
+                         Novo Ano Letivo
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'etapa-basica-nova' %}">
+                         Nova Etapa Básica
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'ano-escolar-novo' %}">
+                         Novo Ano Escolar
+                    </a>
+                </div>
+            <!-- Usuários -->
             <li class="nav-item rounded-right">
                 <a class="nav-link" data-toggle="collapse" href="#collapseUsuarios" role="button" aria-expanded="false" aria-controls="collapseUsuarios">
                     <span data-feather="users"></span>
@@ -74,7 +87,7 @@
                     </a>
                     <a class="nav-link nav-link-collapse" href="{% url 'users' %}">
                          Lista Usuários
-                     </a>
+                    </a>
                 </div>
         </ul>
 {#        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">#}
