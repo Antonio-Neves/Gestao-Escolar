@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, reverse
+from django.urls import reverse_lazy
 from django.contrib import messages
 
 from django.contrib.messages.views import SuccessMessageMixin
@@ -34,7 +35,7 @@ class UserCreate(BaseAdminUsersAdSe, CreateView):
 	model = CustomUser
 	form_class = CustomUserCreateForm
 	template_name = 'accounts/user-new.html'
-	success_url = '/index-manager/'
+	success_url = reverse_lazy('index-manager')
 	success_message = 'Novo usuário cadastrado com sucesso'
 
 
@@ -42,7 +43,7 @@ class UserChange(BaseAdminUsersAdSe, UpdateView):
 	model = CustomUser
 	form_class = CustomUserChangeForm
 	template_name = 'accounts/user-change.html'
-	success_url = '/usuarios/usuarios/'
+	success_url = reverse_lazy('users')
 	success_message = 'Os dados do usuário foram alterados com sucesso'
 
 
