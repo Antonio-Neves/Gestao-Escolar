@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, reverse
+from django.urls import reverse_lazy
 from django.contrib import messages
 
 from django.views.generic import ListView
@@ -24,7 +25,7 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 	model = Professor
 	template_name = 'professores/professor-novo.html'
 	form_class = ProfessorForm
-	success_url = '/professores/professor-novo'
+	success_url = reverse_lazy('professor-novo')
 	success_message = 'Professor cadastrado com sucesso'
 
 	def post(self, request, *args, **kwargs):
