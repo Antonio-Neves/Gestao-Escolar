@@ -14,7 +14,7 @@ class AnoLetivo(models.Model):
 	class Meta:
 		verbose_name = 'Ano Letivo'
 		verbose_name_plural = 'Anos Letivos'
-		ordering = ['ano_letivo_nome']
+		ordering = ['-ano_letivo_nome']
 
 	def __str__(self):
 		return self.ano_letivo_nome
@@ -38,7 +38,8 @@ class EtapaBasico(models.Model):
 	etapa_basico_ano = models.ForeignKey(
 		AnoLetivo,
 		on_delete=models.DO_NOTHING,
-		verbose_name='Ano Letivo'
+		verbose_name='Ano Letivo',
+		default=''
 	)
 
 	class Meta:

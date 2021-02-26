@@ -1,0 +1,34 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Nova Etapa Básica{% endblock %}
+{% block body_title %}Nova Etapa Básica{% endblock %}
+{% block main_content %}
+    <div class="container bg-light back02">
+        <form method="POST" class="form-group" name="aluno_form" action="">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="etapa_basico_nome">Etapa Básica <span style="color: red;">*</span></label>
+                    <select class="form-control" id="etapa_basico_nome" name="etapa_basico_nome" required>
+                        {% for etapa in form.etapa_basico_nome %}
+                            {{ etapa }}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-3 ml-3">
+                    <label for="etapa_basico_ano">Ano Letivo <span style="color: red;">*</span></label>
+                    <select class="form-control" id="etapa_basico_ano" name="etapa_basico_ano" required>
+                        {% for etapa_ano in form.etapa_basico_ano %}
+                            {{ etapa_ano }}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col">
+                    <button class="btn btn-dark-blue px-4 shadow-sm" type="submit">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
