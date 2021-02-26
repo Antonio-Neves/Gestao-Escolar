@@ -925,7 +925,7 @@ class Professor(models.Model):
 		"""
 		Return custom unique identification
 		"""
-		return 'PROF-' + str(self.professor_id)
+		return 'pr-' + str(self.professor_id)
 
 	class Meta:
 		verbose_name = 'Professor'

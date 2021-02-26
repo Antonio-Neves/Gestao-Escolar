@@ -1041,7 +1041,7 @@ class Aluno(models.Model):
 		"""
 		Return custom unique identification
 		"""
-		return 'ALUNO-' + str(self.aluno_id)
+		return 'al-' + str(self.aluno_id)
 
 	def aluno_idade(self):
 		"""
