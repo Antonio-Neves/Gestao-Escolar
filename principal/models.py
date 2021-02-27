@@ -37,7 +37,7 @@ class EtapaBasico(models.Model):
 	)
 	etapa_basico_ano = models.ForeignKey(
 		AnoLetivo,
-		on_delete=models.DO_NOTHING,
+		on_delete=models.CASCADE,
 		verbose_name='Ano Letivo',
 		default=''
 	)
@@ -51,7 +51,7 @@ class EtapaBasico(models.Model):
 				name='unica_etapa_no_ano'
 			)
 		]
-		ordering = ['-etapa_basico_ano', 'etapa_basico_nome']
+		ordering = ['etapa_basico_ano', 'etapa_basico_nome']
 
 	def __str__(self):
 		return '{} - {}'.format(
@@ -88,7 +88,7 @@ class AnoEscolar(models.Model):
 	)
 	ano_escolar_etapa = models.ForeignKey(
 		EtapaBasico,
-		on_delete=models.DO_NOTHING,
+		on_delete=models.CASCADE,
 		verbose_name='Etapa'
 	)
 

@@ -19,6 +19,13 @@ class AnoLetivoNewView(BaseAdminUsersAdSe, CreateView):
 	success_url = reverse_lazy('etapa-basica-nova')
 	success_message = 'Novo ano letivo criado com sucesso'
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+		context['anos_letivos'] = AnoLetivo.objects.all()
+
+		return context
+
 
 class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
 	model = EtapaBasico
@@ -27,7 +34,13 @@ class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
 	success_url = reverse_lazy('etapa-basica-nova')
 	success_message = 'Nova etapa basica criada com sucesso'
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
 
+		context['etapas_escolares'] = EtapaBasico.objects.all()
+		context['ano_letivo'] = AnoLetivo.objects.all()
+
+		return context
 
 
 class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
@@ -36,3 +49,13 @@ class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
 	form_class = AnoEscolarForm
 	success_url = reverse_lazy('ano-escolar-novo')
 	success_message = 'Novo ano escolar criado com sucesso'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+
+		context['ano_letivo'] = AnoLetivo.objects.all()
+		context['ano_escolar'] = AnoEscolar.objects.all()
+		context['etapa_basico'] = EtapaBasico.objects.all()
+
+		return context

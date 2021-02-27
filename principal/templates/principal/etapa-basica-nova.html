@@ -3,11 +3,6 @@
 {% block body_title %}Nova Etapa Básica{% endblock %}
 {% block main_content %}
     <div class="container bg-light back02">
-        <p>
-            {% for etapa in object %}
-                {{ etapa }}
-            {% endfor %}
-        </p>
         <form method="POST" class="form-group" name="aluno_form" action="">
             {% csrf_token %}
             <div class="form-row">
@@ -35,5 +30,26 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div class="container bg-light back02">
+        <div class="row mb-2">
+            <div class="col">
+                <h5>Etapas cadastradas</h5>
+            </div>
+        </div>
+        {% for ano in ano_letivo %}
+            <div class="row">
+                <div class="col-md-1 my-1">
+                    {{ ano }}:
+                </div>
+                {% for etapa in etapas_escolares %}
+                    {% if etapa.etapa_basico_ano == ano %}
+                        <div class="col-md-2 my-1">
+                            {{ etapa.get_etapa_basico_nome_display }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
