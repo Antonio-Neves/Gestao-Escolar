@@ -16,4 +16,5 @@ EtapaBasico:
 AnoEscolar:
 
 	ano_escolar_id
+	ano_escolar_nome
 	ano_escolar_etapa

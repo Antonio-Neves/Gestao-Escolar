@@ -65,8 +65,8 @@ class AnoEscolar(models.Model):
 	ANO_ESCOLAR_CHOICES = (
 		('CR', 'Creche'),
 		('G1', 'Maternal I'),
-		('G2', 'Maternal I'),
-		('G3', 'Maternal II'),
+		('G2', 'Maternal II'),
+		('G3', 'Maternal III'),
 		('G4', 'Jardim I'),
 		('G5', 'Jardim II'),
 		('1A', '1º Ano'),
