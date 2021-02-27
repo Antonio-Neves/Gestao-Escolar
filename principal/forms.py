@@ -2,7 +2,7 @@ from django import forms
 
 from principal.models import (
 	AnoLetivo,
-	EtapaBasico,
+	EtapaBasica,
 	AnoEscolar,
 )
 
@@ -17,14 +17,14 @@ class AnoLetivoForm(forms.ModelForm):
 		]
 
 
-class EtapaBasicoForm(forms.ModelForm):
+class EtapaBasicaForm(forms.ModelForm):
 
 	class Meta:
-		model = EtapaBasico
+		model = EtapaBasica
 
 		fields = [
-			'etapa_basico_nome',
-			'etapa_basico_ano',
+			'etapa_basica_nome',
+			'etapa_basica_ano',
 		]
 
 

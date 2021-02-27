@@ -8,9 +8,9 @@ AnoLetivo:
 
 EtapaBasico:
 
-	etapa_basico_id
-	etapa_basico_nome
-	etapa_basico_ano
+	etapa_basica_id
+	etapa_basica_nome
+	etapa_basica_ano
 
 
 AnoEscolar:

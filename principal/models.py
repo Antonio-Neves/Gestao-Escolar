@@ -20,22 +20,22 @@ class AnoLetivo(models.Model):
 		return self.ano_letivo_nome
 
 
-class EtapaBasico(models.Model):
+class EtapaBasica(models.Model):
 
-	ETAPA_BASICO_CHOICES = (
+	ETAPA_BASICA_CHOICES = (
 		('IN', 'Infantil'),
 		('F1', 'Fundamental I'),
 		('F2', 'Fundamental II'),
 		('EM', 'Ensino Médio')
 	)
 
-	etapa_basico_id = models.AutoField(primary_key=True)
-	etapa_basico_nome = models.CharField(
+	etapa_basica_id = models.AutoField(primary_key=True)
+	etapa_basica_nome = models.CharField(
 		'Etapa de Educação',
 		max_length=2,
-		choices=ETAPA_BASICO_CHOICES,
+		choices=ETAPA_BASICA_CHOICES,
 	)
-	etapa_basico_ano = models.ForeignKey(
+	etapa_basica_ano = models.ForeignKey(
 		AnoLetivo,
 		on_delete=models.CASCADE,
 		verbose_name='Ano Letivo',
@@ -47,16 +47,16 @@ class EtapaBasico(models.Model):
 		verbose_name_plural = 'Etapas Educação Básica'
 		constraints = [
 			models.UniqueConstraint(
-				fields=['etapa_basico_nome', 'etapa_basico_ano'],
+				fields=['etapa_basica_nome', 'etapa_basica_ano'],
 				name='unica_etapa_no_ano'
 			)
 		]
-		ordering = ['etapa_basico_ano', 'etapa_basico_nome']
+		ordering = ['etapa_basica_ano', 'etapa_basica_nome']
 
 	def __str__(self):
 		return '{} - {}'.format(
-			self.get_etapa_basico_nome_display(),
-			self.etapa_basico_ano
+			self.get_etapa_basica_nome_display(),
+			self.etapa_basica_ano
 		)
 
 
@@ -87,7 +87,7 @@ class AnoEscolar(models.Model):
 		choices=ANO_ESCOLAR_CHOICES
 	)
 	ano_escolar_etapa = models.ForeignKey(
-		EtapaBasico,
+		EtapaBasica,
 		on_delete=models.CASCADE,
 		verbose_name='Etapa'
 	)
