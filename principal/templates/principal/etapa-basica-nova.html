@@ -7,17 +7,17 @@
             {% csrf_token %}
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="etapa_basico_nome">Etapa Básica <span style="color: red;">*</span></label>
-                    <select class="form-control" id="etapa_basico_nome" name="etapa_basico_nome" required>
-                        {% for etapa in form.etapa_basico_nome %}
+                    <label for="etapa_basica_nome">Etapa Básica <span style="color: red;">*</span></label>
+                    <select class="form-control" id="etapa_basica_nome" name="etapa_basica_nome" required>
+                        {% for etapa in form.etapa_basica_nome %}
                             {{ etapa }}
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group col-md-3 ml-3">
-                    <label for="etapa_basico_ano">Ano Letivo <span style="color: red;">*</span></label>
-                    <select class="form-control" id="etapa_basico_ano" name="etapa_basico_ano" required>
-                        {% for etapa_ano in form.etapa_basico_ano %}
+                    <label for="etapa_basica_ano">Ano Letivo <span style="color: red;">*</span></label>
+                    <select class="form-control" id="etapa_basica_ano" name="etapa_basica_ano" required>
+                        {% for etapa_ano in form.etapa_basica_ano %}
                             {{ etapa_ano }}
                         {% endfor %}
                     </select>
@@ -37,7 +37,7 @@
                 <h5>Etapas cadastradas</h5>
             </div>
         </div>
-        {% for ano in ano_letivo %}
+        {% for ano in anos_letivos %}
             <div class="row">
                 <div class="col-md-1 my-1">
                     {{ ano }}:

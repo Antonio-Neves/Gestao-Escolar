@@ -38,7 +38,7 @@ class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
 		context = super().get_context_data(**kwargs)
 
 		context['etapas_escolares'] = EtapaBasica.objects.all()
-		context['ano_letivo'] = AnoLetivo.objects.all()
+		context['anos_letivos'] = AnoLetivo.objects.all()
 
 		return context
 
@@ -53,8 +53,8 @@ class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 
-		context['ano_letivo'] = AnoLetivo.objects.all()
-		context['ano_escolar'] = AnoEscolar.objects.all()
+		context['anos_letivos'] = AnoLetivo.objects.all()
+		context['anos_escolares'] = AnoEscolar.objects.all()
 		context['etapa_basico'] = EtapaBasica.objects.all()
 
 		return context
