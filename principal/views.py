@@ -12,6 +12,7 @@ from principal.forms import AnoLetivoForm, AnoEscolarForm, EtapaBasicaForm
 from base.base_admin_permissions import BaseAdminUsersAdSe
 
 
+# --- Admin views --- #
 class AnoLetivoNewView(BaseAdminUsersAdSe, CreateView):
 	model = AnoLetivo
 	template_name = 'principal/ano-letivo-novo.html'
@@ -58,3 +59,9 @@ class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
 		context['etapa_basico'] = EtapaBasica.objects.all()
 
 		return context
+
+
+# --- Lists views --- #
+class AnoLetivoListView(BaseAdminUsersAdSe, ListView):
+	model = AnoLetivo
+	template_name = 'principal/anos-letivos.html'
