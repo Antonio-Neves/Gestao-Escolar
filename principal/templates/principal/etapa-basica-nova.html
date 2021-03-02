@@ -42,7 +42,7 @@
                 <div class="col-md-1 my-1">
                     {{ ano }}:
                 </div>
-                {% for etapa in etapas_escolares %}
+                {% for etapa in etapas_basicas %}
                     {% if etapa.etapa_basica_ano == ano %}
                         <div class="col-md-2 my-1">
                             {{ etapa.get_etapa_basica_nome_display }}
