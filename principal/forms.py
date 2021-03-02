@@ -4,6 +4,7 @@ from principal.models import (
 	AnoLetivo,
 	EtapaBasica,
 	AnoEscolar,
+	Disciplina
 )
 
 
@@ -36,4 +37,15 @@ class AnoEscolarForm(forms.ModelForm):
 		fields = [
 			'ano_escolar_nome',
 			'ano_escolar_etapa',
+		]
+
+
+class DisciplinaForm(forms.ModelForm):
+
+	class Meta:
+		model = Disciplina
+
+		fields = [
+			'disciplina_nome',
+			'disciplina_professor'
 		]

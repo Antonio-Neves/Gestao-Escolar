@@ -1,6 +1,8 @@
 from django.db import models
 from base.validators import validate_digits, validate_ano_letivo
 
+from professores.models import Professor
+
 
 class AnoLetivo(models.Model):
 	ano_letivo_id = models.AutoField(primary_key=True)
@@ -107,4 +109,50 @@ class AnoEscolar(models.Model):
 		return '{} - {}'.format(
 			self.get_ano_escolar_nome_display(),
 			self.ano_escolar_etapa
+		)
+
+
+class Disciplina(models.Model):
+
+	DISCIPLINA_CHOICES = (
+		('port', 'Português'),
+		('ingl', 'Inglês'),
+		('espa', 'Espanhol'),
+		('mate', 'Matemática'),
+		('cien', 'Ciências'),
+		('hist', 'História'),
+		('arte', 'Artes'),
+		('geog', 'Geografia'),
+		('filo', 'Filosofia'),
+		('edfi', 'Educação Física'),
+		('enre', 'Ensino Religioso')
+	)
+
+	disciplina_id = models.AutoField(primary_key=True),
+	disciplina_nome = models.CharField(
+		'Disciplina',
+		max_length=20,
+		choices=DISCIPLINA_CHOICES
+	)
+	disciplina_professor = models.ForeignKey(
+		Professor,
+		on_delete=models.DO_NOTHING,
+		verbose_name='Professor(a)'
+	)
+
+	class Meta:
+		verbose_name = 'Disciplina'
+		verbose_name_plural = 'Disciplinas'
+		constraints = [
+			models.UniqueConstraint(
+				fields=['disciplina_nome', 'disciplina_professor'],
+				name='unica_disciplina_professor'
+			)
+		]
+		ordering = ['disciplina_nome', 'disciplina_professor']
+
+	def __str__(self):
+		return '{} - {}'.format(
+			self.get_disciplina_nome_display(),
+			self.disciplina_professor
 		)

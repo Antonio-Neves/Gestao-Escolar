@@ -28,7 +28,7 @@ class AnoLetivoNewView(BaseAdminUsersAdSe, CreateView):
 		return context
 
 
-class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
+class EtapaBasicaNewView(BaseAdminUsersAdSe, CreateView):
 	model = EtapaBasica
 	template_name = 'principal/etapa-basica-nova.html'
 	form_class = EtapaBasicaForm
@@ -44,7 +44,7 @@ class EtapaBasicaView(BaseAdminUsersAdSe, CreateView):
 		return context
 
 
-class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
+class AnoEscolarNewView(BaseAdminUsersAdSe, CreateView):
 	model = AnoEscolar
 	template_name = 'principal/ano-escolar-novo.html'
 	form_class = AnoEscolarForm
@@ -65,3 +65,8 @@ class AnoEscolarView(BaseAdminUsersAdSe, CreateView):
 class AnoLetivoListView(BaseAdminUsersAdSe, ListView):
 	model = AnoLetivo
 	template_name = 'principal/anos-letivos.html'
+
+
+# --- Disciplinas --- #
+class DisciplinaNewView(BaseAdminUsersAdSe, CreateView):
+	pass
