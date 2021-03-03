@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from principal.models import AnoLetivo, AnoEscolar, EtapaBasica
-from principal.forms import AnoLetivoForm, AnoEscolarForm, EtapaBasicaForm
+from principal.models import AnoLetivo, AnoEscolar, EtapaBasica, Disciplina
+from principal.forms import AnoLetivoForm, AnoEscolarForm, EtapaBasicaForm, DisciplinaForm
 
 # Classes to control admin acess and success messages
 from base.base_admin_permissions import BaseAdminUsersAdSe
@@ -56,7 +56,7 @@ class AnoEscolarNewView(BaseAdminUsersAdSe, CreateView):
 
 		context['anos_letivos'] = AnoLetivo.objects.all()
 		context['anos_escolares'] = AnoEscolar.objects.all()
-		context['etapas_basicas'] = EtapaBasica.objects.all()
+		# context['etapas_basicas'] = EtapaBasica.objects.all()
 
 		return context
 
@@ -69,4 +69,8 @@ class AnoLetivoListView(BaseAdminUsersAdSe, ListView):
 
 # --- Disciplinas --- #
 class DisciplinaNewView(BaseAdminUsersAdSe, CreateView):
-	pass
+	model = Disciplina
+	template_name = 'principal/disciplina-nova.html'
+	form_class = DisciplinaForm
+	success_url = reverse_lazy('disciplina-nova')
+	success_message = 'Nova disciplina cadastrada com sucesso'
