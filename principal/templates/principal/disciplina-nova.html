@@ -37,18 +37,14 @@
                 <h5>Disciplinas cadastradas</h5>
             </div>
         </div>
-        {% for disciplina in object %}
+        {% for disciplina in disciplinas %}
             <div class="row">
-                <div class="col-md-1 my-1">
-                    {{ disciplina.disciplina_nome }}:
+                <div class="col-md-2 my-1">
+                    {{ disciplina.get_disciplina_nome_display }}:
                 </div>
-{#                {% for etapa in etapas_basicas %}#}
-{#                    {% if etapa.etapa_basica_ano == ano %}#}
-{#                        <div class="col-md-2 my-1">#}
-{#                            {{ etapa.get_etapa_basica_nome_display }}#}
-{#                        </div>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
+                <div class="col-md-4 my-1">
+                    {{ disciplina.disciplina_professor }}
+                </div>
             </div>
         {% endfor %}
     </div>

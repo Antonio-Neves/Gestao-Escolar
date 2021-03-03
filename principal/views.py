@@ -74,3 +74,10 @@ class DisciplinaNewView(BaseAdminUsersAdSe, CreateView):
 	form_class = DisciplinaForm
 	success_url = reverse_lazy('disciplina-nova')
 	success_message = 'Nova disciplina cadastrada com sucesso'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+		context['disciplinas'] = Disciplina.objects.all()
+
+		return context
