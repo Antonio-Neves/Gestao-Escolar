@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Alterar Disciplina{% endblock %}
+{% block body_title %}Alterar Disciplina{% endblock %}
+{% block main_content %}
+    <div class="container bg-light back02">
+        <form method="POST" class="form-group" name="aluno_form" action="">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="disciplina_nome">Disciplina <span style="color: red;">*</span></label>
+                    <select class="form-control" id="disciplina_nome" name="disciplina_nome" style="background: #eee; pointer-events: none" required>
+                        {% for disciplina in form.disciplina_nome %}
+                            {{ disciplina }}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-6 ml-3">
+                    <label for="disciplina_professor">Professor(a) <span style="color: red;">*</span></label>
+                    <select class="form-control" id="disciplina_professor" name="disciplina_professor" required>
+                        {% for disciplina_prof in form.disciplina_professor %}
+                            {{ disciplina_prof }}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col">
+                    <button class="btn btn-dark-blue px-4 shadow-sm" type="submit">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container bg-light back02">
+        <div class="row mb-2">
+            <div class="col">
+                <h5>Disciplinas cadastradas</h5>
+            </div>
+        </div>
+        {% for disciplina in disciplinas %}
+            <div class="row">
+                <div class="col-md-2 my-1">
+                    {{ disciplina.get_disciplina_nome_display }}:
+                </div>
+                <div class="col-md-4 my-1">
+                    {{ disciplina.disciplina_professor }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

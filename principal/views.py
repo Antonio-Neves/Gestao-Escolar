@@ -84,9 +84,20 @@ class DisciplinaNewView(BaseAdminUsersAdSe, CreateView):
 
 
 class DisciplinaUpdateView(BaseAdminUsersAdSe, UpdateView):
-	pass
+	model = Disciplina
+	form_class = DisciplinaForm
+	template_name = 'principal/disciplina-update.html'
+	success_url = reverse_lazy('disciplinas')
+	success_message = 'Disciplina alterada com sucesso'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+		context['disciplinas'] = Disciplina.objects.all()
+
+		return context
 
 
-class DisciplinaDeleteView(BaseAdminUsersAdSe, ListView):
+class DisciplinaListView(BaseAdminUsersAdSe, ListView):
 	model = Disciplina
 	template_name = 'principal/disciplinas.html'
