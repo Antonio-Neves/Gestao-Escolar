@@ -81,3 +81,12 @@ class DisciplinaNewView(BaseAdminUsersAdSe, CreateView):
 		context['disciplinas'] = Disciplina.objects.all()
 
 		return context
+
+
+class DisciplinaUpdateView(BaseAdminUsersAdSe, UpdateView):
+	pass
+
+
+class DisciplinaDeleteView(BaseAdminUsersAdSe, ListView):
+	model = Disciplina
+	template_name = 'principal/disciplinas.html'
