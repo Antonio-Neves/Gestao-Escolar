@@ -4,7 +4,7 @@
 {% block main_content %}
     <div class="container bg-light back02">
         {% for disciplina in object_list %}
-            <a class="" href="{% url 'disciplinas-update' disciplina.pk %}">
+            <a class="" href="{% url 'disciplina-update' disciplina.pk %}">
             <div class="row">
                 <div class="col-md-2 my-1">
                     {{ disciplina.get_disciplina_nome_display }}:

@@ -56,6 +56,21 @@
                     Turmas
                 </a>
             </li>
+            <!-- Disciplinas -->
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseDisciplina" role="button" aria-expanded="false" aria-controls="collapseDisciplina">
+                    <span data-feather="server"></span>
+                    Disciplinas
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseDisciplina" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse" href="{% url 'disciplina-nova' %}">
+                         Nova Disciplina
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'disciplinas' %}">
+                         Lista Disciplinas
+                    </a>
+                </div>
             <!-- Ano letivo -->
             <li class="nav-item rounded-right">
                 <a class="nav-link" data-toggle="collapse" href="#collapseAnoLetivo" role="button" aria-expanded="false" aria-controls="collapseAnoLetivo">
