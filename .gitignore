@@ -1,5 +1,6 @@
 # Sensitive files
-gestao_escolar/settings.py
+# gestao_escolar/settings.py
+.env
 
 # Django #
 *.log
@@ -21,5 +22,6 @@ media
 htmlcov/*
 
 # Files
+
 
 # Testes
