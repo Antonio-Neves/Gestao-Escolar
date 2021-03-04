@@ -12,36 +12,39 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from django.contrib.messages import constants
+from decouple import config
 
 # ----------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # ----------------------------------------------------------
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '**************** secret key **********************'
+SECRET_KEY = config('SECRET_KEY')
 
 # ----------------------------------------------------------
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ----------------------------------------------------------
-ALLOWED_HOSTS = []
+if DEBUG:
+	ALLOWED_HOSTS = []
 
-
-# ----------------------------------------------------------
-# --- Necessary in production for Debug Tolbar --- #
+if not DEBUG:
+	ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
 
 
 # ----------------------------------------------------------
 # ----- Production ----- #
-# SECURE_SSL_REDIRECT = True
-# ADMINS = [('domain_name', 'email@domain_name.com')]
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+if not DEBUG:
+	SECURE_SSL_REDIRECT = True
+	ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
+	SESSION_COOKIE_SECURE = True
+	CSRF_COOKIE_SECURE = True
 
 
 # ----------------------------------------------------------
@@ -74,10 +77,10 @@ INSTALLED_APPS = [
 	'webpage',
 ]
 
+
 # ----------------------------------------------------------
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
-	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,8 +89,10 @@ MIDDLEWARE = [
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 # ----------------------------------------------------------
 ROOT_URLCONF = 'gestao_escolar.urls'
+
 
 # ----------------------------------------------------------
 TEMPLATES = [
@@ -106,43 +111,33 @@ TEMPLATES = [
 	},
 ]
 
+
 # ----------------------------------------------------------
 WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
+
 
 # ----------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # --- Development SQLite3 --- #
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.sqlite3',
+# 		'NAME': BASE_DIR / 'db.sqlite3',
+# 	}
+# }
+
+# --- PostgreSQL --- #
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': BASE_DIR / 'db.sqlite3',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('NAME_DB'),
+        'USER': config('USER_DB'),
+        'PASSWORD': config('PASSWORD_DB'),
+        'HOST': config('HOST_DB'),
+        'PORT': config('PORT_DB'),
+    }
 }
-
-# --- Development PostgreSQL --- #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'data_base_name',
-#         'USER': 'data_base_user',
-#         'PASSWORD': 'data_base_password',
-#         'HOST': 'data_base_host',
-#         'PORT': '5432',
-#     }
-# }
-
-# --- Production --- #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'data_base_name',
-#         'USER': 'data_base_user',
-#         'PASSWORD': 'data_base_password',
-#         'HOST': 'data_base_host',
-#         'PORT': '5432',
-#     }
-# }
 
 
 # ----------------------------------------------------------
@@ -182,33 +177,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# --- Production --- #
-# STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/domain_name/www/static'
-#
-# MEDIA_URL = 'media/'
-# MEDIA_ROOT = '/home/domain_name/www/media'
-
-# --- Development --- #
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+if DEBUG:
+	STATIC_ROOT = BASE_DIR / 'static'
+	MEDIA_ROOT = BASE_DIR / 'media'
+
+if not DEBUG:
+	STATIC_ROOT = config('STATIC_ROOT')
+	MEDIA_ROOT = config('MEDIA_ROOT')
 
 # ----------------------------------------------------------
 # --- Email --- #
 
 # --- development --- #
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG:
+	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # --- Production --- #
-# EMAIL_HOST = 'smtp.domain_name.com'
-# EMAIL_HOST_USER = 'email@domain_name.com'
-# EMAIL_PORT = 587
-# EMAIL_USER_SSL = True
-# EMAIL_HOST_PASSWORD = 'email_password'
-# DEFAULT_FROM_EMAIL = 'email@domain_name.com'
+if not DEBUG:
+	EMAIL_HOST = config('EMAIL_HOST')
+	EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+	EMAIL_PORT = config('EMAIL_PORT', cast=int)
+	EMAIL_USER_SSL = True
+	EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+	DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 
 # ----------------------------------------------------------
