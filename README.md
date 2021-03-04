@@ -1,6 +1,7 @@
 # Gestão Escolar / School Management System
 
 Sistema completo de gestão escolar (em desenvolvimento)
+
 Complete school management system (under development)
 
 Django, HTML, CSS, Bootstrap
