@@ -81,6 +81,7 @@ INSTALLED_APPS = [
 # ----------------------------------------------------------
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -185,8 +186,8 @@ if DEBUG:
 	MEDIA_ROOT = BASE_DIR / 'media'
 
 if not DEBUG:
-	STATIC_ROOT = '/home/ansistemas/www/static'
-	MEDIA_ROOT = '/home/ansistemas/www/media'
+	STATIC_ROOT = config('STATIC_ROOT')
+	MEDIA_ROOT = config('MEDIA_ROOT')
 
 # ----------------------------------------------------------
 # --- Email --- #
