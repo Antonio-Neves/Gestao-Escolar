@@ -41,6 +41,7 @@ class EtapaBasica(models.Model):
 		AnoLetivo,
 		on_delete=models.CASCADE,
 		verbose_name='Ano Letivo',
+		related_name='etapabasicanome',
 		default=''
 	)
 
@@ -91,7 +92,8 @@ class AnoEscolar(models.Model):
 	ano_escolar_etapa = models.ForeignKey(
 		EtapaBasica,
 		on_delete=models.CASCADE,
-		verbose_name='Etapa'
+		verbose_name='Etapa',
+		related_name='anoescolaretapa'
 	)
 
 	class Meta:
@@ -137,7 +139,8 @@ class Disciplina(models.Model):
 	disciplina_professor = models.ForeignKey(
 		Professor,
 		on_delete=models.DO_NOTHING,
-		verbose_name='Professor(a)'
+		verbose_name='Professor(a)',
+		related_name='disciplinaprofessor'
 	)
 
 	class Meta:
