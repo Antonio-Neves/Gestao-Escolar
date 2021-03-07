@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /usuarios/login/
+
+Sitemap: https://ansistemas.net/sitemap.xml
