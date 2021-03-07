@@ -31,14 +31,18 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ----------------------------------------------------------
+# Allowed Hosts
+# --- development --- #
 if DEBUG:
 	ALLOWED_HOSTS = []
 
+# --- Production --- #
 if not DEBUG:
 	ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
 
 
 # ----------------------------------------------------------
+# SSL and Cookies
 # ----- Production ----- #
 if not DEBUG:
 	SECURE_SSL_REDIRECT = True
@@ -181,10 +185,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 
+# --- development --- #
 if DEBUG:
 	STATIC_ROOT = BASE_DIR / 'static'
 	MEDIA_ROOT = BASE_DIR / 'media'
 
+# --- Production --- #
 if not DEBUG:
 	STATIC_ROOT = config('STATIC_ROOT')
 	MEDIA_ROOT = config('MEDIA_ROOT')
