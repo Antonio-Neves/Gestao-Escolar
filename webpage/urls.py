@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic.base import TemplateView
 from webpage.views import (
 	IndexView,
 	IndexManagerView,
@@ -8,4 +9,11 @@ from webpage.views import (
 urlpatterns = [
 	path('', IndexView.as_view(), name='index'),
 	path('index-manager/', IndexManagerView.as_view(), name='index-manager'),
+	path(
+		'robots.txt',
+		TemplateView.as_view(
+			template_name="webpage/robots.txt",
+			content_type="text/plain"
+		),
+    )
 ]
