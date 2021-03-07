@@ -1,6 +1,7 @@
 from django.db import models
 
-from principal.models import AnoEscolar
+from principal.models import AnoEscolar, Disciplina
+from alunos.models import Aluno
 
 
 class Turma(models.Model):
@@ -27,6 +28,17 @@ class Turma(models.Model):
 		choices=TURMA_NOME_CHOICES,
 		default='A'
 	)
+	turma_aluno = models.ManyToManyField(
+		Aluno,
+		verbose_name='Alunos',
+		related_name='turmaaluno'
+	)
+	turma_disciplina = models.ManyToManyField(
+		Disciplina,
+		verbose_name='Disciplinas',
+		related_name='turmadisciplinas'
+	)
+
 
 	def turma_codigo_id(self):
 		"""
