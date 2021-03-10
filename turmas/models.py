@@ -39,7 +39,6 @@ class Turma(models.Model):
 		related_name='turmadisciplinas'
 	)
 
-
 	def turma_codigo_id(self):
 		"""
 		Return custom unique identification
@@ -56,12 +55,22 @@ class Turma(models.Model):
 
 		return f'{turma_nome_min} {self.turma_nome} {turma_ano}'
 
+	def turma_nome_etapa(self):
+		"""
+		Return 'Turma' minimal name with 'Etapa'
+		"""
+		ano_escolar = self.turma_ano_escolar
+		turma_ano_escolar = ano_escolar.get_ano_escolar_nome_display()
+		turma_etapa = ano_escolar.ano_escolar_etapa.etapa_basica_nome
+
+		return f'{turma_ano_escolar} - {turma_etapa}'
+
 	def turma_ano_letivo(self):
 		"""
 		Return Year of 'Turma'
 		"""
 		ano_escolar = self.turma_ano_escolar
-		turma_ano = ano_escolar.ano_escolar_etapa.etapa_basica_ano
+		turma_ano = ano_escolar.ano_escolar_etapa.etapa_basica_ano.ano_letivo_nome
 
 		return turma_ano
 
