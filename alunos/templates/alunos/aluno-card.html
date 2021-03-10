@@ -1,5 +1,4 @@
     <div class=" accordion" id="accordionAluno">
-    {% for aluno in object_list %}
         <div class="container container-card-min">
             <div class="row head-card-min">
                 <div class="col-md-5">
@@ -13,7 +12,13 @@
                     Situação: {{ aluno.get_aluno_situacao_display }}
                 </div>
                 <div class="col-md-2 d-flex align-items-center">
-                    Turma:
+                    {% for turma in turmas %}
+                        {% for turma_aluno in turma.turma_aluno.values_list %}
+                            {% if turma_aluno.0 == aluno.pk %}
+                                Turma: {{ turma.turma_nome_etapa }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 </div>
                 <div class="col-md-3 d-flex justify-content-end">
                     <a class="button-card-min" href="{% url 'aluno-alterar' aluno.pk %}">Ver</a>
@@ -58,5 +63,4 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
     </div>

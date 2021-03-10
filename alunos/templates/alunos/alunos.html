@@ -2,6 +2,8 @@
 {% block title %}Alunos{% endblock %}
 {% block body_title %}Alunos{% endblock %}
 {% block main_content %}
-    {% include 'alunos/aluno-card.html' %}
+    {% for aluno in object_list %}
+        {% include 'alunos/aluno-card.html' %}
+    {% endfor %}
     {% include 'base/_pagination.html' %}
 {% endblock %}

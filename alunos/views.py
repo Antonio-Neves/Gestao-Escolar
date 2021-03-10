@@ -10,10 +10,13 @@ from unidecode import unidecode  # normalize strings Csii
 
 from alunos.models import Aluno
 from alunos.forms import AlunoForm
+from turmas.models import Turma
 from accounts.models import CustomUser
 
 # Classes to control admin acess and success messages
 from base.base_admin_permissions import BaseAdminUsersAdSe
+# Constants Vars
+from base.constants import CURRENT_YEAR
 
 
 def create_user_after_registration(
@@ -144,6 +147,16 @@ class AlunosListView(BaseAdminUsersAdSe, ListView):
 	model = Aluno
 	paginate_by = 20
 	template_name = 'alunos/alunos.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		turmas = Turma.objects.all().filter(
+			turma_ano_escolar__ano_escolar_etapa__etapa_basica_ano__ano_letivo_nome=CURRENT_YEAR
+		)
+
+		context['turmas'] = turmas
+
+		return context
 
 
 class AlunosEfetivoListView(BaseAdminUsersAdSe, ListView):
