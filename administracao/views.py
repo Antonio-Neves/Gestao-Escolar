@@ -5,9 +5,12 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 
 from alunos.models import Aluno
+from turmas.models import Turma
 
 # Classes to control admin acess and success messages
 from base.base_admin_permissions import BaseAdminUsersAd
+# Constants Vars
+from base.constants import CURRENT_YEAR
 
 
 class IndexAdministracaoView(BaseAdminUsersAd, TemplateView):
@@ -34,3 +37,13 @@ class AdministracaoSearchView(BaseAdminUsersAd, ListView):
 			# 	qs = users.filter(first_name__istartswith=term)
 
 			return qs
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		turmas = Turma.objects.all().filter(
+			turma_ano_escolar__ano_escolar_etapa__etapa_basica_ano__ano_letivo_nome=CURRENT_YEAR
+		)
+
+		context['turmas'] = turmas
+
+		return context

@@ -1069,8 +1069,9 @@
         </div>
         <hr><br>
         <div class="form-row">
-            <div class="form-group col">
+            <div class="form-group col d-flex justify-content-between">
                 <button class="btn btn-dark-blue px-4 shadow-sm noprint" type="submit">Salvar</button>
+                <a class="ml-3 btn button-del" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>
             </div>
         </div>
     </form>

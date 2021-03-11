@@ -8,6 +8,9 @@
                         <span data-feather="chevron-down"></span>
                     </a>
                 </div>
+                <div class="col-md-1 d-flex align-items-center">
+                    Idade: {{ aluno.aluno_idade }}
+                </div>
                 <div class="col-md-2 d-flex align-items-center">
                     Situação: {{ aluno.get_aluno_situacao_display }}
                 </div>
@@ -20,10 +23,9 @@
                         {% endfor %}
                     {% endfor %}
                 </div>
-                <div class="col-md-3 d-flex justify-content-end">
+                <div class="col-md-2 d-flex justify-content-end">
                     <a class="button-card-min" href="{% url 'aluno-alterar' aluno.pk %}">Ver</a>
                     <a class="ml-2 button-card-min" href="{% url 'aluno-alterar' aluno.pk %}">Alterar</a>
-                    <a class="ml-3 button-card-min button-del" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>
                 </div>
             </div>
             <!-- Area Collapse -->

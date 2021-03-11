@@ -4,7 +4,9 @@
 <!-- Main -->
 {% block main_content %}
     {% if object_list %}
-        {% include 'alunos/aluno-card.html' %}
+        {% for aluno in object_list %}
+            {% include 'alunos/aluno-card.html' %}
+        {% endfor %}
     {% else %}
         <h4>A pesquisa por "{{ request.GET.term }}", não retornou nenhum resultado</h4>
     {% endif %}
