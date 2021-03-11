@@ -63,7 +63,7 @@ class Turma(models.Model):
 		turma_ano_escolar = ano_escolar.get_ano_escolar_nome_display()
 		turma_etapa = ano_escolar.ano_escolar_etapa.etapa_basica_nome
 
-		return f'{turma_ano_escolar} - {turma_etapa}'
+		return f'{turma_ano_escolar} {self.turma_nome} - {turma_etapa}'
 
 	def turma_ano_letivo(self):
 		"""
