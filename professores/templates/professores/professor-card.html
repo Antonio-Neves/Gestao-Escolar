@@ -1,5 +1,4 @@
     <div class=" accordion" id="accordionAluno">
-    {% for professor in object_list %}
         <div class="container container-card-min">
             <div class="row head-card-min">
                 <div class="col-md-5">
@@ -19,7 +18,6 @@
                 <div class="col-md-3 d-flex justify-content-end">
                     <a class="button-card-min" href="{% url 'professor-alterar' professor.pk %}">Ver</a>
                     <a class="ml-2 button-card-min" href="{% url 'professor-alterar' professor.pk %}">Alterar</a>
-                    <a class="ml-3 button-card-min button-del" href="{% url 'professor-delete' professor.pk %}">Apagar</a>
                 </div>
             </div>
             <!-- Area Collapse -->
@@ -59,5 +57,4 @@
 {#                </div>#}
             </div>
         </div>
-    {% endfor %}
     </div>

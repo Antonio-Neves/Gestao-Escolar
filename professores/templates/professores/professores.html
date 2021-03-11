@@ -2,5 +2,7 @@
 {% block title %}Professores{% endblock %}
 {% block body_title %}Professores{% endblock %}
 {% block main_content %}
-    {% include 'professores/professor-card.html' %}
+    {% for professor in object_list %}
+        {% include 'professores/professor-card.html' %}
+    {% endfor %}
 {% endblock %}
