@@ -2,7 +2,9 @@
 {% block title %}Professores{% endblock %}
 {% block body_title %}Professores{% endblock %}
 {% block main_content %}
-    {% for professor in object_list %}
-        {% include 'professores/professor-card.html' %}
-    {% endfor %}
+    <div class=" accordion" id="accordionProfessor">
+        {% for professor in object_list %}
+            {% include 'professores/professor-card.html' %}
+        {% endfor %}
+    </div>
 {% endblock %}
