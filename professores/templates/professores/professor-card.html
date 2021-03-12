@@ -1,27 +1,26 @@
-    <div class=" accordion" id="accordionAluno">
-        <div class="container container-card-min">
-            <div class="row head-card-min">
-                <div class="col-md-5">
-                    <a class="a-card-min"
-                       data-toggle="collapse" href="#a{{ professor.pk }}" role="button" aria-expanded="false" aria-controls="a{{ professor.pk }}">
-                        {{ professor.professor_nome }}
-                        <span data-feather="chevron-down"></span>
+    <div class="container container-card-min">
+        <div class="row head-card-min">
+            <div class="col-md-5">
+                <a class="a-card-min"
+                   data-toggle="collapse" href="#a{{ professor.pk }}" role="button" aria-expanded="false" aria-controls="a{{ professor.pk }}">
+                    {{ professor.professor_nome }}
+                    <span data-feather="chevron-down"></span>
 
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    Situação: {{ professor.get_professor_situacao_display }}
-                </div>
-                <div class="col-md-2">
-                    Turma:
-                </div>
-                <div class="col-md-3 d-flex justify-content-end">
-                    <a class="button-card-min" href="{% url 'professor-alterar' professor.pk %}">Ver</a>
-                    <a class="ml-2 button-card-min" href="{% url 'professor-alterar' professor.pk %}">Alterar</a>
-                </div>
+                </a>
             </div>
-            <!-- Area Collapse -->
-            <div class="collapse pt-3" id="a{{ aluno.pk }}" data-parent="#accordionAluno">
+            <div class="col-md-2">
+                Situação: {{ professor.get_professor_situacao_display }}
+            </div>
+            <div class="col-md-2">
+                Turma:
+            </div>
+            <div class="col-md-3 d-flex justify-content-end">
+                <a class="button-card-min" href="{% url 'professor-alterar' professor.pk %}">Ver</a>
+                <a class="ml-2 button-card-min" href="{% url 'professor-alterar' professor.pk %}">Alterar</a>
+            </div>
+        </div>
+        <!-- Area Collapse -->
+        <div class="collapse pt-3" id="a{{ aluno.pk }}" data-parent="#accordionProfessor">
 {#                <div class="row">#}
 {#                    <div class="col-md-4">#}
 {#                        <p>Idade: {{ aluno.aluno_idade }}</p>#}
@@ -55,6 +54,5 @@
 {#                        <p>Telefones: {{ aluno.aluno_filiacao2_ddd1 }} - {{ aluno.aluno_filiacao2_telefone1 }} | {{ aluno.aluno_filiacao2_ddd2 }} - {{ aluno.aluno_filiacao2_telefone2 }}</p>#}
 {#                    </div>#}
 {#                </div>#}
-            </div>
         </div>
     </div>
