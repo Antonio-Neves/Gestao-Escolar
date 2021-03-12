@@ -4,9 +4,11 @@
 <!-- Main -->
 {% block main_content %}
     {% if object_list %}
-        {% for aluno in object_list %}
-            {% include 'alunos/aluno-card.html' %}
-        {% endfor %}
+        <div class=" accordion" id="accordionAluno">
+            {% for aluno in object_list %}
+                {% include 'alunos/aluno-card.html' %}
+            {% endfor %}
+        </div>
     {% else %}
         <h4>A pesquisa por "{{ request.GET.term }}", não retornou nenhum resultado</h4>
     {% endif %}
