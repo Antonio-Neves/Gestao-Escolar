@@ -2,8 +2,10 @@
 {% block title %}Alunos{% endblock %}
 {% block body_title %}Alunos{% endblock %}
 {% block main_content %}
-    {% for aluno in object_list %}
-        {% include 'alunos/aluno-card.html' %}
-    {% endfor %}
+    <div class="accordion" id="accordionAluno">
+        {% for aluno in object_list %}
+            {% include 'alunos/aluno-card.html' %}
+        {% endfor %}
+    </div>
     {% include 'base/_pagination.html' %}
 {% endblock %}
