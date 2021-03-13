@@ -116,3 +116,47 @@ class AreaConhecimento(models.Model):
 
 	def __str__(self):
 		return self.componente_curricular
+
+
+class AtividadeComplementar(models.Model):
+	"""
+	Atividades Complementares
+	Populate table with 'atividade_complementar.csv' in:
+	BASE_ROOT
+		notes_and_extras
+			Tabelas necessárias
+	"""
+	codigo_area = models.CharField(
+		'Código da área',
+		max_length=2
+	)
+	nome_area = models.CharField(
+		'Nome da área',
+		max_length=50
+	)
+	codigo_subarea = models.CharField(
+		'Código da sub-área',
+		max_length=3
+	)
+	nome_subarea = models.CharField(
+		'Nome da área',
+		max_length=50
+	)
+	codigo_atividade = models.CharField(
+		'Código da atividade',
+		primary_key=True,
+		max_length=5,
+		unique=True
+	)
+	nome_atividade = models.CharField(
+		'Nome da atividade',
+		max_length=100
+	)
+
+	class Meta:
+		verbose_name = 'Atividade complementar'
+		verbose_name_plural = 'Atividades complementares'
+		ordering = ['codigo_area', 'codigo_subarea', 'nome_atividade']
+
+	def __str__(self):
+		return self.nome_atividade
