@@ -1,0 +1,59 @@
+codigo_area,nome_area,codigo_subarea,nome_subarea,codigo_atividade,nome_atividade
+1,"Cultura, Artes e Educação Patrimonial",11,Música,11002,Canto coral
+1,"Cultura, Artes e Educação Patrimonial",11,Música,11006,Banda
+1,"Cultura, Artes e Educação Patrimonial",11,Música,11011,Iniciação musical
+1,"Cultura, Artes e Educação Patrimonial",12,Artes plásticas,12003,Desenho
+1,"Cultura, Artes e Educação Patrimonial",12,Artes plásticas,12004,Escultura e Cerâmica
+1,"Cultura, Artes e Educação Patrimonial",12,Artes plásticas,12005,Grafite
+1,"Cultura, Artes e Educação Patrimonial",12,Artes plásticas,12007,Pintura
+1,"Cultura, Artes e Educação Patrimonial",13,Cinema ,13001,Cineclube
+1,"Cultura, Artes e Educação Patrimonial",14,Artes cénicas,14001,Teatro
+1,"Cultura, Artes e Educação Patrimonial",14,Artes cénicas,14002,Danças
+1,"Cultura, Artes e Educação Patrimonial",14,Artes cénicas,14004,Práticas Circenses
+1,"Cultura, Artes e Educação Patrimonial",15,Manifestações Culturais Regionais,15001,Capoeira
+1,"Cultura, Artes e Educação Patrimonial",15,Manifestações Culturais Regionais,15002,Artesanato 
+1,"Cultura, Artes e Educação Patrimonial",15,Manifestações Culturais Regionais,15003,Brinquedos 
+1,"Cultura, Artes e Educação Patrimonial",15,Manifestações Culturais Regionais,15004,Contos
+1,"Cultura, Artes e Educação Patrimonial",16,Educação Patrimonial,16001,Educação Patrimonial
+1,"Cultura, Artes e Educação Patrimonial",17,Leitura e Salas Temáticas,17004,Leitura
+1,"Cultura, Artes e Educação Patrimonial",17,Leitura e Salas Temáticas,17002,Línguas Estrangeiras
+1,"Cultura, Artes e Educação Patrimonial",19,Outras,19999,"Outra categoria de Cultura, Artes e Educação Patrimonial"
+2,Esporte e Lazer,21,Recreação,21001,Recreação (Brinquedoteca e Jogos)
+2,Esporte e Lazer,22,Atividades Desportivas,22007,Yoga
+2,Esporte e Lazer,22,Atividades Desportivas,22009,Tênis de campo
+2,Esporte e Lazer,22,Atividades Desportivas,22011,Atletismo
+2,Esporte e Lazer,22,Atividades Desportivas,22012,Badminton
+2,Esporte e Lazer,22,Atividades Desportivas,22014,Basquete
+2,Esporte e Lazer,22,Atividades Desportivas,22015,Ciclismo
+2,Esporte e Lazer,22,Atividades Desportivas,22018,Futebol
+2,Esporte e Lazer,22,Atividades Desportivas,22019,Futsal
+2,Esporte e Lazer,22,Atividades Desportivas,22020,"Ginástica (rítmica, artística, acrobática)"
+2,Esporte e Lazer,22,Atividades Desportivas,22021,Handebol
+2,Esporte e Lazer,22,Atividades Desportivas,22022,Judô
+2,Esporte e Lazer,22,Atividades Desportivas,22023,Karatê
+2,Esporte e Lazer,22,Atividades Desportivas,22024,Luta Olímpica
+2,Esporte e Lazer,22,Atividades Desportivas,22025,Natação
+2,Esporte e Lazer,22,Atividades Desportivas,22026,Taekwondo
+2,Esporte e Lazer,22,Atividades Desportivas,22027,Tênis de Mesa
+2,Esporte e Lazer,22,Atividades Desportivas,22028,Voleibol
+2,Esporte e Lazer,22,Atividades Desportivas,22029,Vôlei de Praia
+2,Esporte e Lazer,22,Atividades Desportivas,22032,Xadrez tradicional/Xadrez virtual 
+2,Esporte e Lazer,29,Outras,29999,Outra categoria de Esporte e Lazer
+3,Acompanhamento Pedagógico,31,Acompanhamento Pedagógico,31002,Português
+3,Acompanhamento Pedagógico,31,Acompanhamento Pedagógico,31001,Matemática
+3,Acompanhamento Pedagógico,39,Outras,39999,Outra categoria de Acompanhamento Pedagógico
+4,Educação em Direitos Humanos ,41,Educação em Direitos Humanos ,41007,Educação em Direitos Humanos
+7,Promoção da Saúde,71,Promoção da Saúde,71007,Promoção da Saúde 
+10,Iniciação Científica,101,Iniciação Científica,10103,Iniciação Científica
+13,Educação Ambiental,133,Educação Ambiental,13301,Educação Ambiental e Desenvolvimento Sustentável
+13,Educação Ambiental,131,Economia Solidária,13108,Economia Solidária e Criativa/Educação Econômica (Educação Financeira e Fiscal)
+14,Comunicação,141,Comunicação e Uso de Mídias,14101,Fotografia
+14,Comunicação,141,Comunicação e Uso de Mídias,14102,História em Quadrinhos
+14,Comunicação,141,Comunicação e Uso de Mídias,14103,Jornal Escolar
+14,Comunicação,141,Comunicação e Uso de Mídias,14104,Rádio Escolar
+14,Comunicação,141,Comunicação e Uso de Mídias,14105,Vídeo
+14,Comunicação,142,Cultura Digital e Tecnológica,14201,Robótica Educacional
+14,Comunicação,142,Cultura Digital e Tecnológica,14202,Tecnologicas Educacionais
+14,Comunicação,142,Cultura Digital e Tecnológica,14203,Ambientes de Redes Sociais
+14,Comunicação,149,Outras,14999,"Outra Categoria de Comunicação, Uso de Mídias e Cultura Digital e Tecnológica"
+15,Memória e História das Comunidades Tradicionais,151,Memória e História das Comunidades Tradicionais,15101,Memória e História das Comunidades Tradicionais
