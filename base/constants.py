@@ -2,12 +2,14 @@
 Module with Constants for use in defaults attributes in models and views
 """
 
+# --- Adress --- #
 DDD = '94'
 ESTADO = 'PA'
 MUNICIPIO = 'Canaã dos Carajás'
 CEP = '68537-000'
 PAIS = 'Brasil'
 
+# --- Date --- #
 CURRENT_YEAR = '2021'
 
 # --- turmas --- #
