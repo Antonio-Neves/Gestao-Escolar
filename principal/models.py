@@ -138,9 +138,10 @@ class Disciplina(models.Model):
 	)
 	disciplina_professor = models.ForeignKey(
 		Professor,
-		on_delete=models.DO_NOTHING,
+		on_delete=models.SET_NULL,
 		verbose_name='Professor(a)',
-		related_name='disciplinaprofessor'
+		related_name='disciplinaprofessor',
+		null=True
 	)
 
 	class Meta:
