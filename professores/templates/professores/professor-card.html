@@ -1,17 +1,16 @@
     <div class="container container-card-min">
         <div class="row head-card-min">
-            <div class="col-md-5">
+            <div class="col-md-5 d-flex align-items-center">
                 <a class="a-card-min"
                    data-toggle="collapse" href="#a{{ professor.pk }}" role="button" aria-expanded="false" aria-controls="a{{ professor.pk }}">
                     {{ professor.professor_nome }}
                     <span data-feather="chevron-down"></span>
-
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 d-flex align-items-center">
                 Situação: {{ professor.get_professor_situacao_display }}
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 d-flex align-items-center">
                 Turma:
             </div>
             <div class="col-md-3 d-flex justify-content-end">
