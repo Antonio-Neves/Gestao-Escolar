@@ -1,38 +1,35 @@
-    <div class=" accordion" id="accordionUser">
-    {% for user_list in object_list %}
-        <!-- User List that are not superuser -->
-        {% if not user_list.is_superuser %}
-        <div class="container container-card-min">
-            <div class="row head-card-min">
-                <div class="col-md-3 d-flex align-items-center">
-                    <h6 class="p-card-min">
-                        {{ user_list.first_name }} {{ user_list.last_name }}
-                    </h6>
-                </div>
-                <div class="col-md-3 d-flex align-items-center">
-                    Usuário: {{ user_list.username }}
-                </div>
-                <div class="col-md-3 d-flex align-items-center">
-                    Departamento: {{ user_list.get_department_display }}
-                </div>
-                <div class="col-md-3 d-flex justify-content-end">
-                    <a class="button-card-min" href="{% url 'user-change' user_list.pk %}">Ver</a>
-                    <a class="ml-2 button-card-min" href="{% url 'user-change' user_list.pk %}">Alterar</a>
-                    <a class="ml-3 button-card-min button-del" href="{% url 'user-delete' user_list.pk %}">Apagar</a>
-                </div>
+<!-- User List that are not superuser -->
+{% if not user_list.is_superuser %}
+<div class="container container-card-min">
+    <div class="row head-card-min">
+        <div class="col-md-3 d-flex align-items-center">
+            <h6 class="p-card-min">
+                {{ user_list.first_name }} {{ user_list.last_name }}
+            </h6>
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+            Usuário: {{ user_list.username }}
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+            Departamento: {{ user_list.get_department_display }}
+        </div>
+        <div class="col-md-3 d-flex justify-content-end">
+            <a class="button-card-min" href="{% url 'user-change' user_list.pk %}">Ver</a>
+            <a class="ml-2 button-card-min" href="{% url 'user-change' user_list.pk %}">Alterar</a>
+            <a class="ml-3 button-card-min button-del" href="{% url 'user-delete' user_list.pk %}">Apagar</a>
+        </div>
+    </div>
+    <!-- Area Collapse -->
+    <div class="collapse pt-3" id="a{{ user_list.pk }}" data-parent="#accordionUser">
+        <div class="row">
+            <div class="col-md-4">
+                <p>Usuário: {{ user_list.username }}</p>
             </div>
-            <!-- Area Collapse -->
-            <div class="collapse pt-3" id="a{{ user_list.pk }}" data-parent="#accordionUser">
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>Usuário: {{ user_list.username }}</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Password: {{ user_list.password }}</p>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <p>Password: {{ user_list.password }}</p>
             </div>
         </div>
-        {% endif %}
-    {% endfor %}
     </div>
+</div>
+{% endif %}
+
