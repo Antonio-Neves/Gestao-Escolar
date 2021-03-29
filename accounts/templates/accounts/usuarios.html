@@ -2,6 +2,10 @@
 {% block title %}Usuários{% endblock %}
 {% block body_title %}Usuários do sistema{% endblock %}
 {% block main_content %}
-    {% include 'accounts/user-card.html' %}
+    <div class=" accordion" id="accordionUser">
+        {% for user_list in object_list %}
+            {% include 'accounts/user-card.html' %}
+        {% endfor %}
+    </div>
     {% include 'base/_pagination.html' %}
 {% endblock %}
