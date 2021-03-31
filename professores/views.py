@@ -40,25 +40,29 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 
 			if cpf:  # if 'professor_cpf' create user
 
-				# Data from 'Professor' for user creation
+				# Create username from CPF
 				cpf_split_1 = cpf.split('.')
 				cpf_split_2 = ''.join(cpf_split_1).split('-')
 				cpf_join = ''.join(cpf_split_2)
+				username_professor = f'pr{cpf_join}'
 
 				# Test if user already exists
-				cpf_qs = CustomUser.objects.filter(username=cpf_join)
-				username_professor = f'pr{cpf_qs}'
+				cpf_qs = CustomUser.objects.filter(username=username_professor)
 
-				if not username_professor:
+				if not cpf_qs:
 
+					# Create password from 'professor' name
 					nome_form = request.POST.get('professor_nome')
 					nome_split = nome_form.split()
 					first_name = nome_split[0]
-					last_name = nome_split[-1]
+					if len(nome_split) > 1:
+						last_name = nome_split[-1]
+					else:
+						last_name = 'sem sobrenome'
 					password = f'{unidecode(first_name).lower()}{cpf_join[0:6]}'
 
 					CustomUser.objects.create_user(
-						username=f'pr{cpf_join}',
+						username=username_professor,
 						password=password,
 						first_name=first_name,
 						last_name=last_name,
@@ -72,6 +76,7 @@ class ProfessorNewView(BaseAdminUsersAdSe, CreateView):
 			return render(request, self.template_name, context)
 
 
+# TODO update user after 'professor' update
 class ProfessorUpdateView(BaseAdminUsersAdSe, UpdateView):
 	model = Professor
 	form_class = ProfessorForm
@@ -86,6 +91,7 @@ class ProfessorUpdateView(BaseAdminUsersAdSe, UpdateView):
 		return reverse('professor-alterar', kwargs={'pk': self.object.pk,})
 
 
+# TODO delete user after 'professor' delete
 class ProfessorDeleteView(BaseAdminUsersAdSe, DeleteView):
 	model = Professor
 	template_name = 'professores/professor-delete.html'
