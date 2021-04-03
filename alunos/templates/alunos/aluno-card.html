@@ -15,13 +15,11 @@
             </div>
             <div class="col-md-2 d-flex align-items-center">
                 {% for turma in turmas %}
-                    {% for turma_aluno in turma.turma_aluno.values_list %}
-                        {% if turma_aluno.0 == aluno.pk %}
-                            {{ turma.turma_nome_etapa }}
-                        {% endif %}
-                    {% endfor %}
+                    {% if turma.3 == aluno.pk %}
+                        {{ turma.0 }} - {{ turma.2 }}
+                    {% endif %}
                 {% endfor %}
-            </div>
+           </div>
             <div class="col-md-2 d-flex justify-content-end">
                 <a class="button-card-min" href="{% url 'aluno-alterar' aluno.pk %}">Ver</a>
                 <a class="ml-2 button-card-min" href="{% url 'aluno-alterar' aluno.pk %}">Alterar</a>

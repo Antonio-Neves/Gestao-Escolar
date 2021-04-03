@@ -5,8 +5,9 @@ from base.constants import(
 	HORA_FINAL_MANHA,
 	HORA_FINAL_TARDE
 )
+from base.validators import validate_digits, validate_ano_letivo
 
-from principal.models import AnoEscolar, Disciplina
+from principal.models import Disciplina
 from alunos.models import Aluno
 from base.models import AtividadeComplementar
 
@@ -44,24 +45,58 @@ class Turma(models.Model):
 		('3', 'Educação de jovens e adultos (EJA)'),
 		('4', 'Educação profissional')
 	)
+	TURMA_ANO_ESCOLAR_CHOICES = (
+		('CR', 'Creche'),
+		('G1', 'Maternal I'),
+		('G2', 'Maternal II'),
+		('G3', 'Maternal III'),
+		('G4', 'Jardim I'),
+		('G5', 'Jardim II'),
+		('1A', '1º Ano'),
+		('2A', '2º Ano'),
+		('3A', '3º Ano'),
+		('4A', '4º Ano'),
+		('5A', '5º Ano'),
+		('6A', '6º Ano'),
+		('7A', '7º Ano'),
+		('8A', '8º Ano'),
+		('9A', '9º Ano'),
+	)
+	TURMA_ETAPA_BASICA_CHOICES = (
+		('IN', 'Infantil'),
+		('F1', 'Fundamental I'),
+		('F2', 'Fundamental II'),
+		('EM', 'Ensino Médio')
+	)
+	# --- End Turma choices --- #
 
+	# --- Turma fields --- #
 	turma_id = models.AutoField(
 		primary_key=True
 	)
-	# -----------------------------
-	# TODO Change 'Etapa' model whit aux table if not 'Ensino Regular.
-	# -----------------------------
-	turma_ano_escolar = models.ForeignKey(
-		AnoEscolar,
-		verbose_name='Ano Escolar',
-		on_delete=models.DO_NOTHING,
-		related_name='turmaanoescolar'
+	turma_ano_escolar = models.CharField(
+		'Ano Escolar',
+		max_length=2,
+		choices=TURMA_ANO_ESCOLAR_CHOICES
 	)
 	turma_nome = models.CharField(
 		'Nome',
 		max_length=1,
 		choices=TURMA_NOME_CHOICES,
 		default='A'
+	)
+	# -----------------------------
+	# TODO Change 'turma_etapa_basica' field whit aux table if not 'Ensino Regular.
+	# -----------------------------
+	turma_etapa_basica = models.CharField(
+		'Etapa Básica',
+		max_length=2,
+		choices=TURMA_ETAPA_BASICA_CHOICES
+	)
+	turma_ano_letivo = models.CharField(
+		'Ano Letivo',
+		max_length=4,
+		validators=[validate_digits, validate_ano_letivo]
 	)
 	turma_aluno = models.ManyToManyField(
 		Aluno,
@@ -229,41 +264,33 @@ class Turma(models.Model):
 		"""
 		Return complete 'Turma' name
 		"""
-		ano_escolar = self.turma_ano_escolar
-		turma_nome_min = ano_escolar.get_ano_escolar_nome_display()
-		turma_ano = ano_escolar.ano_escolar_etapa.etapa_basica_ano
+		ano_escolar = self.get_turma_ano_escolar_display()
+		nome = self.turma_nome
+		etapa = self.turma_etapa_basica
+		ano_letivo = self.turma_ano_letivo
 
-		return f'{turma_nome_min} {self.turma_nome} {turma_ano}'
+		return f'{ano_escolar} {nome} - {etapa} {ano_letivo}'
 
 	def turma_nome_etapa(self):
 		"""
 		Return 'Turma' minimal name with 'Etapa'
 		"""
-		ano_escolar = self.turma_ano_escolar
-		turma_ano_escolar = ano_escolar.get_ano_escolar_nome_display()
-		turma_etapa = ano_escolar.ano_escolar_etapa.etapa_basica_nome
+		ano_escolar = self.get_turma_ano_escolar_display()
+		nome = self.turma_nome
+		turma_etapa = self.turma_etapa_basica
 
-		return f'{turma_ano_escolar} {self.turma_nome} - {turma_etapa}'
-
-	def turma_ano_letivo(self):
-		"""
-		Return Year of 'Turma'
-		"""
-		ano_escolar = self.turma_ano_escolar
-		turma_ano = ano_escolar.ano_escolar_etapa.etapa_basica_ano.ano_letivo_nome
-
-		return turma_ano
+		return f'{ano_escolar} {nome} - {turma_etapa}'
 
 	class Meta:
 		verbose_name = 'Turma'
 		verbose_name_plural = 'Turmas'
 		constraints = [
 			models.UniqueConstraint(
-				fields=['turma_ano_escolar', 'turma_nome'],
+				fields=['turma_ano_escolar', 'turma_nome', 'turma_ano_letivo'],
 				name='unica_turma_ano'
 			)
 		]
-		ordering = ['turma_ano_escolar', 'turma_nome']
+		ordering = ['-turma_ano_letivo', 'turma_ano_escolar', 'turma_nome']
 
 	def __str__(self):
 		return self.turma_nome_completo()
