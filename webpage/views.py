@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 
 
+def error_403(request, exception):
+	data = {}
+	return render(request, 'webpage/403.html', data)
+
+
 def error_404(request, exception):
 	data = {}
 	return render(request, 'webpage/404.html', data)

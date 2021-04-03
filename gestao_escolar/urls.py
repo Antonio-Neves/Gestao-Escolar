@@ -27,5 +27,6 @@ if settings.DEBUG:
 	import debug_toolbar
 	urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
 
+handler403 = 'webpage.views.error_403'
 handler404 = 'webpage.views.error_404'
 handler500 = 'webpage.views.error_500'
