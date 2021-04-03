@@ -181,3 +181,10 @@ function printBy(selector){
     // Remove div once printed
     $print.remove();
 }
+
+# ------------------------------------------------------------------ #
+# --- Need for see the number of connections --- #
+
+from django.db import connection
+
+print(len(connection.queries))
