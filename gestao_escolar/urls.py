@@ -22,5 +22,10 @@ urlpatterns = [
 	path('admin_site/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# Django Debug toolbar, only in development
+if settings.DEBUG:
+	import debug_toolbar
+	urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
+
 handler404 = 'webpage.views.error_404'
 handler500 = 'webpage.views.error_500'

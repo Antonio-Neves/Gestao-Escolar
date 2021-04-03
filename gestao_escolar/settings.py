@@ -50,6 +50,10 @@ if not DEBUG:
 	SESSION_COOKIE_SECURE = True
 	CSRF_COOKIE_SECURE = True
 
+# Django Debug toolbar, only in development
+if DEBUG:
+	INTERNAL_IPS = ['127.0.0.1']
+
 
 # ----------------------------------------------------------
 # Application definition
@@ -81,6 +85,10 @@ INSTALLED_APPS = [
 	'webpage',
 ]
 
+# Django Debug toolbar, only in development
+if DEBUG:
+	INSTALLED_APPS.append('debug_toolbar')
+
 
 # ----------------------------------------------------------
 MIDDLEWARE = [
@@ -93,6 +101,10 @@ MIDDLEWARE = [
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Django Debug toolbar, only in development
+if DEBUG:
+	MIDDLEWARE.insert(2, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 
 # ----------------------------------------------------------
