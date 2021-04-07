@@ -1,27 +1,21 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column accordion">
-            <li class="nav-item border-0 m-2 mb-3 rounded-right shadow-sm">
+            <li class="nav-item my-2 rounded-right">
                 <a class="nav-link" href="{% url 'index-administracao' %}">
                     <span data-feather="home"></span>
                     Início
                 </a>
             </li>
-            <li class="nav-item border-0 m-2 rounded-right shadow-sm">
-                <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="true" aria-controls="collapseAlunos">
                     <span data-feather="users"></span>
                     Alunos
                 </a>
             </li>
                 <div class="collapse pl-4 m-2" id="collapseExample">
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Cadastrar aluno
-                    </a>
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Alterar aluno
-                    </a>
-                    <a class="nav-link nav-link-collapse" href="{% url 'aluno-novo' %}">
-                         Apagar aluno
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos' %}">
+                         Lista alunos
                     </a>
                 </div>
             <li class="nav-item border-0 m-2 rounded-right shadow-sm">
