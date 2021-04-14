@@ -18,4 +18,4 @@ In the repository, rename the file '.env.example' to '.env' and make the necessa
 
 <br><a href="https://ansistemas.net" target="_blank">Live Preview</a>
 
-<br><img src="https://ansistemas.com/images/gestao_escolar_seo.jpg" style="width:640px;height:auto;">
+<br><a href="https://ansistemas.net" target="_blank"><img src="https://ansistemas.com/images/gestao_escolar_seo.jpg" style="width:640px;height:auto;"></a>
