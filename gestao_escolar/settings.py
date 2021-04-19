@@ -28,32 +28,20 @@ SECRET_KEY = config('SECRET_KEY')
 
 # ----------------------------------------------------------
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 # ----------------------------------------------------------
 # Allowed Hosts
-# --- development --- #
-if DEBUG:
-	ALLOWED_HOSTS = []
-
-# --- Production --- #
-if not DEBUG:
-	ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = ['ansistemas.net']
 
 
 # ----------------------------------------------------------
 # SSL and Cookies
 # ----- Production ----- #
-if not DEBUG:
-	SECURE_SSL_REDIRECT = True
-	ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
-	SESSION_COOKIE_SECURE = True
-	CSRF_COOKIE_SECURE = True
-
-# Django Debug toolbar, only in development
-if DEBUG:
-	INTERNAL_IPS = ['127.0.0.1']
-
+SECURE_SSL_REDIRECT = True
+# ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # ----------------------------------------------------------
 # Application definition
@@ -86,7 +74,7 @@ INSTALLED_APPS = [
 ]
 
 # Django Debug toolbar, only in development
-if DEBUG:
+if not DEBUG:
 	INSTALLED_APPS.append('debug_toolbar')
 
 
@@ -103,7 +91,7 @@ MIDDLEWARE = [
 ]
 
 # Django Debug toolbar, only in development
-if DEBUG:
+if not DEBUG:
 	MIDDLEWARE.insert(2, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 
@@ -197,31 +185,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 
-# --- development --- #
-if DEBUG:
-	STATIC_ROOT = BASE_DIR / 'static'
-	MEDIA_ROOT = BASE_DIR / 'media'
-
 # --- Production --- #
-if not DEBUG:
-	STATIC_ROOT = config('STATIC_ROOT')
-	MEDIA_ROOT = config('MEDIA_ROOT')
+STATIC_ROOT = config('STATIC_ROOT')
+MEDIA_ROOT = config('MEDIA_ROOT')
 
 # ----------------------------------------------------------
 # --- Email --- #
 
 # --- development --- #
-if DEBUG:
-	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# --- Production --- #
-if not DEBUG:
-	EMAIL_HOST = config('EMAIL_HOST')
-	EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-	EMAIL_PORT = config('EMAIL_PORT', cast=int)
-	EMAIL_USER_SSL = True
-	EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-	DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USER_SSL = True
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 
 # ----------------------------------------------------------
