@@ -86,7 +86,7 @@ class Turma(models.Model):
 		default='A'
 	)
 	# -----------------------------
-	# TODO Change 'turma_etapa_basica' field whit aux table if not 'Ensino Regular.
+	# TODO Change 'turma_etapa_basica' field with aux table if not 'Ensino Regular.
 	# -----------------------------
 	turma_etapa_basica = models.CharField(
 		'Etapa Básica',
