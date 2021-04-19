@@ -23,7 +23,7 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Django Debug toolbar, only in development
-if settings.DEBUG:
+if not settings.DEBUG:
 	import debug_toolbar
 	urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
 
