@@ -238,7 +238,7 @@
             <div class="form-group col-md-3">
                 <label for="aluno_municipio_residencia">Municipio de residência <span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" maxlength="100" required
-                       value="{% if request.POST %}{{ request.POST.aluno_municipio_residencia }} {% elif object.aluno_municipio_residencia %}{{ object.aluno_municipio_residencia }} {% else %} {{ municipio_residencia }} {% endif %}">
+                       value="{% if request.POST %}{{ request.POST.aluno_municipio_residencia }} {% elif object.aluno_municipio_residencia %}{{ object.aluno_municipio_residencia }} {% else %}{{ municipio_residencia }}{% endif %}">
 {#                <select class="form-control" id="aluno_municipio_residencia" name="aluno_municipio_residencia" required>#}
 {#                    {% for aluno_municipio_residencia in form.aluno_municipio_residencia %}#}
 {#                        {{ aluno_municipio_residencia }}#}
