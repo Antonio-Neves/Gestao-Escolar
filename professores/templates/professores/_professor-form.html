@@ -1,4 +1,7 @@
 <!-- Professor Form -->
+{% load custom_tags %}
+{% set_constant_municipio municipio as municipio_residencia %}
+{% set_constant_cep cep as cep_residencia %}
 <div class="container bg-light back02">
     <form method="POST" class="form-group" name="professor_form" action="">
         {% csrf_token %}
@@ -199,7 +202,7 @@
             <div class="form-group col-md-3">
                 <label for="professor_cep_residencia">CEP <span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="professor_cep_residencia" name="professor_cep_residencia" maxlength="9" required
-                       value="{% if request.POST %} {{ request.POST.professor_cep_residencia }} {% elif object.professor_cep_residencia %} {{ object.professor_cep_residencia }} {% else %} {{ "68537-000" }} {% endif %}">
+                       value="{% if request.POST %} {{ request.POST.professor_cep_residencia }} {% elif object.professor_cep_residencia %} {{ object.professor_cep_residencia }} {% else %} {{ cep_residencia }} {% endif %}">
                 <p class="errorlist">{{ form.errors.professor_cep_residencia }}</p>
             </div>
             <div class="form-group col-md-3">
@@ -213,7 +216,7 @@
             <div class="form-group col-md-3">
                 <label for="professor_municipio_residencia">Municipio de residência <span style="color: red;">*</span></label>
                 <input type="text" class="form-control" id="professor_municipio_residencia" name="professor_municipio_residencia" maxlength="100" required
-                       value="{% if request.POST %}{{ request.POST.professor_municipio_residencia }} {% elif object.professor_municipio_residencia %}{{ object.professor_municipio_residencia }} {% else %} {{ "Canaã dos Carajás" }} {% endif %}">
+                       value="{% if request.POST %}{{ request.POST.professor_municipio_residencia }} {% elif object.professor_municipio_residencia %}{{ object.professor_municipio_residencia }} {% else %} {{ municipio_residencia }} {% endif %}">
 {#                <select class="form-control" id="professor_municipio_nascimento" name="professor_municipio_nascimento" required>#}
 {#                    {% for municipio_nascimento in form.professor_municipio_nascimento %}#}
 {#                        {{ municipio_nascimento }}#}
