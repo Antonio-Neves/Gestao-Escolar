@@ -9,18 +9,18 @@ from webpage.views import (
 urlpatterns = [
 	path('', IndexView.as_view(), name='index'),
 	path('index-manager/', IndexManagerView.as_view(), name='index-manager'),
-	path(
-		'robots.txt',
-		TemplateView.as_view(
-			template_name="webpage/robots.txt",
-			content_type="text/plain"
-		),
-    ),
-	path(
-		'sitemap.xml',
-		TemplateView.as_view(
-			template_name="webpage/sitemap.xml",
-			content_type="text/xml"
-		),
-    )
+	# path(
+	# 	'robots.txt',
+	# 	TemplateView.as_view(
+	# 		template_name="webpage/robots.txt",
+	# 		content_type="text/plain"
+	# 	),
+    # ),
+	# path(
+	# 	'sitemap.xml',
+	# 	TemplateView.as_view(
+	# 		template_name="webpage/sitemap.xml",
+	# 		content_type="text/xml"
+	# 	),
+    # )
 ]
