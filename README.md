@@ -1,6 +1,6 @@
 # School Management System<br>Sistema de Gestão Escolar
 
-Complete school management system (under development)
+<br>Complete school management system (under development)
 
 Personal project of a complete web school management system, Academic, Pedagogical and Financial sectors.
 
@@ -23,8 +23,6 @@ Atenção:
 Para esconder valores sensiveis no arquivo settings.py, tais como direções e senhas utilizo Python Decouple.  
 Instruções em https://pypi.org/project/python-decouple/  
 No repositório, mude o nome do arquivo '.env.example' para '.env' e faça as alterações necessárias com os seus dados.
-
-<hr>
 
 <br><a href="https://ansistemas.com/gestao_escolar" target="_blank">Live Preview</a>
 
