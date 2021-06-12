@@ -144,7 +144,7 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # 	}
 # }
 
-# --- PostgreSQL Development an production with db data--- #
+# --- PostgreSQL Development and production with db data--- #
 DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.postgresql',
