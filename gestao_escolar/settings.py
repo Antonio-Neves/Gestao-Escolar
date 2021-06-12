@@ -145,7 +145,22 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # }
 
 # --- PostgreSQL Development and production with db data--- #
-DATABASES = {
+# DATABASES = {
+# 		'default': {
+# 			'ENGINE': 'django.db.backends.postgresql',
+# 			'NAME': config('NAME_DB'),
+# 			'USER': config('USER_DB'),
+# 			'PASSWORD': config('PASSWORD_DB'),
+# 			'HOST': config('HOST_DB'),
+# 			'PORT': config('PORT_DB'),
+# 		}
+# 	}
+
+
+# --- PostgreSQL in Heroku--- #
+# --- Development --- #
+if DEBUG:
+	DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.postgresql',
 			'NAME': config('NAME_DB'),
@@ -156,31 +171,16 @@ DATABASES = {
 		}
 	}
 
+# --- Prodution in Heroku --- #
+if not DEBUG:
+	import dj_database_url
 
-# --- PostgreSQL in Heroku--- #
-# --- Development --- #
-# if DEBUG:
-# 	DATABASES = {
-# 		'default': {
-# 			'ENGINE': 'django.db.backends.postgresql',
-# 			'NAME': config('NAME_DB'),
-# 			'USER': config('USER_DB'),
-# 			'PASSWORD': config('PASSWORD_DB'),
-# 			'HOST': config('HOST_DB'),
-# 			'PORT': config('PORT_DB'),
-# 		}
-# 	}
-#
-# # --- Prodution in Heroku --- #
-# if not DEBUG:
-# 	import dj_database_url
-#
-# 	DATABASES = {
-# 		'default': dj_database_url.config(
-# 			conn_max_age=600,
-# 			ssl_require=True
-# 		)
-# 	}
+	DATABASES = {
+		'default': dj_database_url.config(
+			conn_max_age=600,
+			ssl_require=True
+		)
+	}
 
 # ----------------------------------------------------------
 # Password validation
