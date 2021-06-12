@@ -3,6 +3,8 @@ coverage==5.4
 Django==3.1.2
 # Django Debug Tollbar only in development
 django-debug-toolbar==3.2
+# dj-database-url 0.5.0 for db credentials in Heroku
+dj-database-url=0.5.0
 model-mommy==2.0.0
 # psycopg2-binary in development
 # psycopg2-binary==2.8.6
