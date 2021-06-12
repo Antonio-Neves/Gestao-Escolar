@@ -194,8 +194,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static03/'
-MEDIA_URL = 'media03/'
+STATIC_URL = '/static/'
+MEDIA_URL = 'media/'
 
 # --- development --- #
 if DEBUG:
@@ -204,8 +204,10 @@ if DEBUG:
 
 # --- Production --- #
 if not DEBUG:
-	STATIC_ROOT = config('STATIC_ROOT')
-	MEDIA_ROOT = config('MEDIA_ROOT')
+	# STATIC_ROOT = config('STATIC_ROOT')
+	# MEDIA_ROOT = config('MEDIA_ROOT')
+	STATIC_ROOT = BASE_DIR / 'staticfiles'
+	MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # ----------------------------------------------------------
 # --- Email --- #
