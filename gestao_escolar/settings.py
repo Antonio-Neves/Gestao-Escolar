@@ -145,17 +145,28 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # }
 
 # --- PostgreSQL --- #
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME_DB'),
-        'USER': config('USER_DB'),
-        'PASSWORD': config('PASSWORD_DB'),
-        'HOST': config('HOST_DB'),
-        'PORT': config('PORT_DB'),
-    }
-}
+if DEBUG:
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql',
+			'NAME': config('NAME_DB'),
+			'USER': config('USER_DB'),
+			'PASSWORD': config('PASSWORD_DB'),
+			'HOST': config('HOST_DB'),
+			'PORT': config('PORT_DB'),
+		}
+	}
 
+# --- PostgreSQL in Heroku--- #
+if not DEBUG:
+	import dj_database_url
+
+	DATABASES = {
+		'default': dj_database_url.config(
+			conn_max_age=600,
+			ssl_require=True
+		)
+	}
 
 # ----------------------------------------------------------
 # Password validation
@@ -206,7 +217,9 @@ if DEBUG:
 if not DEBUG:
 	# STATIC_ROOT = config('STATIC_ROOT')
 	# MEDIA_ROOT = config('MEDIA_ROOT')
-	STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+	# --- For Heroku --- #
+ 	STATIC_ROOT = BASE_DIR / 'staticfiles'
 	MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # ----------------------------------------------------------
@@ -217,13 +230,13 @@ if DEBUG:
 	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # --- Production --- #
-if not DEBUG:
-	EMAIL_HOST = config('EMAIL_HOST')
-	EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-	EMAIL_PORT = config('EMAIL_PORT', cast=int)
-	EMAIL_USER_SSL = True
-	EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-	DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+# if not DEBUG:
+# 	EMAIL_HOST = config('EMAIL_HOST')
+# 	EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# 	EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# 	EMAIL_USER_SSL = True
+# 	EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# 	DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 
 # ----------------------------------------------------------
