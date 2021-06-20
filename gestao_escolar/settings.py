@@ -171,7 +171,7 @@ if DEBUG:
 		}
 	}
 
-# --- Prodution in Heroku --- #
+# --- Prodution --- #
 if not DEBUG:
 	import dj_database_url
 
