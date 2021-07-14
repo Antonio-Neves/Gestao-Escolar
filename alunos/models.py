@@ -21,15 +21,15 @@ from base.models import Municipio, Pais
 
 class Aluno(models.Model):
 
-	CHOICES_ALUNO_SITUACAO = (
-		('A', 'Ativo'),
-		('I', 'Inativo'),
-		('T', 'Transferido'),
-		('C', 'Cancelado'),
-		('D', 'Desistente'),
-		('F', 'Falecido'),
-		('R', 'Remanejado')
-	)
+	# CHOICES_ALUNO_SITUACAO = (
+	# 	('A', 'Ativo'),
+	# 	('I', 'Inativo'),
+	# 	('T', 'Transferido'),
+	# 	('C', 'Cancelado'),
+	# 	('D', 'Desistente'),
+	# 	('F', 'Falecido'),
+	# 	('R', 'Remanejado')
+	# )
 
 	CHOICES_ALUNO_JUSTIFICATIVA_DOCUMENTOS = (
 		('1', 'O aluno(a) não possui os documentos solicitados'),
@@ -113,12 +113,6 @@ class Aluno(models.Model):
 	# use for person personal code in school
 	aluno_id = models.AutoField(
 		primary_key=True
-	)
-	# --- OK --- #
-	aluno_situacao = models.CharField(
-		'Situação do aluno(a)',
-		max_length=1,
-		choices=CHOICES_ALUNO_SITUACAO
 	)
 	# --- Aluno Documentos --- #
 	# --- OK MEC--- #

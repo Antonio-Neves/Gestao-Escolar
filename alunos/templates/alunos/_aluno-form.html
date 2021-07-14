@@ -21,14 +21,6 @@
                        value="{% if request.POST %}{{ request.POST.aluno_data_nascimento }}{% elif object.aluno_data_nascimento %}{{ object.aluno_data_nascimento }}{% endif %}">
                 <p class="errorlist">{{ form.errors.aluno_data_nascimento }}</p>
             </div>
-            <div class="form-group col-md-3">
-                <label for="aluno_situacao">Situação do aluno(a) <span style="color: red;">*</span></label>
-                <select class="form-control" id="aluno_situacao" name="aluno_situacao" required>
-                    {% for situacao in form.aluno_situacao %}
-                        {{ situacao }}
-                    {% endfor %}
-                </select>
-            </div>
         </div>
         <!-- documentos -->
         <div class="form-row">
