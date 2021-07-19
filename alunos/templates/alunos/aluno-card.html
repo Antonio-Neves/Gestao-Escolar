@@ -10,10 +10,10 @@
             <div class="col-md-1 d-flex align-items-center">
                 Idade: {{ aluno.aluno_idade }}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex align-items-center justify-content-end">
                 {% for turma in turmas %}
                     {% if turma.3 == aluno.pk %}
-                        {{ turma.0 }} - {{ turma.2 }}
+                        {{ turma.0 }} {{ turma.2 }}
                     {% endif %}
                 {% endfor %}
            </div>
