@@ -22,9 +22,16 @@
 }
 
 
-h1 {
+/*h1 {*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    font-weight: 500;*/
+/*}*/
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    margin-bottom: .5rem;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 h2 {
@@ -118,14 +125,14 @@ h2 {
     color: #004F9F;
     text-decoration: none;
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .a-card-min:active {
     color: #004F9F;
     text-decoration: none;
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .button-card-min {
@@ -191,13 +198,13 @@ h2 {
 	.contact.contact-li a {
 		color: #051842;
         font-family: 'Roboto', sans-serif;
-        font-weight: normal;
+        font-weight: 300;
 	}
 
     .contact.contact-li p {
 		color: #051842;
         font-family: 'Roboto', sans-serif;
-        font-weight: normal;
+        font-weight: 300;
 	}
 
 	#footer
@@ -269,7 +276,7 @@ h2 {
 			font-size: 1.25em;
 			text-decoration: none;
 			font-style: normal;
-			font-weight: normal;
+			font-weight: 300;
 			line-height: 1;
 			-webkit-font-smoothing:antialiased;
 			-moz-osx-font-smoothing:grayscale;

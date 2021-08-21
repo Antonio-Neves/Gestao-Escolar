@@ -44,7 +44,7 @@ body {
 }
 
 .sidebar .nav-link {
-  font-weight: 500;
+  font-weight: 400;
   color: #333;
 }
 
@@ -55,7 +55,7 @@ body {
 
 .sidebar .nav-link.active {
   color: #007bff;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -79,7 +79,7 @@ body {
 
 .nav-link-collapse:hover {
     color: #004F9F;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 /* ----- Navbar ----- */
