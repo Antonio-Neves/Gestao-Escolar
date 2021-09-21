@@ -1,5 +1,5 @@
 <!-- User List that are not superuser -->
-{% if not user_list.is_superuser %}
+{% if not user_list.is_superuser and user_list.username != 'teste'%}
 <div class="container container-card-min">
     <div class="row head-card-min">
         <div class="col-md-3 d-flex align-items-center">
