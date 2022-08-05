@@ -98,16 +98,19 @@ class Turma(models.Model):
 		max_length=4,
 		validators=[validate_digits, validate_ano_letivo]
 	)
+	# TODO 'alunos'
 	turma_aluno = models.ManyToManyField(
 		Aluno,
 		verbose_name='Alunos',
 		related_name='turmaaluno'
 	)
+	# TODO 'disciplinas'
 	turma_disciplina = models.ManyToManyField(
 		Disciplina,
 		verbose_name='Disciplinas',
 		related_name='turmadisciplinas'
 	)
+	# --- Mediação didático-pedagógica
 	turma_mediacao_pedagogica = models.CharField(
 		'Mediação didático-pedagógica',
 		max_length=2,
@@ -131,62 +134,82 @@ class Turma(models.Model):
 	# only 0 no /1 yes values
 	turma_segunda = models.CharField(
 		'Segunda',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_terca = models.CharField(
 		'Terça',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_quarta = models.CharField(
 		'Quarta',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_quinta = models.CharField(
 		'Quinta',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_sexta = models.CharField(
 		'Sexta',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_sabado = models.CharField(
 		'Sábado',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_domingo = models.CharField(
 		'Domingo',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# --- Type of service --- #
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_escolarizacao = models.CharField(
 		'Escolarizacao',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_atividade_complementar = models.CharField(
 		'Atividade complementar',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# TODO - checkbox field
 	# only 0 no /1 yes values
 	turma_atendimento_especializado = models.CharField(
 		'Atendimento educacional specializado',
-		max_length=1
+		max_length=1,
+		blank=True,
+		null=True
 	)
 	# --- 'atividade complementar' type --- #
 	turma_atividade_complementar_codigo_1 = models.ForeignKey(

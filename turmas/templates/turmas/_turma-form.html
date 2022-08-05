@@ -1,0 +1,290 @@
+<!-- Turma Form -->
+<div class="container bg-light back02">
+    <form class="form-group" method="POST" name="turma_form" action="">
+        {% csrf_token %}
+        <!-- Identificação -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div><h4>Identificação</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-2">
+                <label for="turma_ano_escolar">Ano Escolar <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_ano_escolar" name="turma_ano_escolar" required>
+                    {% for ano_escolar in form.turma_ano_escolar %}
+                        {{ ano_escolar }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group mr-3 col-md-2">
+                <label for="turma_nome">Nome <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_nome" name="turma_nome" required>
+                    {% for nome in form.turma_nome %}
+                        {{ nome }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group mr-3 col-md-2">
+                <label for="turma_etapa_basica">Etapa Básica <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_etapa_basica" name="turma_etapa_basica" required>
+                    {% for etapa in form.turma_etapa_basica %}
+                        {{ etapa }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="turma_ano_letivo">Ano Letivo <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" id="turma_ano_letivo" name="turma_ano_letivo" maxlength="4" required
+                       value="{% if request.POST %}{{ request.POST.turma_ano_letivo }}{% elif object.turma_ano_letivo %}{{ object.turma_ano_letivo }}{% else %}{{ '2021' }}{% endif %}">
+                <p class="errorlist">{{ form.errors.turma_ano_letivo }}</p>
+            </div>
+        </div>
+        <hr>
+        <!-- Mediação didático-pedagógica -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Mediação didático-pedagógica <span style="color: red;">*</span></h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-3">
+                <select class="form-control" id="turma_mediacao_pedagogica" name="turma_mediacao_pedagogica" required>
+                    {% for mediacao_pedagogica in form.turma_mediacao_pedagogica %}
+                        {{ mediacao_pedagogica }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Hórarios -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Horários</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-3">
+                <label for="turma_hora_inicial">Hora Inicial <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_hora_inicial" name="turma_hora_inicial" required>
+                    {% for hora_inicial in form.turma_hora_inicial %}
+                        {{ hora_inicial }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group mr-3 col-md-3">
+                <label for="turma_hora_final">Hora Final <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_hora_final" name="turma_hora_final" required>
+                    {% for hora_final in form.turma_hora_final %}
+                        {{ hora_final }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col">
+                <p>Dias da semana <span style="color: red;">*</span></p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_segunda" name="turma_segunda" checked
+                         value="1" {% if request.POST.turma_segunda == "1" or object.turma_segunda == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_segunda">segunda-feira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_terca" name="turma_terca" checked
+                         value="1" {% if request.POST.turma_terca == "1" or object.turma_terca == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_terca">terça-feira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_quarta" name="turma_quarta" checked
+                         value="1" {% if request.POST.turma_quarta == "1" or object.turma_quarta == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_quarta">quarta-feira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_quinta" name="turma_quinta" checked
+                         value="1" {% if request.POST.turma_quinta == "1" or object.turma_quinta == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_quinta">quinta-feira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_sexta" name="turma_sexta" checked
+                         value="1" {% if request.POST.turma_sexta == "1" or object.turma_sexta == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_sexta">sexta-feira</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_sabado" name="turma_sabado"
+                         value="1" {% if request.POST.turma_sabado == "1" or object.turma_sabado == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_sabado">sábado</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_domingo" name="turma_domingo"
+                         value="1" {% if request.POST.turma_domingo == "1" or object.turma_domingo == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_domingo">domingo</label>
+                </div>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Type of service -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Tipos de serviços <span style="color: red;">*</span></h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_escolarizacao" name="turma_escolarizacao" checked
+                         value="1" {% if request.POST.turma_escolarizacao == "1" or object.turma_escolarizacao == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_escolarizacao">Escolarização</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_atividade_complementar" name="turma_atividade_complementar"
+                         value="1" {% if request.POST.turma_atividade_complementar == "1" or object.turma_atividade_complementar == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_atividade_complementar">Atividade complementar</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="turma_atendimento_especializado" name="turma_atendimento_especializado"
+                         value="1" {% if request.POST.turma_atendimento_especializado == "1" or object.turma_atendimento_especializado == "1" %}checked="checked"{% endif %}>
+                  <label class="form-check-label" for="turma_atendimento_especializado">Atendimento especializado</label>
+                </div>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Type of 'actividade complementar' -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Atividades complementares</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_1">Atividade complementar 1</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_1" name="turma_atividade_complementar_codigo_1">
+                    {% for atividade_complementar_1 in form.turma_atividade_complementar_codigo_1 %}
+                        {{ atividade_complementar_1 }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_2">Atividade complementar 2</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_2" name="turma_atividade_complementar_codigo_2">
+                    {% for atividade_complementar_2 in form.turma_atividade_complementar_codigo_2 %}
+                        {{ atividade_complementar_2 }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_3">Atividade complementar 3</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_3" name="turma_atividade_complementar_codigo_3">
+                    {% for atividade_complementar_3 in form.turma_atividade_complementar_codigo_3 %}
+                        {{ atividade_complementar_3 }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_4">Atividade complementar 4</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_4" name="turma_atividade_complementar_codigo_4">
+                    {% for atividade_complementar_4 in form.turma_atividade_complementar_codigo_4 %}
+                        {{ atividade_complementar_4 }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_5">Atividade complementar 5</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_5" name="turma_atividade_complementar_codigo_5">
+                    {% for atividade_complementar_5 in form.turma_atividade_complementar_codigo_5 %}
+                        {{ atividade_complementar_5 }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="turma_atividade_complementar_codigo_6">Atividade complementar 6</label>
+                <select class="form-control" id="turma_atividade_complementar_codigo_6" name="turma_atividade_complementar_codigo_6">
+                    {% for atividade_complementar_6 in form.turma_atividade_complementar_codigo_6 %}
+                        {{ atividade_complementar_6 }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Local e Modalidade -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Local e Modalidade</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-4">
+                <label for="turma_local_diferenciado">Local diferenciado <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_local_diferenciado" name="turma_local_diferenciado" required>
+                    {% for hora_inicial in form.turma_local_diferenciado %}
+                        {{ hora_inicial }}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group mr-3 col-md-4">
+                <label for="turma_modalidade">Modalidade <span style="color: red;">*</span></label>
+                <select class="form-control" id="turma_modalidade" name="turma_modalidade" required>
+                    {% for hora_final in form.turma_modalidade %}
+                        {{ hora_final }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Disciplinas -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Disciplinas</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-4">
+                <select class="form-control selectpicker" id="turma_disciplina" name="turma_disciplina" multiple
+                data-style="border-secondary">
+                    {% for disciplina in form.turma_disciplina %}
+                        {{ disciplina }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><hr>
+        <!-- Alunos -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div><h4>Alunos</h4></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-3 col-md-4">
+                <select class="form-control selectpicker" id="turma_aluno" name="turma_aluno" multiple
+                data-style="border-secondary">
+                    {% for aluno in form.turma_aluno %}
+                        {{ aluno }}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br><hr>
+        <div class="form-row">
+            <div class="form-group col d-flex justify-content-between">
+                <button class="btn btn-dark-blue px-4 shadow-sm noprint" type="submit">Salvar</button>
+{#                {% if aluno.pk %}#}
+{#                    <a class="ml-3 btn button-del px-4 shadow-sm noprint" href="{% url 'aluno-delete' aluno.pk %}">Apagar</a>#}
+{#                {% endif %}#}
+            </div>
+        </div>
+
+
+
+
+
+
+    </form>
+</div>
