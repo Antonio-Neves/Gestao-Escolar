@@ -184,6 +184,27 @@ class AlunosListView(BaseAdminUsersAdSe, ListView):
 
 		return context
 
+# class AlunosListView(BaseAdminUsersAdSe, ListView):
+# 	model = Aluno
+# 	paginate_by = 20
+# 	template_name = 'alunos/alunos.html'
+#
+# 	def get_context_data(self, **kwargs):
+# 		context = super().get_context_data(**kwargs)
+#
+# 		turmas = Turma.objects.filter(
+# 			turma_ano_letivo=CURRENT_YEAR
+# 		).values_list(
+# 			'turma_ano_escolar',
+# 			'turma_nome',
+# 			'turma_etapa_basica',
+# 			'turma_aluno'
+# 		)
+#
+# 		context['turmas'] = turmas
+#
+# 		return context
+
 
 class AlunosEfetivoListView(BaseAdminUsersAdSe, ListView):
 	model = Aluno
