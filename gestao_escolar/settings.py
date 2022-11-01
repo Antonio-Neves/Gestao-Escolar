@@ -49,7 +49,7 @@ if not DEBUG:
     ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    # CSRF_TRUSTED_ORIGINS = [config('TRUSTED_ORIGINS')]
+    CSRF_TRUSTED_ORIGINS = [config('TRUSTED_ORIGINS')]
 
 # Django Debug toolbar, only in development
 if DEBUG:
