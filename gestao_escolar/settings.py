@@ -226,7 +226,7 @@ MEDIA_URL = 'media/'
 
 # --- development --- #
 if DEBUG:
-    STATIC_ROOT = BASE_DIR / 'static'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
     MEDIA_ROOT = BASE_DIR / 'media'
 
 # --- Production --- #
@@ -236,7 +236,7 @@ if not DEBUG:
 
     # --- For Heroku --- #
     STATIC_ROOT = BASE_DIR / 'staticfiles'
-    MEDIA_ROOT = BASE_DIR / 'mediafiles'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # ----------------------------------------------------------
 # --- Email --- #
