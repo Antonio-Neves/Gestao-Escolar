@@ -34,77 +34,78 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Allowed Hosts
 # --- development --- #
 if DEBUG:
-	ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = []
 
 # --- Production --- #
 if not DEBUG:
-	ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
+    ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
 
 
 # ----------------------------------------------------------
 # SSL and Cookies
 # ----- Production ----- #
 if not DEBUG:
-	SECURE_SSL_REDIRECT = True
-	ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
-	SESSION_COOKIE_SECURE = True
-	CSRF_COOKIE_SECURE = True
+    # SECURE_SSL_REDIRECT = True
+    ADMINS = [(config('SUPER_USER'), config('EMAIL'))]
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    # CSRF_TRUSTED_ORIGINS = [config('TRUSTED_ORIGINS')]
 
 # Django Debug toolbar, only in development
 if DEBUG:
-	INTERNAL_IPS = ['127.0.0.1']
+    INTERNAL_IPS = ['127.0.0.1']
 
 
 # ----------------------------------------------------------
 # Application definition
 
 INSTALLED_APPS = [
-	# --- Accounts --- #
-	'accounts',
+    # --- Accounts --- #
+    'accounts',
 
-	# --- Django Apps --- #
-	'django.contrib.admin',
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
+    # --- Django Apps --- #
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 
-	# --- Django Apps Extras --- #
+    # --- Django Apps Extras --- #
 
-	# --- My Apps ---#
-	'administracao',
-	'alunos',
-	'base',
-	'financeiro',
-	'principal',
-	'professores',
-	'responsaveis',
-	'secretaria',
-	'turmas',
-	'webpage',
+    # --- My Apps ---#
+    'administracao',
+    'alunos',
+    'base',
+    'financeiro',
+    'principal',
+    'professores',
+    'responsaveis',
+    'secretaria',
+    'turmas',
+    'webpage',
 ]
 
 # Django Debug toolbar, only in development
 if DEBUG:
-	INSTALLED_APPS.append('debug_toolbar')
+    INSTALLED_APPS.append('debug_toolbar')
 
 
 # ----------------------------------------------------------
 MIDDLEWARE = [
-	'django.middleware.security.SecurityMiddleware',
-	'whitenoise.middleware.WhiteNoiseMiddleware',
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.common.CommonMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 # Django Debug toolbar, only in development
 if DEBUG:
-	MIDDLEWARE.insert(2, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+    MIDDLEWARE.insert(2, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 
 # ----------------------------------------------------------
@@ -113,20 +114,20 @@ ROOT_URLCONF = 'gestao_escolar.urls'
 
 # ----------------------------------------------------------
 TEMPLATES = [
-	{
-		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [],
-		'APP_DIRS': True,
-		'OPTIONS': {
-			'context_processors': [
-				'django.template.context_processors.debug',
-				'django.template.context_processors.request',
-				'django.contrib.auth.context_processors.auth',
-				'django.contrib.messages.context_processors.messages',
-				'base.context_processors.templates_global_context',
-			],
-		},
-	},
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'base.context_processors.templates_global_context',
+            ],
+        },
+    },
 ]
 
 
@@ -161,45 +162,45 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # --- PostgreSQL in Heroku--- #
 # --- Development --- #
 if DEBUG:
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.postgresql',
-			'NAME': config('NAME_DB'),
-			'USER': config('USER_DB'),
-			'PASSWORD': config('PASSWORD_DB'),
-			'HOST': config('HOST_DB'),
-			'PORT': config('PORT_DB'),
-		}
-	}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('NAME_DB'),
+            'USER': config('USER_DB'),
+            'PASSWORD': config('PASSWORD_DB'),
+            'HOST': config('HOST_DB'),
+            'PORT': config('PORT_DB'),
+        }
+    }
 
 # --- Prodution --- #
 if not DEBUG:
-	import dj_database_url
+    import dj_database_url
 
-	DATABASES = {
-		'default': dj_database_url.config(
-			conn_max_age=600,
-			ssl_require=True
-		)
-	}
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
 
 # ----------------------------------------------------------
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-	{
-		'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-	},
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
 
 # ----------------------------------------------------------
@@ -225,24 +226,24 @@ MEDIA_URL = 'media/'
 
 # --- development --- #
 if DEBUG:
-	STATIC_ROOT = BASE_DIR / 'static'
-	MEDIA_ROOT = BASE_DIR / 'media'
+    STATIC_ROOT = BASE_DIR / 'static'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # --- Production --- #
 if not DEBUG:
-	# STATIC_ROOT = config('STATIC_ROOT')
-	# MEDIA_ROOT = config('MEDIA_ROOT')
+    # STATIC_ROOT = config('STATIC_ROOT')
+    # MEDIA_ROOT = config('MEDIA_ROOT')
 
-	# --- For Heroku --- #
-	STATIC_ROOT = BASE_DIR / 'staticfiles'
-	MEDIA_ROOT = BASE_DIR / 'mediafiles'
+    # --- For Heroku --- #
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # ----------------------------------------------------------
 # --- Email --- #
 
 # --- development --- #
 if DEBUG:
-	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # --- Production --- #
 # if not DEBUG:
@@ -267,11 +268,11 @@ LOGOUT_REDIRECT_URL = 'index'
 # ----------------------------------------------------------
 # Mensagens
 MESSAGE_TAGS = {
-	constants.ERROR: 'alert-danger',
-	constants.WARNING: 'alert-warning',
-	constants.DEBUG: 'alert-info',
-	constants.SUCCESS: 'alert-success',
-	constants.INFO: 'alert-info',
+    constants.ERROR: 'alert-danger',
+    constants.WARNING: 'alert-warning',
+    constants.DEBUG: 'alert-info',
+    constants.SUCCESS: 'alert-success',
+    constants.INFO: 'alert-info',
 }
 
 # ----------------------------------------------------------
