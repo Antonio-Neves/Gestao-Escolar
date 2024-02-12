@@ -10,7 +10,7 @@ CEP = '68537-000'
 PAIS = 'Brasil'
 
 # --- Date --- #
-CURRENT_YEAR = '2021'
+CURRENT_YEAR = '2024'
 
 # --- turmas --- #
 HORA_INICIAL_MANHA = '07:30'
