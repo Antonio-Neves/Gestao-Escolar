@@ -19,10 +19,8 @@ urlpatterns = [
 	path('responsaveis/', include('responsaveis.urls')),
 	path('secretaria/', include('secretaria.urls')),
 	path('turmas/', include('turmas.urls')),
-	# path('admin_site/', admin.site.urls),
-	path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_URL)
-# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	path('admin_site/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Django Debug toolbar, only in development
 if settings.DEBUG:
