@@ -1,7 +1,6 @@
 # Sensitive files
 .env
 
-
 # Django #
 *.log
 *.pot
@@ -22,6 +21,3 @@ media
 htmlcov/*
 
 # Files
-
-# Testes
-.coverage
