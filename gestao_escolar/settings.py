@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.contrib.messages import constants
 from decouple import config
+import dj_database_url
+
 
 # ----------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -138,51 +140,13 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # ----------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# --- Development SQLite3 --- #
-# DATABASES = {
-# 	'default': {
-# 		'ENGINE': 'django.db.backends.sqlite3',
-# 		'NAME': BASE_DIR / 'db.sqlite3',
-# 	}
-# }
-
-# --- PostgreSQL Development and production with db data--- #
-# DATABASES = {
-# 		'default': {
-# 			'ENGINE': 'django.db.backends.postgresql',
-# 			'NAME': config('NAME_DB'),
-# 			'USER': config('USER_DB'),
-# 			'PASSWORD': config('PASSWORD_DB'),
-# 			'HOST': config('HOST_DB'),
-# 			'PORT': config('PORT_DB'),
-# 		}
-# 	}
-
-
-# --- PostgreSQL in Heroku--- #
-# --- Development --- #
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('NAME_DB'),
-            'USER': config('USER_DB'),
-            'PASSWORD': config('PASSWORD_DB'),
-            'HOST': config('HOST_DB'),
-            'PORT': config('PORT_DB'),
-        }
-    }
-
-# --- Prodution --- #
-if not DEBUG:
-    import dj_database_url
-
-    DATABASES = {
-        'default': dj_database_url.config(
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    ),
+}
 
 # ----------------------------------------------------------
 # Password validation
