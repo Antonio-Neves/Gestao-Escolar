@@ -34,4 +34,4 @@ Tem as tabelas .csv necessárias para popular a base de dados com os dados neces
 
 <br><a href="https://gestao-escolar.up.railway.app/" target="_blank">Live Preview</a>
 
-<br><a href="https://gestao-escolar.up.railway.app/" target="_blank"><img src="https://res.cloudinary.com/gestaoescolarmytubelibrary/image/upload/v1639775458/gestao_escolar/gestao_escolar_seo_yrh9sv.jpg" style="width:640px;height:auto;"></a>
+<br><a href="https://gestao-escolar.up.railway.app/" target="_blank"><img src="https://res.cloudinary.com/antoniocalheirosneves/image/upload/v1639775458/gestao_escolar/gestao_escolar_seo.jpg" style="width:640px;height:auto;"></a>
