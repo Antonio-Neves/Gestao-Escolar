@@ -43,4 +43,4 @@ Se este projeto te foi útil, considera apoiar.
 
 <a href="https://www.buymeacoffee.com/ACN70" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-<a href="https://paypal.me/acn70?country.x=PT&locale.x=pt_PT" target="_blank"><img src="https://res.cloudinary.com/antoniocalheirosneves/image/upload/v1752426877/V%C3%A1rios/PayPal_-_Pequeno_gnhpfv.png" alt="PayPal" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.paypal.com/paypalme/acn70" target="_blank"><img src="https://res.cloudinary.com/antoniocalheirosneves/image/upload/v1752426877/V%C3%A1rios/PayPal_-_Pequeno_gnhpfv.png" alt="PayPal" style="height: 60px !important;width: 217px !important;" ></a>
