@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.contrib.messages import constants
 from decouple import config
-import dj_database_url
+#import dj_database_url
 
 
 # ----------------------------------------------------------
@@ -36,11 +36,11 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Allowed Hosts
 # --- development --- #
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # --- Production --- #
 if not DEBUG:
-    ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 
 # ----------------------------------------------------------
@@ -140,24 +140,12 @@ WSGI_APPLICATION = 'gestao_escolar.wsgi.application'
 # ----------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=config('DATABASE_URL'),
-            conn_max_age=600,
-            conn_health_checks=True,
-        )
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            conn_max_age=600,
-            conn_health_checks=True,
-            ssl_require=True
-        )
-    }
-
+}
 
 # ----------------------------------------------------------
 # Password validation
