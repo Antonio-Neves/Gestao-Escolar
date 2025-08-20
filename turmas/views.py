@@ -19,3 +19,10 @@ class TurmaNewView(BaseAdminUsersAdSe, CreateView):
 	form_class = TurmaForm
 	success_url = reverse_lazy('turma-nova')
 	success_message = 'Turma criada com sucesso'
+
+class ListaTurmasView(ListView):
+    model = Turma
+    template_name = 'turmas/lista_turmas.html'
+    context_object_name = 'turmas'
+    ordering = ['turma_ano_letivo', 'turma_nome']
+

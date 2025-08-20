@@ -1,8 +1,10 @@
 from django.urls import path
 
-from turmas.views import TurmaNewView
+from turmas.views import TurmaNewView, ListaTurmasView
+
 
 
 urlpatterns = [
-	path('turma-nova', TurmaNewView.as_view(), name='turma-nova')
+    path('', ListaTurmasView.as_view(), name='lista-turmas'),
+    path('turma-nova', TurmaNewView.as_view(), name='turma-nova'),
 ]

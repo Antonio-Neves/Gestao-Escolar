@@ -51,11 +51,19 @@
                 </a>
             </li>
             <li class="nav-item rounded-right">
-                <a class="nav-link" href="#">
+                 <a class="nav-link" data-toggle="collapse" href="#collapseTurmas" role="button" aria-expanded="false" aria-controls="collapseTurmas">
                     <span data-feather="layers"></span>
                     Turmas
                 </a>
             </li>
+            <div class="collapse pl-4 m-2" id="collapseTurmas" data-parent="#accordionSidebar">
+                <a class="nav-link nav-link-collapse rounded-right" href="{% url 'turma-nova' %}">
+                        Nova Turma
+                </a>
+                <a class="nav-link nav-link-collapse rounded-right" href="{% url 'lista-turmas' %}">
+                    Lista Turmas
+                </a>    
+            </div>
             <!-- Disciplinas -->
             <li class="nav-item rounded-right">
                 <a class="nav-link" data-toggle="collapse" href="#collapseDisciplina" role="button" aria-expanded="false" aria-controls="collapseDisciplina">
