@@ -1,0 +1,323 @@
+
+/*html, body, header, #intro {*/
+/*    height: 100%;*/
+/*}*/
+
+#intro {
+    height: 100vh;
+    min-height: 500px;
+    background: url("https://res.cloudinary.com/antoniocalheirosneves/image/upload/v1632242666/gestao_escolar/gestao_escolar_img_principal.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.col-principal {
+    background-color: rgba(16,45,105, 0.9);
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+}
+
+
+/*h1 {*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    font-weight: 500;*/
+/*}*/
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: .5rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+
+.logo {
+    width: 50px;
+}
+
+.back01 {
+    background: #102D69;
+    color: white;
+    /*background: #D9DDDC;*/
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.back02 {
+    /* background: rgba(16, 45, 105, .1); */
+    /* background: rgba(0, 0, 0, .2); */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.errorlist {
+    color: red;
+}
+
+.btn-dark-blue {
+    background-color: #102D69;
+    color: white;
+}
+
+.btn-dark-blue:hover {
+    background-color: #004F9F;
+    color: white;
+}
+
+.navbar-principal {
+    background-color: #102D69;
+    border-bottom: darkslategrey solid 1px;
+}
+
+.navbar-principal > .navbar-brand {
+    box-shadow: None;
+}
+
+/*
+ --- Containers ---
+*/
+
+.container-login {
+    width: 33%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 2%;
+    border-radius: 10px;
+    color: #102D69;
+}
+
+/* Cards minimum */
+
+.container-card-min {
+    background: #F8F9FA;
+    margin-bottom: 1rem !important;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.head-card-min {
+    padding: .75rem 0 .75rem 0;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px 10px 0 0 ;
+}
+
+.a-card-min {
+    color: #212529;
+    text-decoration: none;
+    font-size: 1.2em;
+    /*font-weight: bold;*/
+}
+
+.a-card-min:hover {
+    color: #004F9F;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.a-card-min:active {
+    color: #004F9F;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.button-card-min {
+    color: white;
+    background: #102D69;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    padding: .25rem;
+    width: 5rem;
+    text-align: center;
+}
+
+.button-card-min:hover {
+    color: white;
+    background: #004F9F;
+    text-decoration: none;
+}
+
+.button-del {
+    color: white;
+    background: crimson;
+}
+
+.button-del:hover {
+    background: red;
+}
+
+/* --- Pagination --- */
+
+.page-link {
+    color: #102D69;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #102D69;
+    border-color: #102D69;
+}
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+    .container-login {
+        width: 90%;
+    }
+}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer .footer-h2 {
+		margin-bottom: 2rem;
+	}
+
+	#footer a:hover {
+		color: #00ff00;
+	}
+
+	.contact.contact-li{
+		font-size: 15pt;
+	}
+
+	.contact.contact-li a {
+		color: #051842;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+	}
+
+    .contact.contact-li p {
+		color: #051842;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+	}
+
+	#footer
+	{
+		position: relative;
+		text-align: center;
+        background-color: #E8F0FE;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+	}
+
+	#footer header h2
+	{
+		color: #051842 !important;
+	}
+
+	#footer header .byline
+	{
+		color: #051842;
+	}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright
+	{
+		position: relative;
+		text-align: center;
+		color: #bbccdd;
+	}
+
+	#copyright .container
+	{
+		padding: 2em 0em;
+		border-top: 1px solid;
+		border-color: rgba(255,255,255,.1);
+		color:  rgba(255,255,255,.1);
+	}
+
+	#copyright a
+	{
+		text-decoration: none;
+		color:  black;
+	}
+
+/*********************************************************************************/
+/* Icons                                                                         */
+/*********************************************************************************/
+
+	.fa
+	{
+		text-decoration: none;
+	}
+
+		.fa.solo
+		{
+		}
+
+			.fa.solo span
+			{
+				display: none;
+			}
+
+		.fa:before
+		{
+			display:inline-block;
+            font-family: FontAwesome;
+			font-size: 1.25em;
+			text-decoration: none;
+			font-style: normal;
+			font-weight: 300;
+			line-height: 1;
+			-webkit-font-smoothing:antialiased;
+			-moz-osx-font-smoothing:grayscale;
+		}
+
+/*********************************************************************************/
+/* Social Icon Styles                                                            */
+/*********************************************************************************/
+
+	ul.contact
+	{
+		padding: 1.5em 0 0 0;
+		list-style: none;
+		cursor: default;
+	}
+
+	ul.contact li
+	{
+		display: inline-block;
+		margin: 0 1em;
+	}
+
+	ul.contact li span
+	{
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.contact li a
+	{
+		color: #051842;
+		font-size: 1.75em;
+		display: inline-block;
+		-moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		-ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+		transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	}
+
+	ul.contact li a:hover
+	{
+		color: #fff;
+	}
